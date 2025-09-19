@@ -25,6 +25,10 @@ app.get("/support", (req, res) => {
     res.render("support");
 });
 
+app.get("/admin/blog", (req, res) => {
+    res.render("blog-editor")
+});
+
 app.listen(3000, () => {
     console.log("Static server is running on port 3000");
 });
