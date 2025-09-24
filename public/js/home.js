@@ -1,82 +1,65 @@
-// Hero Section Animation
-document.addEventListener("DOMContentLoaded", () => {
-    // Select necessary elements
-    const heroMask = document.querySelector(".hero-section--overlay");
-    const heroPriBtn2 = document.querySelector(".hero-primary--top-layer");
-    const corners = document.querySelectorAll(".hero__corner");
+(function() {
+  const container = document.getElementById('circles');
+
+  // --- Rings: more sizes + subtle variation in stroke/alpha ---
+  const RINGS = 7;                         // number of concentric circles
+  const MAX = 96;                          // vmin max for outer ring
+  const MIN = 36;                          // vmin min for inner ring
+  for (let i = 0; i < RINGS; i++) {
+    const ring = document.createElement('div');
+    ring.className = 'circle';
+    // Evenly spaced between MAX and MIN with a little jitter
+    const t = i / (RINGS - 1);
+    const base = MAX - t * (MAX - MIN);
+    const jitter = (Math.random() - 0.5) * 4;      // ±2 vmin jitter
+    ring.style.setProperty('--size', `${base + jitter}vmin`);
+    ring.style.setProperty('--ring-w', `${Math.random() < 0.4 ? 2 : 1}px`);
+    ring.style.setProperty('--ring-a', (0.035 + Math.random() * 0.03).toFixed(3));
+    container.appendChild(ring);
+  }
+
+  // --- Blobs: more color/size/radius/angle variety ---
+  const BLOBS = 10;  // Increase blobs to 10
+  const colors = [
+    'rgba(195, 209, 238, .35)',   // Soft lavender
+    'rgba(178, 203, 227, .28)',   // Light blue
+    'rgba(202, 211, 199, .28)',   // Muted green
+    'rgba(239, 211, 197, .30)',   // Soft peach
+  ];
   
-    // Enable visibility of the hero mask on mouse movement
-    const handleMouseMove = (e) => {
-      if (!heroMask.style.visibility || heroMask.style.visibility === "hidden") {
-        heroMask.style.visibility = "visible";
-      }
-  
-      const { clientX, clientY } = e; // Get mouse position
-      const x = Math.round((clientX / window.innerWidth) * 100);
-      const y = Math.round((clientY / window.innerHeight) * 100);
-  
-      // Animate hero mask position using GSAP
-      gsap.to(heroMask, {
-        "--x": `${x}%`,
-        "--y": `${y}%`,
-        duration: 0.3,
-        ease: "sine.out",
-      });
-    };
-  
-    // Toggle the mask class on button click
-    const handleButtonClick = () => {
-      heroMask.classList.toggle("mask-unmasked");
-    };
-  
-    // Attach event listeners
-    window.addEventListener("mousemove", handleMouseMove);
-    heroPriBtn2.addEventListener("click", handleButtonClick);
-  
-    // Generate random positions for elements
-    const generateRandomPosition = (maxOffset) => {
-      const offsetX = Math.random() * maxOffset - maxOffset / 2;
-      const offsetY = Math.random() * maxOffset - maxOffset / 2;
-      return { offsetX, offsetY };
-    };
-  
-    // Update corner positions periodically
-    const updateCornerPositions = () => {
-      corners.forEach((corner) => {
-        const { offsetX, offsetY } = generateRandomPosition(30); // ±30px range
-        corner.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-      });
-  
-      // Schedule next update in 2 seconds
-      setTimeout(updateCornerPositions, 2000);
-    };
-  
-    // Initialize corner position updates
-    updateCornerPositions();
-  });
-  
-  const generateRandomOffset = (maxOffset) => {
-    const offsetX = Math.random() * maxOffset - maxOffset / 2; // Random X offset within range
-    const offsetY = Math.random() * maxOffset - maxOffset / 2; // Random Y offset within range
-    return { offsetX, offsetY };
-  };
-  
-  const updateCursorPositions = () => {
-    // Select all elements with the class 'moving-cursor-icon'
-    const cursorIcons = document.querySelectorAll('.moving-cursor-icon');
-  
-    cursorIcons.forEach((icon) => {
-      // Generate random offsets with a subtle range (e.g., ±15px)
-      const { offsetX, offsetY } = generateRandomOffset(15);
-  
-      // Apply the random offsets to the element's transform property
-      icon.style.transform = `translate(calc(50% + ${offsetX}px), calc(-10% + ${offsetY}px))`;
-    });
-  
-    // Schedule the next update in 1.5 seconds
-    setTimeout(updateCursorPositions, 1000);
-  };
-  
-  // Start updating cursor positions once the DOM content is fully loaded
-  document.addEventListener('DOMContentLoaded', updateCursorPositions);
-  
+  const rand = (a, b) => a + Math.random() * (b - a);
+  const pick = arr => arr[(Math.random() * arr.length) | 0];
+
+  // Gap between blobs will be calculated based on size and radius
+  const GAP_FACTOR = 0.2;  // Adjust this value for more/less gap
+
+  for (let i = 0; i < BLOBS; i++) {
+    const b = document.createElement('div');
+    b.className = 'blob';
+
+    // Medium-ish sizes only (no extremes)
+    const size = rand(46, 96).toFixed(0);  // size in pixels
+    b.style.setProperty('--size', `${size}px`);
+
+    // Spread radii from inner to near-outer, keep inside biggest ring
+    // Adjust radius to ensure there is enough space between blobs
+    const radiusVmin = rand(18, 44) * (1 + GAP_FACTOR * (size / 100)); // Increase radius to account for gap
+    b.style.setProperty('--radius', `calc(${radiusVmin}vmin)`);
+
+    // Random start angle to ensure blobs start at different positions
+    const angle = rand(0, 360);
+    b.style.setProperty('--angle', `${angle.toFixed(1)}deg`);
+
+    // **Slower Speed** for calmer movement
+    const period = rand(36, 72);  // Increased period for slower, calm movement
+    b.style.setProperty('--period', `${period.toFixed(2)}s`);
+    b.style.animationDelay = `-${rand(0, period).toFixed(2)}s`;
+
+    // Direction + subtle color variation + per-blob alpha
+    b.style.setProperty('--dir', Math.random() > 0.5 ? 'normal' : 'reverse');
+    b.style.setProperty('--color', pick(colors));  // Using the muted color range
+    b.style.setProperty('--alpha', (0.10 + Math.random() * 0.10).toFixed(2));
+
+    container.appendChild(b);
+  }
+})();
