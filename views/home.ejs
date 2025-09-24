@@ -26,49 +26,23 @@
 <body>
      <%- include('partials/header.ejs') -%>
       
-     <div class="hero-wrapper flex-col-center"> 
-      <div class="hero-section flex-col-center">
-        <div class="hero-content flex-col-center">
-          <img class="hero-logo" src="\assets\apple-touch-icon.png" alt="NoteRoom Logo" />
-          <div class="hero-title-wrapper"><h1 class="hero-title">Think, Share, Solve All in One Place</h1></div>
-          <p class="hero-desc">Join the platform of the curious. A social media platform that's not made for destruction.</p>
-          <button class="hero-primary" onclick="window.location.href = 'http://app.noteroom.co/signup'">Create Account</button>
-        </div>
+<section class="hero flex-col-center">
+  <!-- Background Circles + Blobs -->
+  <div class="circles" id="circles" aria-hidden="true"></div>
 
-        <!-- Relative Design Elements -->
-        <div class="hero__corner hero__corner--top-left"><img src="https://firebasestorage.googleapis.com/v0/b/noteroom-fb1a7.appspot.com/o/Assets%2Fhero-sectionn-noteroom-element-1.png?alt=media&token=299f9b12-bd1a-43e3-b325-f7e13f405218" alt="NoteRoom - Earn Badges"></div>
-        <div class="hero__corner hero__corner--top-right">
-          <img src="https://firebasestorage.googleapis.com/v0/b/noteroom-fb1a7.appspot.com/o/Assets%2Fhero-sectionn-noteroom-element-2.png?alt=media&token=eeddd067-8411-427b-8caa-83801d909643" alt="NoteRoom - Upload Note">
-        </div>
-        <div class="hero__corner hero__corner--bottom-left">
-          <img src="https://firebasestorage.googleapis.com/v0/b/noteroom-fb1a7.appspot.com/o/Assets%2Fhero-sectionn-noteroom-element-3.png?alt=media&token=2421eae1-8c0a-4ecc-ad7b-9afd102807e5" alt="NoteRoom - Discussion">
-        </div>
-        <div class="hero__corner hero__corner--bottom-right">
-          <img src="https://firebasestorage.googleapis.com/v0/b/noteroom-fb1a7.appspot.com/o/Assets%2Fhero-sectionn-noteroom-element-4.png?alt=media&token=6393fd59-42c7-4f4e-a8fd-36f0d77a9326" alt="NoteRoom - Share Note">
-        </div>
-      </div>
-      <!-- This one is masked -->
-      <div class="hero-section hero-section--overlay flex-col-center">
-        <div class="hero-content flex-col-center">
-          <img class="hero-logo hero-logo--top-layer" src="\assets\apple-touch-icon.png" alt="NoteRoom Logo" />
-          <div class="hero-title-wrapper"><h1 class=" hero-title--top-layer">Think, Share, Solve All in One Place</h1></div>
-          <p class="hero-desc hero-desc--top-layer">Join the platform of the curious. A social media platform that's not made for destruction.</p>
-          <button class="hero-primary--top-layer" onclick="window.location.href = 'http://app.noteroom.co/signup'">Create Account</button>
-        </div>
+  <!-- Copy -->
+  <div class="copy flex-col-center">
+    <h1 class="headline">
+      A social platform designed for<br />
+      making you <em>smarter</em> and more creative
+    </h1>
+    <p class="tagline">Simply put “Be where <em>Ideas</em> are”</p>
+    <button class="cta" onclick="window.location.href = 'http://app.noteroom.co/login'">Try NoteRoom</button>
+  </div>
+</section>
 
-        <!-- Relative Design Elements -->
-        <div class="hero__corner hero__corner--top-left"><img src="https://firebasestorage.googleapis.com/v0/b/noteroom-fb1a7.appspot.com/o/Assets%2Fhero-sectionn-noteroom-element-1.png?alt=media&token=299f9b12-bd1a-43e3-b325-f7e13f405218" alt="NoteRoom - Earn Badges"></div>
-        <div class="hero__corner hero__corner--top-right">
-          <img src="https://firebasestorage.googleapis.com/v0/b/noteroom-fb1a7.appspot.com/o/Assets%2Fhero-sectionn-noteroom-element-2.png?alt=media&token=eeddd067-8411-427b-8caa-83801d909643" alt="NoteRoom - Upload Note">
-        </div>
-        <div class="hero__corner hero__corner--bottom-left">
-          <img src="https://firebasestorage.googleapis.com/v0/b/noteroom-fb1a7.appspot.com/o/Assets%2Fhero-sectionn-noteroom-element-3.png?alt=media&token=2421eae1-8c0a-4ecc-ad7b-9afd102807e5" alt="NoteRoom - Discussion">
-        </div>
-        <div class="hero__corner hero__corner--bottom-right">
-          <img src="https://firebasestorage.googleapis.com/v0/b/noteroom-fb1a7.appspot.com/o/Assets%2Fhero-sectionn-noteroom-element-4.png?alt=media&token=6393fd59-42c7-4f4e-a8fd-36f0d77a9326" alt="NoteRoom - Share Note">
-        </div>
-      </div>
-     </div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
     <script src="/js/header.js" defer></script>
