@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Editor.js Blog Writer</title>
+        <style>
+body {
+    font-family: sans-serif;
+    background: #f9fafb;
+    padding: 40px;
+}
+        #editorjs {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid indigo;
+            border-radius: 10px;
+            background: #fff;
+            min-height: 400px;
+        }
+        .controls {
+            max-width: 900px;
+            margin: 20px auto;
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            background: indigo;
+            color: white;
+        }
+        input[type=file] {
+            display: none;
+        }
+        label.file {
+            cursor: pointer;
+            padding: 8px 12px;
+            background: #eee;
+            border-radius: 6px;
+        }
+        pre {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 12px;
+            background: #071323;
+            color: #e6eef8;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        </style>
+    </head>
+    <body>
+
+        <div id="editorjs"></div>
+
+        <div class="controls">
+            <button id="saveBtn">Save JSON</button>
+        </div>
+
+        <pre id="output"></pre>
+        <div id="preview"></div>
+
+        <!-- Editor.js + tools -->
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest/dist/bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/underline@latest"></script>
+
+        <script>
+    function CreateArticle(blog) {
+        this.parser = function(raw) {
+            return (new DOMParser()).parseFromString(raw, "text/html")
+        }
+
+        this.breadCrumb = function() {
+            const brds = blog.find(b => b.data.command === "brd")?.data.brdCrumbs.map(b => this.parser(b)).map(b => b.class="breadcrumb-main")
+            const mainDiv = document.createElement("div")
+            mainDiv.class = "article-breadcrumb"
+            const nav = document.createElement("nav")
+            brds.forEach(brd => {
+                nav.appendChild(brd)
+            })
+            mainDiv.appendChild(brds)
+
+            return mainDiv
+        }
+        this.createHeader = function() {
+        }
+    }
+    function Filter(blocks) {
+        let _foundIndexes = null
+        let _indexIdx = null
+        let _indexCount = null
+        let _mergingIndex = null
+
+        
+        this.commands =  ["tag", "by", "rdtime", "abt", "st", "end","idx", "brd"]
+        this.blog = blocks.map((block, i) => {
+            let data = block.data
+
+            if (_foundIndexes) {
+                blocks[i - 1].data.items = data.items.map(item => ({index: item}))
+                _foundIndexes = false
+                return null
+            }
+
+            if (data.text) {
+                if (data.text === "-") {
+                    data = { ...data, text: "<br>" }
+                } else {
+                    const [p1, text] = data.text.split(":")
+                    const command = p1.split("-")[1]
+
+                    if (this.commands.includes(command)) {
+                        if (command === "idx") {
+                            _foundIndexes = true
+                            _indexIdx = i
+                            data.text = text
+                            data.command = command
+                        } else if (command === "st") {
+                            _mergingIndex = _mergingIndex !== null ? _mergingIndex + 1 : 0 
+                            const indexes = blocks[_indexIdx].data.items
+                            indexes[_mergingIndex].title = text
+                            indexes[_mergingIndex].contents = []
+                            return null
+                        } else if (command === "end") {
+                            _mergingIndex = null
+                            return null
+                        } else if (command === "tag") {
+                            const tags = text.split(" ")
+                            data = { command, tags }
+                        } else if (command === "brd") {
+                            const brdCrumbs = text.split(".")
+                            data = { command, brdCrumbs }
+                        }
+                        else {
+                            data = { command, text }
+                        }
+                    } else {
+                        data = p1
+                    }
+                }
+            }
+            
+
+            if (_mergingIndex !== null) {
+                const indexes = blocks[_indexIdx].data.items
+                indexes[_mergingIndex].contents.push(blocks[i].data.text)
+                return null
+            }
+
+            return { type: block.type, data }
+        }).filter(block => block)
+    }
+
+
+            const outputEl = document.getElementById('output');
+
+            const editor = new EditorJS({
+                holder: 'editorjs',
+                autofocus: true,
+                placeholder: 'Start writing your blog...',
+
+                tools: {
+                      header: { class: Header, inlineToolbar: ['bold','italic','underline','link'] },
+                      list: { class: List, inlineToolbar: ['bold','italic','underline'] },
+                      linkTool: LinkTool,
+                      underline: Underline,
+                }
+            });
+
+            document.getElementById('saveBtn').addEventListener('click', async () => {
+                try {
+                    let savedData = await editor.save();
+                    savedData = new Filter(savedData.blocks).blog,
+                    outputEl.textContent = JSON.stringify(savedData, null, 2);
+                    const blog = new CreateArticle(savedData)
+                    document.querySelector("#preview").appendChild(blog.breadCrumb())
+                } catch(err) {
+                    console.error(err);
+                    alert('Saving failed: ' + err.message);
+                }
+            });
+        </script> 
+
+        <script> 
+        </script>
+    </body>
+</html>

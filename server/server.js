@@ -25,6 +25,16 @@ app.get("/support", (req, res) => {
     res.render("support");
 });
 
+<<<<<<< Updated upstream
+=======
+app.get("/admin/blog", (req, res) => {
+    res.render("blog-editor")
+});
+app.get("/layout", (req, res) => {
+    res.render("blogs/article-layout-template")
+})
+
+>>>>>>> Stashed changes
 app.listen(3000, () => {
     console.log("Static server is running on port 3000");
 });
