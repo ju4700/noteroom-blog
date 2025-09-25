@@ -2,19 +2,32 @@
   "name": "noteroom-blog",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
-    "start": "nodemon server/server.js"
+    "start": "nodemon server/server.js",
+    "dev": "vite",
+    "build": "vite build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@editorjs/editorjs": "^2.31.0",
+    "@editorjs/header": "^2.8.8",
+    "@editorjs/link": "^2.6.2",
+    "@editorjs/list": "^2.0.8",
+    "@editorjs/underline": "^1.2.1",
+    "alpinejs": "^3.15.0",
     "ejs": "^3.1.10",
-    "express": "^5.1.0"
+    "ejs-mate": "^4.0.0",
+    "express": "^5.1.0",
+    "njk": "^6.0.0",
+    "nunjucks": "^3.2.4",
+    "pug": "^3.0.3"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "vite": "^7.1.7"
   }
 }

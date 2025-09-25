@@ -1,0 +1,72 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		title
+			block title
+		link(rel="stylesheet" href="/css/main-footer.css")
+		link(rel="stylesheet" href="/css/main-header.css")
+		block styles
+	body
+		header.header.flex-col-center
+			.header__container-1.flex-row-center
+				.header__logo.flex-row-center
+					img(src="/assets/NoteRoom-LogoMark-White-BG.jpg" alt="NoteRoom Logo" onclick="window.location.href='/'")
+					span.header__logo--subtitle noteRoom
+
+				nav.header__nav.nav-pc#headerNav
+					ul.nav-list
+						li: a(href="/about-us") About
+						li: a(href="/support") Support
+						li: a(href="/join-us") Join Team
+						li: a(href="/blog") Blog
+
+				.auth-buttons.flex-row-center
+					button.header__btn.login(onclick="window.location.href = 'http://app.noteroom.co/login'") Login
+					button.header__btn.create-account(onclick="window.location = 'http://app.noteroom.co/signup'") Try Now
+					button.menu-toggle#menuToggle(aria-label="Toggle Menu" aria-expanded="false") ☰
+
+			.mobile-menu
+				ul.mobile-nav-list
+					li: a(href="/about-us") About
+					li: a(href="/support") Support
+					li: a(href="/join-us") Join Team
+					li: a(href="/blog") Blog
+					li
+						button.mobile-nav-signup-btn(onclick="window.location.href = 'http://app.noteroom.co/signup'") Try Now
+
+		block content
+
+		footer.footer
+			.footer-content
+				.clm
+					img(src="/assets/apple-touch-icon.png" alt="NoteRoom Logo")
+					.footer-about
+						| NoteRoom is a knowledge media platform designed to help students of HSC excel their academics
+						| and curiosity. We combine social features with deep learning tools, offering a space to explore
+						| ideas, and intellectual collaboration.
+				.clm
+					h3 Contact Info
+					ul
+						li College Road, Chakbazar, 4203 Chattogram
+						li Phone: +8801978462090
+						li Email: support@noteroom.co
+				.clm
+					h3 Important Links
+					ul
+						li: a(href="http://app.noteroom.co/login") Login
+						//- li: a(href="/user-guide") User Guide
+						li: a(href="/about-us") About Us
+				.clm
+					h3.sign-up-title Not a Memeber Yet 😿?
+					p Jump in, share notes, and level up your study game with us!
+					.sign-up-btn(onclick="location.href='http://app.noteroom.co/login'") Join Now
+
+			.footer-copyright
+				.footer-copyright-wrapper
+					p.footer-copyright-text
+						a.privacy-policy-link(href="/privacy-policy") Privacy Policy
+						a.footer-copyright-link Copyright ©2025 | NoteRoom | All rights reserved.
+
+		block scripts

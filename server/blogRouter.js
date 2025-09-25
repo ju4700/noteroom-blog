@@ -1,5 +1,5 @@
-const express = require("express");
-const router = express.Router();
+import { Router } from "express";
+const router = Router();
 
 function blogRouter() {
     router.get("/", (req, res) => {
@@ -21,4 +21,4 @@ function blogRouter() {
     return router;
 }
 
-module.exports = blogRouter;
+export default blogRouter;
