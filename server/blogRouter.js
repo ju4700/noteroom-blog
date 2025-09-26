@@ -3,7 +3,7 @@ const router = Router();
 
 function blogRouter() {
     router.get("/", (req, res) => {
-        res.render("blogs/all");
+        res.render("blogs/all", { noHeader: true, noFooter: true });
     });
 
     router.get("/why-use-noteroom", (req, res) => {

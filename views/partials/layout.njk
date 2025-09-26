@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% block meta %}{% endblock %}
+	<title>{% block title %}{% endblock %}</title>
+	{% block styles %}{% endblock %}
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Q3KH21JQ2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+		gtag("config", "G-6Q3KH21JQ2");
+	</script>
+
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ asset_path('favicon-32x32.png') }}" />
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ asset_path('favicon-16x16.png') }}" />
+
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ asset_path('apple-touch-icon.png') }}" />
+
+	<link rel="icon" type="image/png" href="{{ asset_path('android-chrome-192x192.png') }}" />
+
+	<link rel="icon" href="/favicon.ico" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+		rel="stylesheet"
+	/>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+		rel="stylesheet"
+	/>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&display=swap"
+		rel="stylesheet"
+	/>
+	<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap" rel="stylesheet" />
+
+	<script src="https://unpkg.com/@popperjs/core@2" defer></script>
+	<script src="https://unpkg.com/tippy.js@6" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/eventemitter3@5/dist/eventemitter3.umd.min.js" defer></script>
+
+	<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
+	<link rel="stylesheet" href="/css/utils.css" />
+	<link rel="stylesheet" href="/css/swal-assets.css" />
+	<link rel="stylesheet" href="/css/main-footer.css">
+	<link rel="stylesheet" href="/css/main-header.css">
+</head>
+<body>
+	{% if not noHeader %}
+		<header class="header flex-col-center">
+			<div class="header__container-1 flex-row-center">
+				<div class="header__logo flex-row-center">
+					<img src="{{ asset_path('NoteRoom-LogoMark-White-BG.jpg') }}" alt="NoteRoom Logo" onclick="window.location.href='/'">
+					<span class="header__logo--subtitle">noteRoom</span>
+				</div>
+
+				<nav class="header__nav nav-pc" id="headerNav">
+					<ul class="nav-list">
+						<li><a href="/about-us">About</a></li>
+						<li><a href="/support">Support</a></li>
+						<li><a href="/join-us">Join Team</a></li>
+						<li><a href="/blog">Blog</a></li>
+					</ul>
+				</nav>
+
+				<div class="auth-buttons flex-row-center">
+					<button class="header__btn login" onclick="window.location.href = 'http://app.noteroom.co/login'">Login</button>
+					<button class="header__btn create-account" onclick="window.location = 'http://app.noteroom.co/signup'">Try Now</button>
+					<button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu" aria-expanded="false">☰</button>
+				</div>
+			</div>
+
+			<div class="mobile-menu">
+				<ul class="mobile-nav-list">
+					<li><a href="/about-us">About</a></li>
+					<li><a href="/support">Support</a></li>
+					<li><a href="/join-us">Join Team</a></li>
+					<li><a href="/blog">Blog</a></li>
+					<li>
+						<button class="mobile-nav-signup-btn" onclick="window.location.href = 'http://app.noteroom.co/signup'">Try Now</button>
+					</li>
+				</ul>
+			</div>
+		</header>
+	{% endif %}
+
+	{% block content %}{% endblock %}
+
+	{% if not noFooter %}
+		<footer class="footer">
+			<div class="footer-content">
+				<div class="clm">
+					<img src="{{ asset_path('apple-touch-icon.png') }}" alt="NoteRoom Logo">
+					<div class="footer-about">
+						NoteRoom is a knowledge media platform designed to help students of HSC excel their academics
+						and curiosity. We combine social features with deep learning tools, offering a space to explore
+						ideas, and intellectual collaboration.
+					</div>
+				</div>
+
+				<div class="clm">
+					<h3>Contact Info</h3>
+					<ul>
+						<li>College Road, Chakbazar, 4203 Chattogram</li>
+						<li>Phone: +8801978462090</li>
+						<li>Email: support@noteroom.co</li>
+					</ul>
+				</div>
+
+				<div class="clm">
+					<h3>Important Links</h3>
+					<ul>
+						<li><a href="http://app.noteroom.co/login">Login</a></li>
+						{# <li><a href="/user-guide">User Guide</a></li> #}
+						<li><a href="/about-us">About Us</a></li>
+					</ul>
+				</div>
+
+				<div class="clm">
+					<h3 class="sign-up-title">Not a Memeber Yet 😿?</h3>
+					<p>Jump in, share notes, and level up your study game with us!</p>
+					<div class="sign-up-btn" onclick="location.href='http://app.noteroom.co/login'">Join Now</div>
+				</div>
+			</div>
+
+			<div class="footer-copyright">
+				<div class="footer-copyright-wrapper">
+					<p class="footer-copyright-text">
+						<a class="privacy-policy-link" href="/privacy-policy">Privacy Policy</a>
+						<a class="footer-copyright-link">Copyright ©2025 | NoteRoom | All rights reserved.</a>
+					</p>
+				</div>
+			</div>
+		</footer>
+	{% endif %}
+
+    <script src="/js/header.js" defer></script>
+	{% block scripts %}{% endblock %}
+</body>
+</html>

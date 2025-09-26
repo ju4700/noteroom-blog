@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why Use NoteRoom</title>
+{% extends "partials/layout.njk" %}
+
+{% block meta %}
     <meta name="description" content="Discover how NoteRoom helps HSC students in Bangladesh with organized, high-quality study notes, making learning smarter and more efficient.">
     <meta name="keywords" content="Why use noteroom">
     <meta name="author" content="NoteRoom" />
@@ -12,7 +9,7 @@
     <meta property="og:type" content="article">
     <meta property="og:title" content="Why Use NoteRoom">
     <meta property="og:description" content="Discover how NoteRoom helps HSC students in Bangladesh with organized, high-quality study notes, making learning smarter and more efficient." />
-    <meta property="og:image" content="\images\why-use-noteroom-banner.jpg" /> <!-- Replace with an image URL -->
+    <meta property="og:image" content="{{ image_path('why-use-noteroom-banner.jpg') }}" /> <!-- Replace with an image URL -->
     <meta property="og:url" content="https://noteroom.co/why-use-noteroom">
     <meta property="og:site_name" content="NoteRoom">
     
@@ -20,27 +17,22 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Why Use NoteRoom">
     <meta name="twitter:description" content="The new revolution of social media">
-    <meta name="twitter:image" content="\images\why-use-noteroom-banner.jpg" /> <!-- Replace with an image URL -->
+    <meta name="twitter:image" content="{{ image_path('why-use-noteroom-banner.jpg') }}" /> <!-- Replace with an image URL -->
     <meta name="twitter:creator" content="@AnirbanBiz">
-    
-    <!-- Others -->
-    <%- include('../partials/links.ejs') %>
-    <%- include('../partials/header-footer-links.ejs') %>
-    <link rel="stylesheet" href="/css/blog-template.css">
+{% endblock %}
 
-</head>
-<body>
+{% block title %}
+	Why Use NoteRoom
+{% endblock title %}
 
-    <%- include('../partials/header.ejs') %>
-
-
+{% block content %}
     <article class="article-container">
         <!-- Top Section -->
         <header class="article-header">
           <div class="article-breadcrumb">
             <nav>
               <a href="/blog" class="breadcrumb-main">Blog <span>/</span> </a>
-              <a href="/blog/hsc-admission" class="breadcrumb-sub"
+              <a href="/blog/why-use-noteroom" class="breadcrumb-sub"
                 >NoteRoom</a
               >
             </nav>
@@ -52,7 +44,7 @@
   
           <div class="article-meta">
             <img
-              src="\images\Rohit Caricature - NoteRoom Cartoonic.jpg"
+              src="{{ image_path('Rohit Caricature - NoteRoom Cartoonic.jpg') }}"
               alt="Author"
               class="author-image"
             />
@@ -68,7 +60,7 @@
         <!-- Cover Image -->
         <div class="article-cover">
           <img
-            src="\images\why-use-noteroom-banner.jpg"
+            src="{{ image_path('why-use-noteroom-banner.jpg') }}"
             alt="HSC Admission Guide"
           />
         </div>
@@ -174,9 +166,9 @@
                 </div>
               </section>
           </div>
-      </article>
-      
-    <%- include('../partials/footer.ejs') %>
+	</article>
+{% endblock %}
 
-</body>
-</html>
+{% block styles %}
+    <link rel="stylesheet" href="/css/blog-template.css">
+{% endblock %}
