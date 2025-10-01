@@ -10,17 +10,19 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container" onclick="window.location.href='/blog/why-use-noteroom'" >
-        <div class="blog-card">
-            <div class="tags">
-                <span class="tag">#Noteroom</span>
-                <span class="tag">#Study</span>
-                <span class="tag">#HSC</span>
-            </div>
-            <img class="blog-img" src="{{ image_path('why-use-noteroom-banner.jpg') }}" alt="Blog Image">
-            <h3>Why You Should Use Noteroom: The Game-Changer for HSC Students in Bangladesh</h3>
-        </div> 
-    </div>
+    {% for blog in blogs %}
+        <div class="container" onclick="window.location.href='/blogs/{{ blog.route }}'" >
+            <div class="blog-card">
+                <div class="tags">
+                    {% for tag in blog.tags %}
+                    <span class="tag">#{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                <img class="blog-img" src="{{ image_path(blog.thm) }}" alt="Blog Image">
+                <h3>{{ blog.title }}</h3>
+            </div> 
+        </div>
+    {% endfor %}
 {% endblock %}
 
 {% block styles %}
