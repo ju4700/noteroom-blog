@@ -1,4 +1,4 @@
-import { Router } from "express";
+const { Router } = require("express");
 const router = Router();
 
 function blogRouter() {
@@ -21,4 +21,4 @@ function blogRouter() {
     return router;
 }
 
-export default blogRouter;
+module.exports = blogRouter

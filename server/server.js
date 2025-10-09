@@ -1,9 +1,10 @@
-import express, { static as staticFiles } from "express";
-import blogRouter from "./blogRouter.js";
-import path, { join } from "path";
-import { fileURLToPath } from "url";
-import { asset_path, image_path } from "../public/js/ejsHelper.js";
-import nunjucks from "nunjucks";
+const express = require("express")
+const staticFiles = express.static
+const blogRouter = require("./blogRouter.js");
+const path = require("path")
+const join = path.join
+const { asset_path, image_path } = require("./ejsHelper.js")
+const nunjucks = require("nunjucks");
 
 const app = express();
 
@@ -16,8 +17,6 @@ nunjucks.configure("views", {
   watch: true, 
 });
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 app.set("view engine", "njk");
 app.set("views", join(__dirname, "../views"));
