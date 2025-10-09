@@ -47,8 +47,7 @@ button{
     position: sticky;
     top: 10px;
     z-index: 1000;
-    background-color: white;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
     width: 100vw;
     max-width: 99vw;
     min-height: 60px;
@@ -68,6 +67,7 @@ button{
   .header__logo img {
     max-height: 50px;
     cursor: pointer;
+    border-radius: 15px;
   }
   .header__logo--subtitle {
     font-family: "Georama", "Inter";
@@ -85,32 +85,53 @@ button{
   }
   
   .nav-list {
+    width: 100%;
     list-style: none;
     display: flex;
-    gap: 50px;
+    gap: 30px;
+    justify-content: end;
+    padding: 0 15px;
+  }
+
+  .nav-list li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #f4f4f4;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: box-shadow var(--duration-med) ease, transform var(--duration-med) ease;
   }
   
   .nav-list li a {
-    font-family: "Georama", "Inter";
+    font-family: "Inter";
     text-decoration: none;
-    color: black;
-    font-weight: 500;
+    color: #333;
+    font-weight: 400;
     font-size: 1rem;
     line-height: 23px;
     letter-spacing: -0.02em;
-    padding: 8px 10px;
-    transition: border ease;
   }
   
-  .nav-list li a:hover {
-    border-bottom: var(--border-thick);
-    border-color: var(--squid-ink);
+  .nav-list li:hover {
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    transform: scale(1.03);
   }
   
   /* this class is added on the active tab as needed */
   .nav-list li a .active-tab {
     border-bottom: var(--border-thick);
     border-color: var(--squid-ink);
+  }
+
+  .nav-list li svg {
+    transform: scale(0.6);
+  }
+
+  .nav-list li svg path {
+    fill: #333;
   }
   /* Auth Buttons */
   .auth-buttons {
@@ -120,48 +141,41 @@ button{
   
   .header__btn {
     background-color: transparent;
-    border: var(--border-thin);
-    border-color: var(--squid-ink);
-    border-radius: 8px;
+    border: none;
     padding: 10px 20px;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 1rem;
     line-height: 21px;
     letter-spacing: -0.02em;
+    border-radius: 20px;
   }
   
   .header__btn.login {
-    color: var(--squid-ink);
-    border-color: rgba(0, 0, 0, 0.2);
+    color: #333;
     transition: all var(--duration-med) ease;
+    border: rgb(0, 0, 0, 0.01) 1px solid;
   }
   
   .header__btn.login:hover {
-    border-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border: rgb(0, 0, 0, 0.15) 1px solid;
   }
   
   .header__btn.login:active {
-    background-color: rgba(0, 0, 0, 0.1);
-    box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.2);
+    background-color: #f4f4f4;
   }
   
   .header__btn.create-account {
-    background: var(--squid-ink);
-    color: white;
-    transition: background-color var(--duration-med) ease,
-      box-shadow var(--duration-med) ease, color var(--duration-fast) ease;
+    border: rgb(0, 0, 0, 0.15) 1px solid;
+    transform: box-shadow var(--duration-def) ease;
   }
   
   .header__btn.create-account:hover {
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    background-color: var(--neon-blue-light);
-    color: var(--squid-ink);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
   }
   
   .header__btn.create-account:active {
-    background-color: var(--neon-blue);
-    box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.3);
+    background-color: #f4f4f4;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
   }
   
   /* || Mobile Nav Related */
@@ -183,7 +197,7 @@ button{
     height: fit-content;
     width: 100vw;
     background: white;
-    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 24px 40px -11px rgba(0,0,0,0.15);
     padding: 20px 0;
     text-align: center;
     z-index: 1000;
@@ -193,14 +207,16 @@ button{
   }
   
   .mobile-nav-list li {
+    display: flex;;
     width: 100%;
     list-style: none;
-    padding: 10px 0px;
+    padding: 10px 25px;
+
   }
   .mobile-nav-list li a {
-    font-family: "Georama", "Inter";
+    font-family: "Inter";
     padding: 5px;
-    color: var(--squid-ink);
+    color: #333;
     text-decoration: none;
   }
   
@@ -216,14 +232,14 @@ button{
     color: white;
     width: 90%;
     max-width: 400px;
-    border: var(--border-thin);
+    border: none;
     border-color: var(--squid-ink);
     border-radius: 8px;
-    font-weight: 500;
-    font-size: 0.8rem;
+    font-weight: 400;
+    font-size: 1rem;
     line-height: 21px;
     letter-spacing: -0.02em;
-    background: var(--squid-ink);
+    background: #20808d;
     transition: background-color var(--duration-med) ease,
       box-shadow var(--duration-med) ease, color var(--duration-fast) ease;
   }
