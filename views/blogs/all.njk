@@ -92,18 +92,6 @@
 
 {% block styles %}
     <style>
-        :root {
-            --bg: #ffffff;
-            --muted: #9b9b9b;
-            --accent: #0f0f0f;
-            --pill-bg: rgba(0, 0, 0, 0.03);
-            --pill-hover: rgba(0, 0, 0, 0.06);
-            --cta-bg: #1f1f1f;
-            --cta-text: #ffffff;
-        }
-        * {
-            box-sizing: border-box
-        }
         /* === Carousel === */
         .carousel-section {
             width: 100%;
@@ -248,8 +236,9 @@
             background: #333;
             animation: pulse 1.2s infinite;
         }
+    </style>
 
-
+    <style> 
         .video-grid-section {
             max-width: 1200px;
             margin: 75px auto 55px;
@@ -260,6 +249,7 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 15px;
         }
+
         /* Each Video Card */
         .video-card {
             display: flex;
@@ -294,6 +284,7 @@
             transform: scale(1.05) rotateZ(-1deg);
             transition: transform 0.5s ease-out;
         }
+
         /* Title below image */
         .video-title.below {
             font-size: 1rem;
@@ -342,7 +333,21 @@
         .video-card {
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeUp 0.6s ease forwards;
+        }
+    </style>
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --muted: #9b9b9b;
+            --accent: #0f0f0f;
+            --pill-bg: rgba(0, 0, 0, 0.03);
+            --pill-hover: rgba(0, 0, 0, 0.06);
+            --cta-bg: #1f1f1f;
+            --cta-text: #ffffff;
+        }
+        * {
+            box-sizing: border-box
         }
         @keyframes fadeUp {
             to {
@@ -362,36 +367,6 @@
         }
 
         @media(max-width: 768px) {
-            .navbar {
-                display: block;
-                width: 100%;
-                margin: 0 auto;
-                padding: 0 20px;
-            }
-            .hero {
-                margin-top: 0;
-                margin-bottom: 0;
-                padding-top: 10px;
-            }
-            .mobile-header {
-                display: block;
-                padding: 24px 20px 0;
-                font-family: 'Georama', sans-serif;
-            }
-            .mobile-top {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 30px;
-                margin-left: 20px;
-                margin-right: 20px;
-            }
-            .mobile-logo {
-                height: 40px;
-            }
-            .mobile-menu-icon {
-                height: 20px;
-            }
             .mobile-navline {
                 display: flex;
                 justify-content: space-between;
@@ -408,27 +383,6 @@
                 text-align: center;
                 width: 100%;
                 margin: 0 auto 15px;
-            }
-            .mobile-search {
-                display: flex;
-                align-items: center;
-                background: white;
-                border-radius: 15px;
-                padding: 8px 12px;
-                box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-            }
-            .search-icon {
-                height: 18px;
-                margin-right: 5px;
-            }
-            .mobile-search-input {
-                border: none;
-                outline: none;
-                font-family: 'Inter', sans-serif;
-                color: #777;
-                font-size: 0.9rem;
-                width: 150px;
-                background: none;
             }
             .mobile-subtext {
                 font-size: 1.1rem;
@@ -477,36 +431,9 @@
             }
         }
         @media(max-width: 480px) {
-            .mobile-logo {
-                height: 32px;
-            }
-            .mobile-menu-icon {
-                height: 18px;
-            }
-            .mobile-blog-text {
-                font-size: 1.6rem;
-                margin-bottom: 10px;
-            }
-            .mobile-subtext {
-                font-size: 20px;
-                text-align: center;
-                display: block;
-                margin-left: 10px;
-                margin-right: 10px;
-            }
-            .mobile-search {
-                padding: 6px 10px;
-            }
-            .mobile-search-input {
-                width: 120px;
-                font-size: 0.85rem;
-            }
             .carousel-viewport {
                 max-width: 100%;
                 max-height: 360px;
-            }
-            .signup-btn {
-                max-width: 180px;
             }
             .video-grid {
                 gap: 15px;
@@ -647,8 +574,7 @@
             autoSlideInterval = setInterval(() => {
                 if (! isAnimating) 
                     slide('next');
-                
-            }, 5000);
+            }, 2000);
         }
         function resetAutoSlide() {
             startAutoSlide();
