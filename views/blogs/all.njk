@@ -1,32 +1,660 @@
 {% extends "partials/layout.njk" %}
 
-{% block meta %}
-    <meta name="description" content="Explore our blog for helpful study tips, academic insights, and the latest updates on NoteRoom. Find valuable resources to support your HSC journey and enhance your learning experience.">
-    <meta name="keywords" content="NoteRoom Blog">
-{% endblock %}
-
 {% block title %}
     NoteRoom Blogs
 {% endblock %}
 
 {% block content %}
-    <main>
-        <div class="container" onclick="window.location.href='/blog/why-use-noteroom'" >
-            {% for i in range(0, 10) %}
-                <div class="blog-card">
-                    <div class="tags">
-                        <span class="tag">#Noteroom</span>
-                        <span class="tag">#Study</span>
-                        <span class="tag">#HSC</span>
+    <section class="carousel-section">
+        <div class="carousel-viewport">
+            <div class="carousel-track"></div>
+            <div class="carousel-preview left-preview">
+                <div class="carousel-card">
+                    <img class="carousel-img" src="img3.jpg" alt="Preview 3">
+                    <div class="carousel-overlay">
+                        <div class="carousel-title">What would education look like if we stopped competing and started sharing?</div>
+                        <div class="carousel-meta">
+                            <img class="profile-pic" src="{{ image_path('Rohit Caricature - NoteRoom Cartoonic.jpg') }}" alt="Author"/>
+                            <span class="author">Devajit Mutsuddy Rohit</span>
+                            <span class="dot">•</span>
+                            <span class="tag">What's</span>
+                        </div>
                     </div>
-                    <img class="blog-img" src="{{ image_path('why-use-noteroom-banner.jpg') }}" alt="Blog Image">
-                    <h3>Why You Should Use Noteroom: The Game-Changer for HSC Students in Bangladesh</h3>
-                </div> 
+                </div>
+            </div>
+            <button class="carousel-btn prev">
+                <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M42 21C42 9.40202 32.598 0 21 0C9.40202 0 0 9.40202 0 21C0 32.598 9.40202 42 21 42C32.598 42 42 32.598 42 21Z" fill="#F7F7F7" style="fill:#F7F7F7;fill:color(display-p3 0.9667 0.9667 0.9667);fill-opacity:1;"/>
+                    <path d="M24.1514 27.3004L17.8514 21.0004L24.1514 14.7004" stroke="#1E1E1E" style="stroke:#1E1E1E;stroke:color(display-p3 0.1176 0.1176 0.1176);stroke-opacity:1;" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="carousel-center">
+                <div class="carousel-card active">
+                    <img class="carousel-img" src="img1.jpg" alt="Main">
+                    <div class="carousel-overlay">
+                        <div class="carousel-title">What happens when ideas collide and co-exist? (NoteRoom)</div>
+                        <div class="carousel-meta">
+                            <img class="profile-pic" src="{{ image_path('Rohit Caricature - NoteRoom Cartoonic.jpg') }}" alt="Author"/>
+                            <span class="author">Devajit Mutsuddy Rohit</span>
+                            <span class="dot">•</span>
+                            <span class="tag">What's</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-btn next">
+                <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 21C0 9.40202 9.40202 0 21 0C32.598 0 42 9.40202 42 21C42 32.598 32.598 42 21 42C9.40202 42 0 32.598 0 21Z" fill="#F7F7F7" style="fill:#F7F7F7;fill:color(display-p3 0.9667 0.9667 0.9667);fill-opacity:1;"/>
+                    <path d="M17.8486 27.3004L24.1486 21.0004L17.8486 14.7004" stroke="#1E1E1E" style="stroke:#1E1E1E;stroke:color(display-p3 0.1176 0.1176 0.1176);stroke-opacity:1;" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="carousel-preview right-preview">
+                <div class="carousel-card">
+                    <img class="carousel-img" src="img2.jpg" alt="Preview 2">
+                    <div class="carousel-overlay">
+                        <div class="carousel-title">Why Perplixity and NoteRoom shares the same tagline?</div>
+                        <div class="carousel-meta">
+                            <img class="profile-pic" src="{{ image_path('Rohit Caricature - NoteRoom Cartoonic.jpg') }}" alt="Author"/>
+                            <span class="author">Devajit Mutsuddy Rohit</span>
+                            <span class="dot">•</span>
+                            <span class="tag">Why's</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-dots">
+            <span class="nav-dot active"></span>
+            <span class="nav-dot"></span>
+            <span class="nav-dot"></span>
+        </div>
+    </section>
+
+    <section class="video-grid-section">
+        <div class="video-grid">
+            {% for i in range(0, 10) %}
+                <div class="video-card">
+                    <div class="video-thumb-wrapper">
+                        <img src="{{ image_path('why-use-noteroom-banner.jpg') }}" alt="Video 1" class="video-thumb grid-thumb">
+                    </div>
+                    <h3 class="video-title below">The strangest particle physicists ever found</h3>
+                    <div class="video-card-meta">
+                        <div class="left-meta">
+                            <span class="category">Why's</span>
+                        </div>
+                        <div class="right-meta">21.03.2025</div>
+                    </div>
+                </div>
             {% endfor %}
         </div>
-    </main>
+    </section>
 {% endblock %}
 
 {% block styles %}
-    <link rel="stylesheet" href="/css/blogs.css">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --muted: #9b9b9b;
+            --accent: #0f0f0f;
+            --pill-bg: rgba(0, 0, 0, 0.03);
+            --pill-hover: rgba(0, 0, 0, 0.06);
+            --cta-bg: #1f1f1f;
+            --cta-text: #ffffff;
+        }
+        * {
+            box-sizing: border-box
+        }
+        /* === Carousel === */
+        .carousel-section {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .carousel-viewport {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            overflow: visible;
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            will-change: transform;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s ease-in-out;
+            width: 300%;
+        }
+        .carousel-preview {
+            flex: 0 0 95%;
+            max-width: 1200px;
+            opacity: 0.65;
+            transform: scale(0.9);
+            transition: transform 560ms cubic-bezier(0.2,.8,0.2,1), opacity 420ms ease;
+            transform: translateX(0) scale(0.9);
+            opacity: 0.6;
+        }
+        .carousel-center {
+            flex: 0 0 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .carousel-card {
+            flex: 0 0 auto;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            transform-origin: center center;
+            transition: transform 560ms cubic-bezier(0.2,.8,0.2,1), opacity 420ms ease;
+            opacity: 0.6;
+            transform: scale(0.92) translateX(0);
+        }
+        .carousel-card.active {
+            z-index: 2;
+            transform: scale(1) translateX(0);
+            opacity: 1;
+            transition: transform 560ms cubic-bezier(0.2,.8,0.2,1), opacity 420ms ease;
+        }
+        .carousel-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .carousel-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(to top, rgba(0, 0.5, 0.8, 1), transparent);
+            color: #fff;
+            font-family: 'georama', sans-serif;
+        }
+        .carousel-title {
+            font-size: 1.8rem;
+            color: white;
+            font-weight: 600px;
+            margin-bottom: 6px;
+        }
+        .carousel-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+        .profile-pic {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 6px;
+        }
+        .carousel-meta .dot {
+            font-size: 1rem;
+            color: white;
+        }
+        .carousel-meta .tag {
+            color: #bbb;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            z-index: 10;
+            cursor: pointer;
+            padding: 0;
+        }
+        .carousel-btn img {
+            width: 36px;
+            height: 36px;
+        }
+        .carousel-btn.prev {
+            left: -70px;
+        }
+        .carousel-btn.next {
+            right: -70px;
+        }
+        .carousel-dots {
+            margin-top: 16px;
+            display: flex;
+            gap: 8px;
+        }
+        .nav-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #bbb;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .nav-dot.active {
+            background: #333;
+            animation: pulse 1.2s infinite;
+        }
+
+
+        .video-grid-section {
+            max-width: 1200px;
+            margin: 75px auto 55px;
+            padding: 0 40px;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        /* Each Video Card */
+        .video-card {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: transform 0.3s ease;
+            transform: translateY(20px) rotateX(5deg);
+            animation: fadeUp 0.6s ease forwards;
+        }
+        .video-card:hover {
+            transform: translateY(-5px) rotateX(0deg) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        .video-thumb-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 77.1%; /* 16:9 */
+            overflow: hidden;
+            border-radius: 9px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        .video-thumb.grid-thumb {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .video-thumb-wrapper:hover .video-thumb {
+            transform: scale(1.05) rotateZ(-1deg);
+            transition: transform 0.5s ease-out;
+        }
+        /* Title below image */
+        .video-title.below {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+        .video-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #535151;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .video-card:hover .video-card-meta {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .left-meta {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .right-meta {
+            color: #535151;
+        }
+        .left-meta,
+        .right-meta {
+            transform: translateX(-5px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .video-card:hover .left-meta,
+        .video-card:hover .right-meta {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .video-card .profile-pic {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .video-card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .scroll-animate.bounce {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: bounceUp 0.6s ease forwards;
+        }
+
+        @media(max-width: 768px) {
+            .navbar {
+                display: block;
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+            .hero {
+                margin-top: 0;
+                margin-bottom: 0;
+                padding-top: 10px;
+            }
+            .mobile-header {
+                display: block;
+                padding: 24px 20px 0;
+                font-family: 'Georama', sans-serif;
+            }
+            .mobile-top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 30px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .mobile-logo {
+                height: 40px;
+            }
+            .mobile-menu-icon {
+                height: 20px;
+            }
+            .mobile-navline {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 25px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .mobile-blog-text {
+                font-size: 2rem;
+                font-family: 'Georama', sans-serif;
+                font-weight: 700;
+                color: #000;
+                text-align: center;
+                width: 100%;
+                margin: 0 auto 15px;
+            }
+            .mobile-search {
+                display: flex;
+                align-items: center;
+                background: white;
+                border-radius: 15px;
+                padding: 8px 12px;
+                box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+            }
+            .search-icon {
+                height: 18px;
+                margin-right: 5px;
+            }
+            .mobile-search-input {
+                border: none;
+                outline: none;
+                font-family: 'Inter', sans-serif;
+                color: #777;
+                font-size: 0.9rem;
+                width: 150px;
+                background: none;
+            }
+            .mobile-subtext {
+                font-size: 1.1rem;
+                color: #555;
+                margin-bottom: 5px;
+                font-family: 'Inter';
+                font-weight: 650;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            /* ===== Carousel - Mobile ===== */
+            .carousel-section {
+                margin-top: 0;
+                padding-top: 0;
+            }
+            .carousel-viewport {
+                max-width: 450px;
+                max-height: 420px;
+                overflow: hidden;
+                margin: 0 auto;
+            }
+            .carousel-track {
+                width: 100%;
+                transform: translateX(0);
+            }
+            .carousel-card {
+                flex: 0 0 100%;
+                transform: scale(1);
+                opacity: 1;
+            }
+            .carousel-card:not(.active) {
+                display: none;
+            }
+            .carousel-dots {
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            .video-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                margin: 20px;
+            }
+            .video-card {
+                width: 100%;
+            }
+        }
+        @media(max-width: 480px) {
+            .mobile-logo {
+                height: 32px;
+            }
+            .mobile-menu-icon {
+                height: 18px;
+            }
+            .mobile-blog-text {
+                font-size: 1.6rem;
+                margin-bottom: 10px;
+            }
+            .mobile-subtext {
+                font-size: 20px;
+                text-align: center;
+                display: block;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            .mobile-search {
+                padding: 6px 10px;
+            }
+            .mobile-search-input {
+                width: 120px;
+                font-size: 0.85rem;
+            }
+            .carousel-viewport {
+                max-width: 100%;
+                max-height: 360px;
+            }
+            .signup-btn {
+                max-width: 180px;
+            }
+            .video-grid {
+                gap: 15px;
+                margin: 15px;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        const previews = [
+            {
+                img: "{{ image_path('Backend-placeholder-img.png') }}",
+                title: 'Title 1'
+            }, {
+                img: "{{ image_path('why-use-noteroom-banner.jpg') }}",
+                title: 'Title 2'
+            }, {
+                img: "{{ image_path('hsc-admission-guide-cover-photo.jpg') }}",
+                title: 'Title 3'
+            },
+        ];
+        let index = 0;
+        let isAnimating = false;
+        let autoSlideInterval = null;
+        const DURATION = 300;
+        const EASE = 'cubic-bezier(.2,.8,.2,1)';
+        const leftCard = document.querySelector('.left-preview .carousel-card');
+        const centerCard = document.querySelector('.carousel-center .carousel-card');
+        const rightCard = document.querySelector('.right-preview .carousel-card');
+        const leftImg = document.querySelector('.left-preview .carousel-img');
+        const centerImg = document.querySelector('.carousel-center .carousel-img');
+        const rightImg = document.querySelector('.right-preview .carousel-img');
+        const navDots = Array.from(document.querySelectorAll('.nav-dot'));
+        const btnNext = document.querySelector('.carousel-btn.next');
+        const btnPrev = document.querySelector('.carousel-btn.prev');
+        const updateStatic = () => {
+            const total = previews.length;
+            const prevIndex = (index - 1 + total) % total;
+            const nextIndex = (index + 1) % total;
+            leftImg.src = previews[prevIndex].img;
+            centerImg.src = previews[index].img;
+            rightImg.src = previews[nextIndex].img;
+            navDots.forEach((d, i) => d.classList.toggle('active', i === index));
+        };
+        // Slide function
+        const slide = (direction) => {
+            if (isAnimating) 
+                return;
+            
+            isAnimating = true;
+            const total = previews.length;
+            const prevIndex = (index - 1 + total) % total;
+            const nextIndex = (index + 1) % total;
+            const outgoing = centerCard;
+            const incoming = direction === 'next'
+                ? rightCard
+                : leftCard;
+            const staticCard = direction === 'next'
+                ? leftCard
+                : rightCard;
+            // Set incoming image
+            incoming.querySelector('.carousel-img').src = direction === 'next'
+                ? previews[nextIndex].img
+                : previews[prevIndex].img;
+            // Set transitions
+            [outgoing, incoming, staticCard].forEach(c => {
+                c.style.transition = `transform ${DURATION}ms ${EASE}, opacity ${DURATION}ms ${EASE}`;
+            });
+            // Set start positions
+            outgoing.style.transform = 'translateX(0) scale(1)';
+            outgoing.style.opacity = '1';
+            incoming.style.transform = direction === 'next'
+                ? 'translateX(100%) scale(0.92)'
+                : 'translateX(-100%) scale(0.92)';
+            incoming.style.opacity = '0.75';
+            staticCard.style.transform = 'translateX(0) scale(0.9)';
+            staticCard.style.opacity = '0.6';
+            // Animate
+            requestAnimationFrame(() => {
+                outgoing.style.transform = `translateX(${
+                    direction === 'next'
+                        ? -100
+                        : 100
+                    }%) scale(0.92)`;
+                outgoing.style.opacity = '0.6';
+                incoming.style.transform = 'translateX(0) scale(1)';
+                incoming.style.opacity = '1';
+                staticCard.style.transform = `translateX(${
+                    direction === 'next'
+                        ? -20
+                        : 20
+                    }px) scale(0.86)`;
+                staticCard.style.opacity = '0.45';
+            });
+            // After animation
+            setTimeout(() => {
+                index = direction === 'next'
+                    ? nextIndex
+                    : prevIndex;
+                updateStatic();
+                [outgoing, incoming, staticCard].forEach(c => {
+                    c.style.transition = '';
+                    c.style.transform = '';
+                    c.style.opacity = '';
+                });
+                isAnimating = false;
+            }, DURATION);
+        };
+        // Event listeners
+        btnNext.addEventListener('click', () => {
+            slide('next');
+            resetAutoSlide();
+        });
+        btnPrev.addEventListener('click', () => {
+            slide('prev');
+            resetAutoSlide();
+        });
+        navDots.forEach((dot, i) => dot.addEventListener('click', () => {
+            if (i === index || isAnimating) 
+                return;
+            
+            const total = previews.length;
+            const delta = (i - index + total) % total;
+            if (delta === 1) 
+                slide('next');
+             else if (delta === total - 1) 
+                slide('prev');
+             else {
+                index = i;
+                updateStatic();
+            } resetAutoSlide();
+        }));
+        // Auto-slide
+        function startAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(() => {
+                if (! isAnimating) 
+                    slide('next');
+                
+            }, 5000);
+        }
+        function resetAutoSlide() {
+            startAutoSlide();
+        }
+        // Init
+        updateStatic();
+        startAutoSlide();
+    </script>
 {% endblock %}
