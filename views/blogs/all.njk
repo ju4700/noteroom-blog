@@ -10,12 +10,12 @@
             <div class="carousel-track"></div>
             <div class="carousel-preview left-preview">
                 <div class="carousel-card">
-                    <img class="carousel-img" src="img3.jpg" alt="Preview 3">
+                    <img class="carousel-img" src="" alt="Preview 3">
                     <div class="carousel-overlay">
-                        <div class="carousel-title">What would education look like if we stopped competing and started sharing?</div>
+                        <div class="carousel-title"></div>
                         <div class="carousel-meta">
-                            <img class="profile-pic" src="{{ image_path('Rohit Caricature - NoteRoom Cartoonic.jpg') }}" alt="Author"/>
-                            <span class="author">Devajit Mutsuddy Rohit</span>
+                            <img class="profile-pic" src="" alt="Author"/>
+                            <span class="author"></span>
                             <span class="dot">•</span>
                             <span class="tag">What's</span>
                         </div>
@@ -30,12 +30,12 @@
             </button>
             <div class="carousel-center">
                 <div class="carousel-card active">
-                    <img class="carousel-img" src="img1.jpg" alt="Main">
+                    <img class="carousel-img" src="" alt="Main">
                     <div class="carousel-overlay">
-                        <div class="carousel-title">What happens when ideas collide and co-exist? (NoteRoom)</div>
+                        <div class="carousel-title"></div>
                         <div class="carousel-meta">
-                            <img class="profile-pic" src="{{ image_path('Rohit Caricature - NoteRoom Cartoonic.jpg') }}" alt="Author"/>
-                            <span class="author">Devajit Mutsuddy Rohit</span>
+                            <img class="profile-pic" src="" alt="Author"/>
+                            <span class="author"></span>
                             <span class="dot">•</span>
                             <span class="tag">What's</span>
                         </div>
@@ -52,10 +52,10 @@
                 <div class="carousel-card">
                     <img class="carousel-img" src="img2.jpg" alt="Preview 2">
                     <div class="carousel-overlay">
-                        <div class="carousel-title">Why Perplixity and NoteRoom shares the same tagline?</div>
+                        <div class="carousel-title"></div>
                         <div class="carousel-meta">
-                            <img class="profile-pic" src="{{ image_path('Rohit Caricature - NoteRoom Cartoonic.jpg') }}" alt="Author"/>
-                            <span class="author">Devajit Mutsuddy Rohit</span>
+                            <img class="profile-pic" src="" alt="Author"/>
+                            <span class="author"></span>
                             <span class="dot">•</span>
                             <span class="tag">Why's</span>
                         </div>
@@ -448,13 +448,19 @@
         const previews = [
             {
                 img: "{{ image_path('Backend-placeholder-img.png') }}",
-                title: 'Title 1'
+                title: 'Title 1',
+                author: 'Rohit',
+                authorPfp: "{{ image_path('Rohit Caricature - NoteRoom Cartoonic.jpg') }}"
             }, {
                 img: "{{ image_path('why-use-noteroom-banner.jpg') }}",
-                title: 'Title 2'
+                title: 'Title 2',
+                author: 'Rohit',
+                authorPfp: "{{ image_path('Rohit Caricature - NoteRoom Cartoonic.jpg') }}"
             }, {
                 img: "{{ image_path('hsc-admission-guide-cover-photo.jpg') }}",
-                title: 'Title 3'
+                title: 'Title 3',
+                author: 'Rohit',
+                authorPfp: "{{ image_path('Rohit Caricature - NoteRoom Cartoonic.jpg') }}"
             },
         ];
         let index = 0;
@@ -475,9 +481,23 @@
             const total = previews.length;
             const prevIndex = (index - 1 + total) % total;
             const nextIndex = (index + 1) % total;
+
             leftImg.src = previews[prevIndex].img;
+            leftCard.querySelector(".carousel-title").textContent = previews[prevIndex].title
+            leftCard.querySelector(".profile-pic").src = previews[prevIndex].authorPfp
+            leftCard.querySelector(".author").textContent = previews[prevIndex].author
+            
             centerImg.src = previews[index].img;
+            centerCard.querySelector(".carousel-title").textContent = previews[prevIndex].title
+            centerCard.querySelector(".profile-pic").src = previews[prevIndex].authorPfp
+            centerCard.querySelector(".author").textContent = previews[prevIndex].author
+            
+            
             rightImg.src = previews[nextIndex].img;
+            rightCard.querySelector(".carousel-title").textContent = previews[prevIndex].title
+            rightCard.querySelector(".profile-pic").src = previews[prevIndex].authorPfp
+            rightCard.querySelector(".author").textContent = previews[prevIndex].author
+            
             navDots.forEach((d, i) => d.classList.toggle('active', i === index));
         };
         // Slide function
@@ -572,9 +592,9 @@
         function startAutoSlide() {
             clearInterval(autoSlideInterval);
             autoSlideInterval = setInterval(() => {
-                if (! isAnimating) 
+                if (!isAnimating) 
                     slide('next');
-            }, 2000);
+            }, 1500);
         }
         function resetAutoSlide() {
             startAutoSlide();
