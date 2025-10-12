@@ -33,27 +33,24 @@
 
     <section class="video-grid-section">
       <div class="video-grid">
-        {% for i in range(0, 10) %}
-        <div class="video-card">
-          <div class="video-thumb-wrapper">
-            <img
-              src="https://placehold.co/1200x800/FFB6C1/000000?text=Actual+Blog+{{
-                i
-              }}"
-              alt="Video 1"
-              class="video-thumb grid-thumb"
-            />
-          </div>
-          <h3 class="video-title below">
-            The strangest particle physicists ever found
-          </h3>
-          <div class="video-card-meta">
-            <div class="left-meta">
-              <span class="category">Why's</span>
-            </div>
-            <div class="right-meta">21.03.2025</div>
-          </div>
-        </div>
+        {% for blog in blogs %}
+			<div class="video-card" onclick="window.open('/blogs/{{ blog.route }}', '_self')">
+				<div class="video-thumb-wrapper">
+					<img src="{{ image_path('why-use-noteroom-banner.jpg') }}"
+					alt="Video 1"
+					class="video-thumb grid-thumb"
+					/>
+				</div>
+				<h3 class="video-title below">
+					{{ blog.title }}
+				</h3>
+				<div class="video-card-meta">
+					<div class="left-meta">
+						<span class="category">{{ blog.tags[0] }}</span>
+					</div>
+					<div class="right-meta">{{ date(blog.published_at) }}</div>
+				</div>
+			</div>
         {% endfor %}
       </div>
     </section>
@@ -364,32 +361,8 @@
     <script>
         (function () {
         // Slide data: thumbnail, title, author, profile pic
-        const slidesData = [
-            {
-            thumb: "https://placehold.co/1200x800/FFB6C1/000000?text=Thumb+1",
-            title: "Blog Title 1",
-            author: "Author A",
-            profile: "https://placehold.co/24x24/FF69B4/000000?text=A",
-            },
-            {
-            thumb: "https://placehold.co/1200x800/87CEFA/000000?text=Thumb+2",
-            title: "Blog Title 2",
-            author: "Author B",
-            profile: "https://placehold.co/24x24/1E90FF/000000?text=B",
-            },
-            {
-            thumb: "https://placehold.co/1200x800/90EE90/000000?text=Thumb+3",
-            title: "Blog Title 3",
-            author: "Author C",
-            profile: "https://placehold.co/24x24/32CD32/000000?text=C",
-            },
-            {
-            thumb: "https://placehold.co/1200x800/FFD700/000000?text=Thumb+4",
-            title: "Blog Title 4",
-            author: "Author D",
-            profile: "https://placehold.co/24x24/FFA500/000000?text=D",
-            },
-        ];
+		const blogs = {{ blogs | dump | safe }}
+		const slidesData = blogs.filter(blog=> blog.slide)
 
         const track = document.getElementById("track");
         let slides = [];
@@ -402,29 +375,31 @@
         function buildSlides() {
             track.innerHTML = "";
             slidesData.forEach((s, i) => {
-            const slide = document.createElement("div");
-            slide.className = "slide";
-            slide.dataset.index = i;
+				const slide = document.createElement("div");
+				slide.className = "slide";
+				slide.dataset.index = i;
 
-            const img = document.createElement("img");
-            img.src = s.thumb;
-            slide.appendChild(img);
+				const img = document.createElement("img");
+				img.src = `/images/${s.thm}`
+				slide.appendChild(img);
 
-            const info = document.createElement("div");
-            info.className = "info";
-            const h3 = document.createElement("h3");
-            h3.textContent = s.title;
-            const p = document.createElement("p");
-            const profileImg = document.createElement("img");
-            profileImg.src = s.profile;
-            p.appendChild(profileImg);
-            p.appendChild(document.createTextNode(s.author));
+				const info = document.createElement("div");
+				info.className = "info";
+				const h3 = document.createElement("h3");
+				h3.textContent = s.title;
+				const p = document.createElement("p");
+				const profileImg = document.createElement("img");
+				profileImg.src = `/images/${s.author.pfp}`
+				p.appendChild(profileImg);
+				p.appendChild(document.createTextNode(s.author.name));
 
-            info.appendChild(h3);
-            info.appendChild(p);
+				info.appendChild(h3);
+				info.appendChild(p);
 
-            slide.appendChild(info); // overlay info on thumbnail
-            track.appendChild(slide);
+				slide.setAttribute("onclick", `window.open('/blogs/${s.route}', '_self')`)
+
+				slide.appendChild(info);
+				track.appendChild(slide);
             });
             slides = Array.from(track.children);
         }

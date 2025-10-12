@@ -1,48 +1,101 @@
-body {
-    font-family: sans-serif;
-    background: #f9fafb;
-    padding: 40px;
-}
-#editorjs {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 2px solid indigo;
-    border-radius: 10px;
-    background: #fff;
-    min-height: 400px;
-}
-.controls {
-    max-width: 900px;
-    margin: 20px auto;
-    display: flex;
-    gap: 10px;
-}
-button {
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    background: indigo;
-    color: white;
-}
-input[type=file] {
-    display: none;
-}
-label.file {
-    cursor: pointer;
-    padding: 8px 12px;
-    background: #eee;
-    border-radius: 6px;
-}
-pre {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 12px;
-    background: #071323;
-    color: #e6eef8;
-    border-radius: 6px;
-    white-space: pre-wrap;
-    word-break: break-word;
+/* ───────────────────────────────
+   Ultra-Minimal White Blog Editor (Fixed Scrollable)
+──────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --border: #e6e6e6;
+  --accent: #2563eb;
 }
 
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+/* ───────────── Layout ───────────── */
+.editor-container {
+  max-width: 750px;
+  margin: 60px auto;
+  padding: 0 20px 60px;
+}
+
+.editor-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.editor-header h1 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.editor-header .subtitle {
+  font-size: 0.95rem;
+  color: #888;
+}
+
+/* ───────────── EditorJS Area ───────────── */
+.editor-area {
+  height: 550px;               /* fixed height */
+  overflow-y: auto;            /* scroll vertically */
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  background: #fff;
+  line-height: 1.7;
+  box-sizing: border-box;
+}
+
+/* Smooth scrollbar styling (optional but clean) */
+.editor-area::-webkit-scrollbar {
+  width: 8px;
+}
+.editor-area::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+  border-radius: 8px;
+}
+.editor-area::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+
+/* ───────────── Save Button ───────────── */
+.editor-controls {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.btn-save {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 9px 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-save:hover {
+  background: #1d4ed8;
+}
+
+/* ───────────── Output (Optional) ───────────── */
+.editor-output {
+  margin-top: 30px;
+  padding: 12px;
+  font-size: 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fafafa;
+  color: #333;
+  overflow-x: auto;
+}

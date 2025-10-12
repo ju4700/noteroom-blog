@@ -1,26 +1,30 @@
 const express = require("express")
 const staticFiles = express.static
-const blogRouter = require("./blogRouter.js");
 const path = require("path")
 const join = path.join
-const { asset_path, image_path } = require("./ejsHelper.js")
 const nunjucks = require("nunjucks");
 const adminRouter = require("./routes/admin.js")
-const blogRouter = require("./routes/blog.js")
+const blogRouter = require("./routes/blog.js");
+const slugify = require("slugify")
 
 const app = express();
 app.use(express.json())
 
 const blogFileName = (filename) => join(__dirname, `../blogs/${filename}.blog.json`)
 
-app.locals.asset_path = asset_path
-app.locals.image_path = image_path
+app.locals.asset_path = function asset_path(file) {
+    return `/assets/${file}`
+}
+app.locals.image_path = function image_path(file) {
+    return `/images/${file}`
+}
 app.locals.slugify = text => slugify(text, { lower: true, strict: false })
+app.locals.date = dateString => new Date(dateString).toDateString()
 
 nunjucks.configure("views", {
-  autoescape: true,
-  express: app,
-  watch: true, 
+    autoescape: true,
+    express: app,
+    watch: true, 
 }).addFilter("rangeSlice", function(arr, start, end) {
     if (!arr) return
     if (end) return arr.slice(start, end)
@@ -33,7 +37,7 @@ app.set("views", join(__dirname, "../views"));
 
 app.use(staticFiles(join(__dirname, "../public")));
 app.use("/blogs", blogRouter(blogFileName))
-app.use("/admin", adminRouter(__dirname, blogFileName))
+app.use("/admin", adminRouter(blogFileName))
 
 app.get("/", (req, res) => {
     res.render("home", { noFooter: true });

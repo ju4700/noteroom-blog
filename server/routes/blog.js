@@ -1,19 +1,20 @@
-import { Router } from "express"
-import { readFile, writeFile } from "fs/promises"
+const { Router } = require("express")
+const { readFile } = require("fs/promises")
 
 const router = Router()
 
-export default function blogRouter(blogFileName) {
+function blogRouter(blogFileName) {
     router.get("/", async (req, res) => {
         const allBlogData = await readFile(blogFileName("all"), "utf8")
         const blogs = JSON.parse(allBlogData)
-        res.render("blogs/all", { blogs, noHeader: true, noFooter: true })
+        res.render("blogs/all", { blogs })
     });
 
     router.get("/:fileName", async (req, res) => {
         const blogFile = blogFileName(req.params.fileName) 
         const data = await readFile(blogFile, "utf8")
         const blog = JSON.parse(data)
+
         const header = blog.find(obj => obj.type === "header")
         const breadCrumbs = blog.find(obj => obj.data.command === "brd")?.data.brdCrumbs
         const by = blog.find(obj => obj.data.command === "by")?.data.text
@@ -30,3 +31,4 @@ export default function blogRouter(blogFileName) {
     return router
 }
 
+module.exports = blogRouter
