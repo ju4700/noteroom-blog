@@ -1,0 +1,42 @@
+{% extends "partials/layout.njk" %}
+
+{% block title %}
+    Blog Editor
+{% endblock %}
+
+{% block content %}
+    <div id="editorjs"></div>
+    <div class="controls">
+        <button id="saveBtn">Save</button>
+    </div>
+
+    <div id="saved-blogs">
+    </div>
+
+    <pre id="output"></pre>
+    <div id="preview"></div> 
+
+    <section id="author-info">
+        <span id="author-name">{{ author.name }}</span>
+        <span id="author-pfp">{{ author.pfp }}</span>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest/dist/bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/underline@latest"></script>
+    <script src="/js/blog-editor.js"></script>
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/css/blog-editor.css">
+    <style>
+        #author-info {
+            display: none;
+        }
+    </style>
+
+{% endblock %}
