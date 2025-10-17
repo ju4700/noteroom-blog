@@ -6,9 +6,19 @@ const nunjucks = require("nunjucks");
 const adminRouter = require("./routes/admin.js")
 const blogRouter = require("./routes/blog.js");
 const slugify = require("slugify")
+const fileUpload = require("express-fileupload")
 
 const app = express();
 app.use(express.json())
+app.use(
+    fileUpload({
+        createParentPath: true, 
+        limits: {
+            fileSize: 50 * 1024 * 1024  
+        },
+        abortOnLimit: true
+    })
+);
 
 const blogFileName = (filename) => join(__dirname, `../blogs/${filename}.blog.json`)
 

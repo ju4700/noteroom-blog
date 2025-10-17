@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-	{% if blogs.length > 3 %}
+	{% if blogs.length >= 3 %}
 		<div class="carousel-wrap">
 			<div class="carousel">
 				<div class="track" id="track"></div>
@@ -39,7 +39,7 @@
 				{% for blog in blogs %}
 					<div class="video-card" onclick="window.open('/blogs/{{ blog.route }}', '_self')">
 						<div class="video-thumb-wrapper">
-							<img src="" onerror="this.onerror=null; this.src='https://placehold.co/1200x800/FFB6C1/000000?text={{ blog.title }}'" alt="{{ blog.title }}" class="video-thumb grid-thumb"/>
+							<img src="{{ image_path("blog-thumbnails/" + blog.thm) }}"  alt="{{ blog.title }}" class="video-thumb grid-thumb"/>
 						</div>
 						<h3 class="video-title below">
 							{{ blog.title | rangeSlice(0, 30) }} ... <span style="text-decoration: underline;">Read More</span>
@@ -399,7 +399,7 @@
 				slide.dataset.index = i;
 
 				const img = document.createElement("img");
-				img.src = `/images/${s.thm}`
+				img.src = `/images/blog-thumbnails/${s.thm}`
 				img.onerror = () => {
 					img.onerror = null
 					img.src = `https://placehold.co/1200x800/FFB6C1/000000?text=${s.title}`

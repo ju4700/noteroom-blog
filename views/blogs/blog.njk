@@ -12,7 +12,7 @@
     <meta property="og:type" content="article">
     <meta property="og:title" content="{{ header.data }}">
     <meta property="og:description" content="Discover how NoteRoom helps HSC students in Bangladesh     with organized, high-quality study notes, making learning smarter and more efficient." />
-    <meta property="og:image" content="{{ image_path(thm) }}"/> <!-- Replace with an image URL -->
+    <meta property="og:image" content="{{ image_path("blog-thumbnails/" + thm) }}"/> <!-- Replace with an image URL -->
     <meta property="og:url" content="https://noteroom.co/">
     <meta property="og:site_name" content="NoteRoom">
 
@@ -20,7 +20,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ header.data }}">
     <meta name="twitter:description" content="Discover how NoteRoom helps HSC students in Bangladeshwith organized, high-quality study notes, making learning smarter and more efficient.">
-    <meta name="twitter:image" content="{{ image_path(thm)}}" /> <!-- Replace with an image URL -->
+    <meta name="twitter:image" content="{{ image_path("blog-thumbnails/" + thm)}}" /> <!-- Replace with an image URL -->
     <meta name="twitter:creator" content="Handle">
 {% endblock %}
 
@@ -67,7 +67,7 @@
 
     <!-- Cover Image -->
     <div class="article-cover">
-        <img src="{{ image_path(thm) }}" onerror="this.onerror=null, this.src='https://placehold.co/1200x800/FFB6C1/000000?text={{ header.data }}'" alt="{{ header.data }}"/>
+        <img src="{{ image_path("blog-thumbnails/" + thm) }}" onerror="this.onerror=null, this.src='https://placehold.co/1200x800/FFB6C1/000000?text={{ header.data }}'" alt="{{ header.data }}"/>
     </div>
 
     <div class="article-body">
