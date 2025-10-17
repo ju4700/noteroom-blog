@@ -12,7 +12,7 @@
         </div>
         <div id="editorjs" class="editor-area"></div>
         <div class="editor-controls">
-            <button id="saveBtn" class="btn-save">Save Draft</button>
+            <button id="saveBtn" class="btn-save">Publish</button>
         </div>
         <pre id="output" class="editor-output"></pre>
     </div>
@@ -224,48 +224,36 @@
                 ]
             },
         });
-        const outputEl = document
-            .getElementById('output')
-            document
-            .getElementById('saveBtn')
-            .addEventListener('click', async () => {
-                try {
-                    let savedData = await editor.save();
-                    let filteredBlocks = new Filter(savedData.blocks).blog
-                    filteredBlocks.push({
-                        "type": "paragraph",
-                        "data": {
-                            "command": "date",
-                            "text": new Date()
-                        }
-                    })
-                    outputEl.textContent = JSON.stringify(filteredBlocks, null, 2);
-                    const response = await fetch("/admin/blog", {
-                        method: "post",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(filteredBlocks)
-                    })
-                    if (response.ok) {
-                        const data = await response.json()
-                        if (data) {
-                            if (data.ok) {
-                                alert("Blog has been saved")
-                            } else {
-                                const code = data.code
-                                if (code === "EXIST") {
-                                    alert("A blog already exists with a similer title")
-                                } else {
-                                    alert("Couldn't save the blog!")
-                                }
-                            }
-                        }  
+        const outputEl = document.getElementById('output')
+        document.getElementById('saveBtn').addEventListener('click', async () => {
+            try {
+                let savedData = await editor.save();
+                let filteredBlocks = new Filter(savedData.blocks).blog
+                filteredBlocks.push({
+                    "type": "paragraph",
+                    "data": {
+                        "command": "date",
+                        "text": new Date()
                     }
-                } catch (err) {
-                    console.error(err);
+                })
+                outputEl.textContent = JSON.stringify(filteredBlocks, null, 2);
+                const response = await fetch("/admin/blog", {
+                    method: "post",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(filteredBlocks)
+                })
+                if (response.ok) {
+                    const data = await response.json()
+                    if (data) {
+                        alert(data.message)
+                    }  
                 }
-            });
+            } catch (err) {
+                console.error(err);
+            }
+        });
     </script>
 {% endblock %}
 

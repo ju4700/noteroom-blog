@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const { readFile, writeFile } = require("fs/promises");
 const { join, basename } = require("path");
-const slugify = require("slugify");
 
 const router = Router();
 
@@ -32,9 +31,6 @@ function adminRouter(blogFileName) {
         try {
             const blog = req.body;
     
-            const header = blog.find((obj) => obj.type === "header")?.data;
-            // const blogroute = slugify(header, { lower: true, strict: true });
-
             const breadCrumbs = blog.find(obj => obj.data.command === "brd")?.data.brdCrumbs
             const route = breadCrumbs[breadCrumbs.length - 1][1]
             const blogroute = basename(route)
@@ -49,25 +45,25 @@ function adminRouter(blogFileName) {
     
                 const blogMetadata = {
                     route: blogroute,
-                    title: header,
+                    title: blog.find((obj) => obj.type === "header")?.data,
                     tags: blog.find((obj) => obj.data.command === "tag")?.data.tags,
                     thm: blog.find((obj) => obj.data.command === "thm")?.data.text,
                     author: {
                         name: blog.find(obj => obj.data.command === "by")?.data.text,
-                        name: blog.find(obj => obj.data.command === "pfp")?.data.text,
+                        pfp: blog.find(obj => obj.data.command === "pfp")?.data.text,
                     },
                     published_at: blog.find(obj => obj.data.command === "date")?.data.text
                 };
                 allBlogJson.push(blogMetadata);
                 await writeFile(allBlogFile, JSON.stringify(allBlogJson, null, 2));
     
-                res.json({ ok: true });
+                res.json({ ok: true, message: "Blog has been saved!" });
             } else {
-                res.json({ ok: false, code: "EXIST" });
+                res.json({ ok: false, message: "A blog already exists with the path you gave. Use another path" });
             }
         } catch (error) {
             console.error(error)
-            res.json({ ok: false })
+            res.json({ ok: false, message: "Unexpected server error! Check the server console or log file" })
         }
     });
 

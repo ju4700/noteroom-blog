@@ -67,7 +67,7 @@
 
     <!-- Cover Image -->
     <div class="article-cover">
-        <img src="{{ image_path(thm) }}" alt="{{ header.text }}"/>
+        <img src="{{ image_path(thm) }}" onerror="this.onerror=null, this.src='https://placehold.co/1200x800/FFB6C1/000000?text={{ header.data }}'" alt="{{ header.data }}"/>
     </div>
 
     <div class="article-body">
