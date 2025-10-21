@@ -1,75 +1,48 @@
 [
   {
-    "route": "blog-title",
-    "title": "Blog Title",
+    "route": "how-to-focus-on-your-study",
+    "title": "How to focus on your Study",
     "tags": [
-      "#tag-1",
-      "#tag-2"
+      "#study",
+      "#focus",
+      "#time"
     ],
-    "thm": "1760708653934.jpg",
-    "author": {
-      "name": "Rafi Rahman",
-      "pfp": "rafi.jpg"
-    },
-    "published_at": "2025-10-17T13:44:13.863Z",
-    "slide": true
-  },
-  {
-    "route": "nothing-serious",
-    "title": "Blog Title",
-    "tags": [
-      "#tag-1",
-      "#tag-2"
-    ],
-    "thm": "1760709794902.png",
-    "author": {
-      "name": "Rafi Rahman",
-      "pfp": "rafi.jpg"
-    },
-    "published_at": "2025-10-17T14:03:14.858Z"
-  },
-  {
-    "route": "some-blog",
-    "title": "See, These students are writing",
-    "tags": [
-      "#tag-1",
-      "#tag-2"
-    ],
-    "thm": "1760710105271.jpg",
+    "thm": "1761005587130.png",
     "author": {
       "name": "Devajit Mutsuddy",
       "pfp": "rohit.jpg"
     },
-    "published_at": "2025-10-17T14:08:25.248Z",
+    "published_at": "2025-10-21T00:13:06.755Z",
     "slide": true
   },
   {
-    "route": "hello-noteroom",
-    "title": "We will grow, not gonna lie",
+    "route": "what-is-a-student-syndrome",
+    "title": "What is Student Syndrome?",
     "tags": [
-      "#tag-1",
-      "#tag-2"
+      "#syndrome",
+      "#life"
     ],
-    "thm": "1760710193527.png",
+    "thm": "1761006109601.png",
     "author": {
-      "name": "Anirban Biswas",
-      "pfp": "anirban.jpg"
+      "name": "Devajit Mutsuddy",
+      "pfp": "rohit.jpg"
     },
-    "published_at": "2025-10-17T14:09:53.480Z",
+    "published_at": "2025-10-21T00:21:49.253Z",
     "slide": true
   },
   {
     "route": "why-use-noteroom",
     "title": "Why Use NoteRoom? A Place for The Curious",
     "tags": [
-      "#noteroom",
-      "#tag-2"
+      "#study",
+      "#noteroom"
     ],
-    "thm": "1760710851453.jpg",
+    "thm": "1761006909242.png",
     "author": {
       "name": "Devajit Mutsuddy",
       "pfp": "rohit.jpg"
     },
-    "published_at": "2025-10-17T14:20:51.179Z"
+    "published_at": "2025-10-21T00:35:08.890Z",
+    "slide": true
   }
 ]
