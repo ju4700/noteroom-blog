@@ -17,7 +17,7 @@ function blogRouter(blogFileName) {
         }
     });
 
-    router.get("/:fileName", async (req, res) => {
+    router.get("/:fileName", async (req, res, next) => {
         try {
             const blogFile = blogFileName(req.params.fileName) 
             const data = await readFile(blogFile, "utf8")
@@ -34,8 +34,11 @@ function blogRouter(blogFileName) {
             const thm = blog.find(obj => obj.data.command === "thm")?.data.text
     
             res.render("blogs/blog", { header, breadCrumbs, by, abt, indexes, rdtime, date, pfp, thm })
-        } catch (error) {
-            res.send("Maybe the blog doesn't exist or not accessbile!")
+        } catch (err) {
+            const error = new Error("Maybe the blog doesn't exist or not accessbile!")
+            error.title = "Blog Not Found"
+            error.status = 404
+            next(error)
         }
     });
 

@@ -5,7 +5,7 @@ const { join, basename, extname } = require("path");
 const router = Router();
 
 function adminRouter(blogFileName) {
-    router.get("/blog", async (req, res) => {
+    router.get("/blog", async (req, res, next) => {
         try {
             const email = req.query?.email;
             const authorFile = await readFile(join(__dirname, `../../blogs/authors.json`), "utf8");
@@ -14,7 +14,9 @@ function adminRouter(blogFileName) {
             if (author) {
                 res.render("blog-editor", { author });
             } else {
-                res.send("Not allowed");
+                const error = new Error()
+                error.status = 403
+                next(error)
             }
         } catch (error) {
             console.error(error)
