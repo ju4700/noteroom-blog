@@ -57,27 +57,27 @@
 	{% if not noHeader %}
 		<header class="header flex-col-center">
 			<div class="header__container-1 flex-row-center">
-				<div class="header__logo flex-row-center">
-					<img src="{{ asset_path('NoteRoom-LogoMark-White-BG.jpg') }}" alt="NoteRoom Logo" onclick="window.location.href='/'">
-					<span class="header__logo--subtitle">noteRoom</span>
+				<div class="header__logo flex-row-center" onclick="window.location.href='/'">
+					<img src="{{ asset_path('NoteRoom-LogoMark-White-BG.jpg') }}" alt="NoteRoom Logo">
+					<span class="header__logo--subtitle">noteroom</span>
 				</div>
 
 				<nav class="header__nav nav-pc" id="headerNav">
 					<ul class="nav-list">
-						<li>
-							<a href="/about-us">About</a>
+						<li onclick="window.location.href='/about-us'">
+							<p>About</p>
 							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/></svg>	
 						</li>
-						<li>
-							<a href="/support">Support</a>
+						<li onclick="window.location.href='/support'">
+							<p>Support</p>
 							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/></svg>	
 						</li>
-						<li>
-							<a href="/join-us">Career</a>
+						<li onclick="window.location.href='/join-us'">
+							<p>Career</p>
 							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/></svg>
 						</li>
 						<li>
-							<a href="/blogs">Blog</a>
+							<p onclick="window.location.href='/blogs'">Blog</p>
 							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/></svg>
 						</li>
 					</ul>

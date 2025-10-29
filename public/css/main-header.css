@@ -32,7 +32,61 @@
     --duration-fast: 0.1s;
     --duration-med: 0.2s;
     --duration-def: 0.3s;
+
+        /* CSS HEX */
+    --aero: #44C0ECff;
+    --black: #000000ff;
+    --sapphire: #3D58A7ff;
+    --celestial-blue: #4095CEff;
+    --celtic-blue: #3E74B9ff;
+
+    /* CSS HSL */
+    --aero: hsla(196, 82%, 60%, 1);
+    --black: hsla(0, 0%, 0%, 1);
+    --sapphire: hsla(225, 46%, 45%, 1);
+    --celestial-blue: hsla(204, 59%, 53%, 1);
+    --celtic-blue: hsla(214, 50%, 48%, 1);
+
   }
+
+/* Others Color Values 
+
+SCSS HEX
+$aero: #44C0ECff;
+$black: #000000ff;
+$black-2: #000000ff;
+$sapphire: #3D58A7ff;
+$celestial-blue: #4095CEff;
+$celtic-blue: #3E74B9ff;
+
+SCSS HSL
+$aero: hsla(196, 82%, 60%, 1);
+$black: hsla(0, 0%, 0%, 1);
+$black-2: hsla(0, 0%, 0%, 1);
+$sapphire: hsla(225, 46%, 45%, 1);
+$celestial-blue: hsla(204, 59%, 53%, 1);
+$celtic-blue: hsla(214, 50%, 48%, 1);
+
+SCSS RGB 
+$aero: rgba(68, 192, 236, 1);
+$black: rgba(0, 0, 0, 1);
+$black-2: rgba(0, 0, 0, 1);
+$sapphire: rgba(61, 88, 167, 1);
+$celestial-blue: rgba(64, 149, 206, 1);
+$celtic-blue: rgba(62, 116, 185, 1);
+
+SCSS Gradient
+$gradient-top: linear-gradient(0deg, #44C0ECff, #000000ff, #000000ff, #3D58A7ff, #4095CEff, #3E74B9ff);
+$gradient-right: linear-gradient(90deg, #44C0ECff, #000000ff, #000000ff, #3D58A7ff, #4095CEff, #3E74B9ff);
+$gradient-bottom: linear-gradient(180deg, #44C0ECff, #000000ff, #000000ff, #3D58A7ff, #4095CEff, #3E74B9ff);
+$gradient-left: linear-gradient(270deg, #44C0ECff, #000000ff, #000000ff, #3D58A7ff, #4095CEff, #3E74B9ff);
+$gradient-top-right: linear-gradient(45deg, #44C0ECff, #000000ff, #000000ff, #3D58A7ff, #4095CEff, #3E74B9ff);
+$gradient-bottom-right: linear-gradient(135deg, #44C0ECff, #000000ff, #000000ff, #3D58A7ff, #4095CEff, #3E74B9ff);
+$gradient-top-left: linear-gradient(225deg, #44C0ECff, #000000ff, #000000ff, #3D58A7ff, #4095CEff, #3E74B9ff);
+$gradient-bottom-left: linear-gradient(315deg, #44C0ECff, #000000ff, #000000ff, #3D58A7ff, #4095CEff, #3E74B9ff);
+$gradient-radial: radial-gradient(#44C0ECff, #000000ff, #000000ff, #3D58A7ff, #4095CEff, #3E74B9ff);
+
+*/
 
 /* The primary header that has login and sign up button */
 
@@ -62,6 +116,7 @@ button{
   }
   .header__logo {
     gap: 10px;
+    cursor: pointer;
   }
   
   .header__logo img {
@@ -151,7 +206,7 @@ button{
   }
   
   .header__btn.login {
-    color: #333;
+    color: #7b7b7b;
     transition: all var(--duration-med) ease;
     border: rgb(0, 0, 0, 0.01) 1px solid;
   }
@@ -167,10 +222,13 @@ button{
   .header__btn.create-account {
     border: rgb(0, 0, 0, 0.15) 1px solid;
     transform: box-shadow var(--duration-def) ease;
+    transition: all var(--duration-med) ease;
   }
   
   .header__btn.create-account:hover {
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    border-color: var(--aero);
+    background-color: var(--aero);
   }
   
   .header__btn.create-account:active {

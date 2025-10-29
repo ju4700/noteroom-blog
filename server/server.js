@@ -71,11 +71,15 @@ app.get("/support", (req, res) => {
     res.render("support");
 });
 
-app.use((err, req, res, next) => {
-    const errorTitle = err.title
-    const errorMessage = err.message
-    res.status(err.status).render(`errors/${err.status}`, { title: errorTitle, message: errorMessage })
-})
+app.get("/waitlist", (req, res) => {
+    res.status(200).render("waitlist")
+});
+
+// app.use((err, req, res, next) => {
+//     const errorTitle = err.title
+//     const errorMessage = err.message
+//     res.status(err.status).render(`errors/${err.status}`, { title: errorTitle, message: errorMessage })
+// })
 
 app.listen(3000, '0.0.0.0' ,() => {
     console.log("Static server is running on port 3000");
