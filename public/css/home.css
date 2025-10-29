@@ -1,5 +1,5 @@
 * {
-    font-family: "Inter", "Hind Siliguri", sans-serif;
+    font-family: "Poppins", "Inter", "Hind Siliguri", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -73,7 +73,7 @@
 }
 .headline {
   font-weight: var(--fw-regular);  
-  font-size: clamp(2.4rem, 6vw, 4.2rem); /* bigger focus */
+  font-size: clamp(2rem, 6vw, 3.8rem); /* bigger focus */
   line-height: 1.2;
   color: var(--squid-ink);
 }
@@ -88,16 +88,16 @@
   color: var(--squid-ink-light);
 }
 .cta {
-  padding: 1rem 1.8rem;
+  padding: 1rem 2.5rem;
   border: none;
   border-radius: 999px;
   background: var(--squid-ink);
   color: #fff;
   font-weight: var(--fw-bold);
-  transition: transform var(--duration-med) ease, opacity var(--duration-med) ease;
+  transition: transform var(--duration-med) ease, opacity ease;
 }
-.cta:hover { transform: translateY(-2px); }
-.cta:active { transform: translateY(0); opacity: 0.9; }
+.cta:hover { transform: translateY(-4px); }
+.cta:active { transform: translateY(0); opacity: 0.8; }
 
 /* rings + blobs layer */
 .circles {
