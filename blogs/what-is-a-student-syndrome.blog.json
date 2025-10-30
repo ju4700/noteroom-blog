@@ -1,0 +1,107 @@
+[
+  {
+    "type": "paragraph",
+    "data": {
+      "command": "brd",
+      "brdCrumbs": [
+        [
+          "Blog",
+          "/blogs"
+        ],
+        [
+          "NoteRoom",
+          "/blogs/what-is-a-student-syndrome"
+        ]
+      ]
+    }
+  },
+  {
+    "type": "header",
+    "data": "What is Student Syndrome?"
+  },
+  {
+    "type": "paragraph",
+    "data": {
+      "command": "tag",
+      "tags": [
+        "#syndrome",
+        "#life"
+      ]
+    }
+  },
+  {
+    "type": "paragraph",
+    "data": {
+      "command": "by",
+      "text": "Devajit Mutsuddy"
+    }
+  },
+  {
+    "type": "paragraph",
+    "data": {
+      "command": "pfp",
+      "text": "rohit.jpg"
+    }
+  },
+  {
+    "type": "paragraph",
+    "data": {
+      "command": "rdtime",
+      "text": "2 mins"
+    }
+  },
+  {
+    "type": "paragraph",
+    "data": {
+      "text": "On This Page",
+      "command": "idx",
+      "items": [
+        {
+          "index": "Overview",
+          "title": "Overview",
+          "contents": [
+            "When a task is kept due till the deadline intentionally for a person to be motivated to the highest extent, it’s called Student Syndrome. It’s a mix of procrastination and Parkinson’s law.&nbsp;",
+            "Have you ever done this? You have 2 weeks left to finish an assignment, but you keep yourself busy doing other things. 2 days before the deadline, you are under pressure and you must do this otherwise there will be consequences and luckily you get the thing done just before time.&nbsp;",
+            "Student Syndrome is globally recognized as a bad thing to do because surely it has some overlap of procrastination. The syndrome again is not for students only. People perform this professionally too. They sit around, and chill until the deadline is approaching.&nbsp;"
+          ]
+        },
+        {
+          "index": "How student syndrome could be looked at in a Student’s life",
+          "title": "How student syndrome could be looked at in a Student’s life",
+          "contents": [
+            "It’s about a potential that is never achieved. Even if they study well before the exam and get good grades, they are not satisfied with the outcome.&nbsp;",
+            "For a student it’s a form of procrastination, a lack of delayed gratification because underneath they know they could’ve done better.&nbsp;",
+            "Their life is full of “Tomorrow I’ll start studying properly” or “Next week, I’ll change everything”.",
+            "As a person, if you identify as a student and that’s your core focus, student syndrome harms your intellect because you delay studying by doing things that don’t fulfill you. So it doesn’t bring any valid outcome. You are left dissatisfied.&nbsp;",
+            "Instead, if you could prioritize sitting down and studying before doing anything, you could achieve more of an outcome resulting in better grades and internal satisfaction.&nbsp;"
+          ]
+        },
+        {
+          "index": "How student syndrome could be looked at in an Employed person’s life",
+          "title": "How student syndrome could be looked at in a Employed person’s life",
+          "contents": [
+            "Here the question rises- “What if I utilized student syndrome in things that don’t really matter to me but I have to do it?”",
+            "- You continue thriving in your work while still managing to be decent at other things.&nbsp;",
+            "Let’s say a person full time focuses on his work life or his startup, even if he is technically a student, he doesn’t identify as one. Rather his focus lies within the vision he is trying to actualize. In this context, he is really winning by utilizing student syndrome.&nbsp;",
+            "Let’s say a deadline is approaching in 1 month, a builder continues his work. Because he can finish his syllabus in the last 6 days. In this way, he manages to get decent grades, and as he also focused full time on his work and worked hard on it, he reaps the reward. It’s clearly a win-win situation for him.",
+            "For students you can surely utilize these within the subjects that you choose to study, selecting topics. Because as the 80/20 rule goes - “20% effort will get you 80% results.”It’s surely a benefit, prioritizing what matters the most at a time. Whether you are a student, a professional or a builder.&nbsp;"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "paragraph",
+    "data": {
+      "command": "date",
+      "text": "2025-10-21T00:21:49.253Z"
+    }
+  },
+  {
+    "type": "paragraph",
+    "data": {
+      "command": "thm",
+      "text": "1761006109601.png"
+    }
+  }
+]

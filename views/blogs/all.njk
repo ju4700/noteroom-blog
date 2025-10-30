@@ -1,0 +1,548 @@
+{% extends "partials/layout.njk" %}
+
+{% block title %}
+	NoteRoom Blogs
+{% endblock %}
+
+{% block content %}
+	{% if blogs.length >= 3 %}
+		<div class="carousel-wrap">
+			<div class="carousel">
+				<div class="track" id="track"></div>
+				<div class="arrow prev" id="prev">
+					<svg
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					>
+						<polyline points="15 18 9 12 15 6" />
+					</svg>
+				</div>
+				<div class="arrow next" id="next">
+					<svg
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					>
+						<polyline points="9 18 15 12 9 6" />
+					</svg>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+
+	{% if blogs.length !== 0 %}
+		<section class="video-grid-section">
+			<div class="video-grid">
+				{% for blog in blogs %}
+					<div class="video-card" onclick="window.open('/blogs/{{ blog.route }}', '_self')">
+						<div class="video-thumb-wrapper">
+							<img src="{{ image_path("blog-thumbnails/" + blog.thm) }}"  alt="{{ blog.title }}" class="video-thumb grid-thumb"/>
+						</div>
+						<h3 class="video-title below">
+							{{ blog.title | rangeSlice(0, 30) }} ... <span style="text-decoration: underline;">Read More</span>
+						</h3>
+						<div class="video-card-meta">
+							<div class="left-meta">
+								<span class="category">{{ blog.tags[0] }}</span>
+							</div>
+							<div class="right-meta">{{ date(blog.published_at) }}</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</section>
+	{% else %}
+		<div style="
+			display: flex;
+			flex-direction: column;
+			padding: 10px;
+			margin: 30px;
+			align-items: center;
+			gap: 10px;
+		">
+			<h1>Such Empty!</h1>
+			<p>There are no blogs to show. Once available, they will appear here!</p>
+		</div>
+	{% endif %}
+{% endblock %}
+
+{% block styles %}
+	<style>
+      /* ------------------------------
+        GLOBAL VARIABLES & RESETS
+      ------------------------------ */
+      :root {
+        --desktop-slide-width: 800px;
+        --desktop-height: 500px;
+        --gap: 60px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        font-family: system-ui, Segoe UI, Roboto, Arial;
+      }
+
+      /* Stack content vertically: Carousel on top, Blogs below */
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* ------------------------------
+        CAROUSEL SECTION
+      ------------------------------ */
+      .carousel-wrap {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0;
+      }
+
+      .carousel {
+        position: relative;
+        width: 100vw;
+        height: var(--desktop-height);
+        overflow: hidden;
+      }
+
+      .track {
+        height: 100%;
+        width: 100%;
+      }
+
+      /* --- Slide States (Desktop) --- */
+      .slide {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: var(--desktop-slide-width);
+        height: 100%;
+        border-radius: 12px;
+        background: #000;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+      }
+
+      .slide.active {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+        z-index: 3;
+      }
+
+      .slide.prev {
+        transform: translateX(
+            calc(-50% - var(--desktop-slide-width) - var(--gap))
+          )
+          scale(0.8);
+        opacity: 0.6;
+        z-index: 2;
+      }
+
+      .slide.next {
+        transform: translateX(
+            calc(-50% + var(--desktop-slide-width) + var(--gap))
+          )
+          scale(0.8);
+        opacity: 0.6;
+        z-index: 2;
+      }
+
+      /* --- Slide Content --- */
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .slide .info {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: black;
+      }
+
+      .slide .info h3 {
+        font-size: 1.2rem;
+        margin: 0;
+      }
+
+      .slide .info p {
+        font-size: 0.9rem;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .slide .info p img {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      /* --- Navigation Arrows --- */
+      .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.85);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        transition: background 0.25s, transform 0.25s;
+      }
+
+      .arrow:hover {
+        background: rgba(255, 255, 255, 1);
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .arrow svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* Positioning (Desktop) */
+      .arrow.prev {
+        left: calc(
+          50% - var(--desktop-slide-width) / 2 - var(--gap) / 2 - 22px
+        );
+      }
+
+      .arrow.next {
+        right: calc(
+          50% - var(--desktop-slide-width) / 2 - var(--gap) / 2 - 22px
+        );
+      }
+
+      /* ------------------------------
+        BLOG GRID SECTION
+      ------------------------------ */
+      .video-grid-section {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto 80px;
+        padding: 0 5%;
+      }
+
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 24px;
+      }
+
+      /* --- Blog Card --- */
+      .video-card {
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        cursor: pointer;
+      }
+
+      .video-card:hover {
+        transform: scale(1.05);
+      }
+
+      /* --- Thumbnail --- */
+      .video-thumb-wrapper {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+      }
+
+      .video-thumb {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+      }
+
+      /* --- Title & Meta --- */
+      .video-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #222;
+        margin: 12px 8px;
+        line-height: 1.4;
+      }
+
+      .video-card-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9rem;
+        color: #666;
+        padding: 0 8px 16px;
+      }
+
+      .category {
+        background: #efefef;
+        color: #444;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 0.8rem;
+      }
+
+      /* ------------------------------
+        RESPONSIVE DESIGN
+      ------------------------------ */
+      @media (max-width: 768px) {
+        :root {
+          --desktop-height: 320px;
+        }
+
+        /* --- Carousel --- */
+        .track {
+          display: flex;
+          transition: transform 0.35s ease;
+          height: var(--desktop-height);
+        }
+
+        .slide {
+          position: relative;
+          left: auto;
+          top: auto;
+          flex: 0 0 100vw;
+          width: 100vw;
+          height: 100%;
+          border-radius: 10px;
+          box-shadow: none;
+          transform: none !important;
+          opacity: 1 !important;
+        }
+
+        .arrow.prev {
+          left: 12px;
+        }
+
+        .arrow.next {
+          right: 12px;
+        }
+
+        /* --- Blog Grid --- */
+        .video-grid-section {
+          margin-bottom: 60px;
+          padding: 0 4%;
+        }
+
+        .video-grid {
+          gap: 20px;
+        }
+
+        .video-title {
+          font-size: 0.95rem;
+        }
+
+        .video-card-meta {
+          font-size: 0.8rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .video-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .video-title {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        (function () {
+        // Slide data: thumbnail, title, author, profile pic
+
+		const blogs = {{ blogs | dump | safe }}
+		const slidesData = blogs.filter(blog => blog.slide)
+
+        const track = document.getElementById("track");
+        let slides = [];
+        let index = 0;
+        let isTransitioning = false;
+        let slideWidth = window.innerWidth;
+        let mobileCloned = false;
+
+        // Build div slides
+        function buildSlides() {
+            track.innerHTML = "";
+            slidesData.forEach((s, i) => {
+				const slide = document.createElement("div");
+				slide.className = "slide";
+				slide.dataset.index = i;
+
+				const img = document.createElement("img");
+				img.src = `/images/blog-thumbnails/${s.thm}`
+				img.onerror = () => {
+					img.onerror = null
+					img.src = `https://placehold.co/1200x800/FFB6C1/000000?text=${s.title}`
+				}
+				img.alt = s.title
+				slide.appendChild(img);
+
+				const info = document.createElement("div");
+				info.className = "info";
+				const h3 = document.createElement("h3");
+				h3.textContent = s.title;
+				const p = document.createElement("p");
+				const profileImg = document.createElement("img");
+				profileImg.src = `/images/${s.author.pfp}`
+				profileImg.onerror = () => {
+					profileImg.onerror = null
+					profileImg.src = `https://placehold.co/24x24/FF69B4/000000?text=${s.author.name[0]}`
+				}
+				profileImg.alt = s.author.name
+				p.appendChild(profileImg);
+
+				p.appendChild(document.createTextNode(s.author.name));
+
+				info.appendChild(h3);
+				info.appendChild(p);
+
+				slide.setAttribute("onclick", `window.open('/blogs/${s.route}', '_self')`)
+
+				slide.appendChild(info);
+				track.appendChild(slide);
+            });
+            slides = Array.from(track.children);
+        }
+
+        function isMobile() {
+            return window.innerWidth <= 768;
+        }
+
+        function setupMobileClones() {
+            if (mobileCloned) return;
+            const first = slides[0].cloneNode(true);
+            const last = slides[slides.length - 1].cloneNode(true);
+            first.dataset.clone = "true";
+            last.dataset.clone = "true";
+            track.insertBefore(last, track.firstChild);
+            track.appendChild(first);
+            mobileCloned = true;
+            slides = Array.from(track.children);
+        }
+
+        function removeMobileClones() {
+            if (!mobileCloned) return;
+            slides.forEach((s) => {
+            if (s.dataset.clone === "true") track.removeChild(s);
+            });
+            mobileCloned = false;
+            slides = Array.from(track.children);
+        }
+
+        function updateDesktop() {
+            const n = slidesData.length;
+            const prev = (index - 1 + n) % n;
+            const next = (index + 1) % n;
+            slides.forEach((sl) => sl.classList.remove("prev", "active", "next"));
+            slides[prev].classList.add("prev");
+            slides[index].classList.add("active");
+            slides[next].classList.add("next");
+        }
+
+        function updateMobile() {
+            slideWidth = window.innerWidth;
+            track.style.transition = "none";
+            track.style.transform = `translateX(${-slideWidth * (index + 1)}px)`;
+            requestAnimationFrame(
+            () => (track.style.transition = "transform 0.35s ease")
+            );
+        }
+
+        function update() {
+            if (isMobile()) {
+            setupMobileClones();
+            updateMobile();
+            } else {
+            if (mobileCloned) removeMobileClones();
+            updateDesktop();
+            }
+        }
+
+        function move(dir) {
+            if (isTransitioning) return;
+            isTransitioning = true;
+
+            if (isMobile()) {
+            const total = slidesData.length;
+            index += dir;
+            slideWidth = window.innerWidth;
+            track.style.transition = "transform 0.35s ease";
+            track.style.transform = `translateX(${
+                -slideWidth * (index + 1)
+            }px)`;
+
+            function onEnd() {
+                if (index === -1) index = total - 1;
+                else if (index === total) index = 0;
+                track.style.transition = "none";
+                track.style.transform = `translateX(${
+                -slideWidth * (index + 1)
+                }px)`;
+                track.removeEventListener("transitionend", onEnd);
+                setTimeout(() => (isTransitioning = false), 20);
+            }
+            track.addEventListener("transitionend", onEnd);
+            } else {
+            const n = slidesData.length;
+            index = (index + dir + n) % n;
+            updateDesktop();
+            setTimeout(() => (isTransitioning = false), 500);
+            }
+        }
+
+        document
+            .getElementById("next")
+            .addEventListener("click", () => move(1));
+        document
+            .getElementById("prev")
+            .addEventListener("click", () => move(-1));
+
+        window.addEventListener("resize", () => update());
+
+        // Initialize
+        buildSlides();
+        update();
+
+        // Auto slide every 3 seconds
+        const autoInterval = 3000;
+        let autoSlide = setInterval(() => move(1), autoInterval);
+        const carouselWrap = document.querySelector(".carousel-wrap");
+        carouselWrap.addEventListener("mouseenter", () =>
+            clearInterval(autoSlide)
+        );
+        carouselWrap.addEventListener(
+            "mouseleave",
+            () => (autoSlide = setInterval(() => move(1), autoInterval))
+        );
+        })();
+    </script>
+{% endblock %}

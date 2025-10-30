@@ -1,0 +1,37 @@
+{% extends "partials/layout.njk" %}
+
+{% block meta %}
+    <meta name="description" content="Join the NoteRoom waitlist to be the first to experience NoteRoom.">
+    <meta name="keywords" content="NoteRoom Waitlist">
+    <meta name="author" content="Noteroom Team">
+{% endblock %}
+
+{% block title%}
+    Join the NoteRoom Waitlist
+{% endblock %}
+
+{% block content %}
+    <section class="waitlist-section flex-col-center">
+        <div class="waitlist-container flex-col-center">
+            <p class="waitlist-subtitle">NoteRoom is under development</p>
+            <h1 class="waitlist-headline">We'll be back soon</h1>
+            <p class="waitlist-subtitle">If you’d like to get launch updates, join the waitlist below.</p>
+
+            <div class="waitlist-form">
+                <input type="email" id="email" placeholder="Enter your email" />
+                <button type="submit" onclick="joinWaitlist()">Join Waitlist</button>
+            </div>
+
+            <p class="hide" id="status-message"></p>
+        </div>
+    </section>
+{% endblock %}
+
+{% block styles %}
+	<link rel="stylesheet" href="/css/waitlist.css">
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="/js/waitlist.js"></script>
+{% endblock %}

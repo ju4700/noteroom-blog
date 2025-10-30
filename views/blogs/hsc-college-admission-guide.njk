@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Basic Meta Tags -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+{% extends "partials/layout.njk" %}
 
-    <!-- SEO Meta Tags -->
-    <title>HSC Admission Guide 2025 | NoteRoom</title>
-    <!-- Basic Meta Tags -->
-    <meta
+{% block meta %}
+	<meta
       name="description"
       content="Get detailed insights into the HSC admission process in Bangladesh, including GPA requirements, college choices, online form submission, and more."
     />
@@ -51,22 +43,20 @@
       content="https://noteroom.co/images/hsc-admission-guide-cover-photo.jpg"
     />
     <meta name="twitter:creator" content="@AnirbanBiz" />
+{% endblock %}
 
-    <!-- Others -->
-    <%- include('../partials/links.ejs') %> <%-
-    include('../partials/header-footer-links.ejs') %>
-    <link rel="stylesheet" href="/css/blog-template.css" />
-  </head>
-  <body>
-    <%- include('../partials/header.ejs') %>
+{% block title %}
+	HSC Admission Guide 2025 | NoteRoom
+{% endblock %}
 
+{% block content %}
     <article class="article-container">
       <!-- Top Section -->
       <header class="article-header">
         <div class="article-breadcrumb">
           <nav>
             <a href="/blog" class="breadcrumb-main">Blog <span>/</span> </a>
-            <a href="/blog/hsc-admission" class="breadcrumb-sub"
+            <a href="/blog/hsc-college-admission-guide" class="breadcrumb-sub"
               >HSC Admission</a
             >
           </nav>
@@ -79,7 +69,7 @@
 
         <div class="article-meta">
           <img
-            src="\images\NoteRoom Caricature Cartoonic  - Anirban.jpg.png"
+            src="{{ image_path('NoteRoom Caricature Cartoonic  - Anirban.jpg') }}"
             alt="Author"
             class="author-image"
           />
@@ -95,7 +85,7 @@
       <!-- Cover Image -->
       <div class="article-cover">
         <img
-          src="\images\hsc-admission-guide-cover-photo.jpg"
+          src="{{ image_path('hsc-admission-guide-cover-photo.jpg') }}"
           alt="HSC Admission Guide"
         />
       </div>
@@ -388,7 +378,8 @@
         </section>
       </div>
     </article>
+{% endblock %}
 
-    <%- include('../partials/footer.ejs') %>
-  </body>
-</html>
+{% block styles %}
+    <link rel="stylesheet" href="/css/blog-template.css" />
+{% endblock %}

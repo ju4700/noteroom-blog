@@ -1,0 +1,48 @@
+[
+  {
+    "route": "how-to-focus-on-your-study",
+    "title": "How to focus on your Study",
+    "tags": [
+      "#study",
+      "#focus",
+      "#time"
+    ],
+    "thm": "1761005587130.png",
+    "author": {
+      "name": "Devajit Mutsuddy",
+      "pfp": "rohit.jpg"
+    },
+    "published_at": "2025-10-21T00:13:06.755Z",
+    "slide": true
+  },
+  {
+    "route": "what-is-a-student-syndrome",
+    "title": "What is Student Syndrome?",
+    "tags": [
+      "#syndrome",
+      "#life"
+    ],
+    "thm": "1761006109601.png",
+    "author": {
+      "name": "Devajit Mutsuddy",
+      "pfp": "rohit.jpg"
+    },
+    "published_at": "2025-10-21T00:21:49.253Z",
+    "slide": true
+  },
+  {
+    "route": "why-use-noteroom",
+    "title": "Why Use NoteRoom? A Place for The Curious",
+    "tags": [
+      "#study",
+      "#noteroom"
+    ],
+    "thm": "1761006909242.png",
+    "author": {
+      "name": "Devajit Mutsuddy",
+      "pfp": "rohit.jpg"
+    },
+    "published_at": "2025-10-21T00:35:08.890Z",
+    "slide": true
+  }
+]

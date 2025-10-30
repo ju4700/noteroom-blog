@@ -1,0 +1,54 @@
+{% extends "partials/layout.njk" %}
+
+{% block meta %}
+	<meta name="description" content="Reach out to NoteRoom support team for any problems you're facing or any feedbacks you'd like to provide." />
+    <meta name="keywords" content="contact NoteRoom, NoteRoom support, NoteRoom help, issues with NoteRoom" />
+{% endblock %}
+
+{% block title %}
+	Support & Feedback
+{% endblock %}
+
+{% block content %}
+	<h1 class="support-title">How Can We Help Today?</h1>
+
+	<iframe
+		data-tally-src="https://tally.so/embed/mJJ88R?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+		loading="lazy"
+		width="100%"
+		height="553"
+		frameborder="0"
+		marginheight="0"
+		marginwidth="0"
+		title="NoteRoom Support🛠️">
+	</iframe>
+
+	{# Inline script for Tally embed #}
+	<script>
+		var d = document,
+			w = "https://tally.so/widgets/embed.js",
+			v = function () {
+				if (typeof Tally !== "undefined") {
+					Tally.loadEmbeds();
+				} else {
+					d.querySelectorAll("iframe[data-tally-src]:not([src])")
+						.forEach(function(e) { e.src = e.dataset.tallySrc; });
+				}
+			};
+		if (typeof Tally !== "undefined") v();
+		else if (d.querySelector('script[src="' + w + '"]') == null) {
+			var s = d.createElement("script");
+			s.src = w; s.onload = v; s.onerror = v;
+			d.body.appendChild(s);
+		}
+	</script>
+{% endblock %}
+
+{% block styles %}
+	<link rel="stylesheet" href="/css/support.css">
+{% endblock %}
+
+{% block scripts %}
+	<script src="/js/utils.js"></script>
+	<script src="/js/support.js"></script>
+{% endblock %}

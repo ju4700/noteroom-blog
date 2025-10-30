@@ -1,0 +1,41 @@
+{% extends "partials/layout.njk" %}
+
+{% block meta %}
+	<meta name="description" content="NoteRoom is Bangladesh's one and only note-sharing platform to make collaboration between students easier">
+	<meta name="keywords" content="Noteroom">
+	<meta name="author" content="Noteroom Team">
+{% endblock %}
+
+{% block title %}
+	NoteRoom
+{% endblock %}
+
+{% block content %}
+	<section class="hero flex-col-center">
+		{# <div class="circles" id="circles" aria-hidden="true"></div> #}
+		<div class="planet-container">
+            <img src="{{ image_path('solar-system-animation.jpg') }}" alt="planet" class="planet" />
+		</div>
+
+		<div class="copy flex-col-center">
+			<h1 class="headline">
+				A social platform designed for<br>
+				making you <i>smarter</i> and more creative
+			</h1>
+			<p class="tagline">
+				Simply put “Be where <em>Ideas</em> are”
+			</p>
+			<button class="cta" onclick="window.location.href = 'http://app.noteroom.co/login'">
+				Try NoteRoom
+			</button>
+		</div>
+	</section>
+{% endblock %}
+
+{% block styles %}
+	<link rel="stylesheet" href="/css/home.css">
+{% endblock %}
+
+{% block scripts %}
+	<script src="/js/home.js"></script>
+{% endblock %}

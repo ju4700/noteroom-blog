@@ -1,3 +1,6 @@
 .vscode
 *.swp
 node_modules/
+*.local*
+*.swp
+.env
