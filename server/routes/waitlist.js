@@ -11,8 +11,8 @@ function waitlistRouter() {
     });
 
     router.post("/", async (req, res, next) => {
-        const { email } = req.body
         try {
+            const { email } = req.body
             if (email?.trim().length !== 0) {
                 await User.create({ email })
                 res.json({ ok: true })
@@ -41,7 +41,7 @@ function waitlistRouter() {
                     message = "The email you provided is already in the waitlist!"
                 }
             }
-            res.json({ ok: false, message: message || "Unexpected error occured. But you may get an email." })
+            res.json({ ok: false, message: message || "Unexpected error occured. Please try again a bit later!" })
         }
     });
 
