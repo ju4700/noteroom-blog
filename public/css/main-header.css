@@ -112,7 +112,7 @@ button{
   .header__container-1 {
     width: 100%;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 2px 20px;
   }
   .header__logo {
     gap: 10px;
@@ -120,7 +120,8 @@ button{
   }
   
   .header__logo img {
-    max-height: 50px;
+    max-height: 75px;
+    width: auto;
     cursor: pointer;
     border-radius: 15px;
   }
@@ -327,8 +328,8 @@ button{
   }
   @media (max-width: 360px) {
     .header__logo img {
-      width: 30px;
-      height: auto;
+      width: auto;
+      height: 50px;
     }
     .header__logo--subtitle {
       font-size: 0.9rem;
@@ -344,8 +345,8 @@ button{
   }
   @media (min-width: 361px) and (max-width: 480px) {
     .header__logo img {
-      width: 40px;
-      height: auto;
+      width: auto;
+      height: 60px;
     }
     .header__logo--subtitle {
       font-size: 0.95rem;
