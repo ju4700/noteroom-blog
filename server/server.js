@@ -83,11 +83,15 @@ app.use((err, req, res, next) => {
     res.status(err.status).render(`errors/${err.status}`, { title: errorTitle, message: errorMessage });
 });
 
+app.use((req, res, next) => {
+    res.status(404).render(`errors/404`, { title: "Not Found", message: "Seems like the page doesn't exist" })
+})
+
 app.listen(3000, "0.0.0.0", async () => {
+    console.log("Static server is running on port 3000");
     try {
         await sequelize.authenticate();
         await sequelize.sync();
-        console.log("Static server is running on port 3000");
     } catch (error) {
         console.error(error);
     }
