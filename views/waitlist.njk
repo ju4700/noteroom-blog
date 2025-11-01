@@ -17,16 +17,21 @@
             <h1 class="waitlist-headline">We'll be back soon</h1>
             <p class="waitlist-subtitle">If you’d like to get launch updates, join the waitlist below.</p>
 
-            <form class="waitlist-form">
-                <input type="email" placeholder="Enter your email" />
-                <button type="submit">Join Waitlist</button>
-            </form>
+            <div class="waitlist-form">
+                <input type="email" id="email" placeholder="Enter your email" />
+                <button type="submit" onclick="joinWaitlist()">Join Waitlist</button>
+            </div>
 
-            <p class="waitlist-success-msg">You've been added to the waitlist.</p>
+            <p class="hide" id="status-message"></p>
         </div>
     </section>
 {% endblock %}
 
 {% block styles %}
 	<link rel="stylesheet" href="/css/waitlist.css">
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="/js/waitlist.js"></script>
 {% endblock %}

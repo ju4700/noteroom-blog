@@ -129,6 +129,15 @@ body {
   color: rgb(4, 183, 4);
   /* display: none; */
 }
+.waitlist-error-msg {
+  font-size: 0.9rem;
+  color: rgb(232, 9, 9);
+  /* display: none; */
+}
+
+.hide {
+  display: none;
+}
 
   /* --- Mobile stacking & touch targets --- */
   @media (max-width: 640px) {
