@@ -1,5 +1,5 @@
 * {
-    font-family: "Poppins", "Inter", "Hind Siliguri", sans-serif;
+    font-family: "Inter", "Hind Siliguri", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -72,6 +72,7 @@
   max-width: min(92vw, 980px);
 }
 .headline {
+  font-family: "Space Grotesk", "Inter", Arial;
   font-weight: var(--fw-regular);  
   font-size: clamp(2rem, 6vw, 3.8rem); /* bigger focus */
   line-height: 1.2;
@@ -93,7 +94,6 @@
   border-radius: 999px;
   background: var(--squid-ink);
   color: #fff;
-  font-weight: var(--fw-bold);
   transition: transform var(--duration-med) ease, opacity ease;
 }
 .cta:hover { transform: translateY(-4px); }
@@ -110,34 +110,6 @@
   max-height: 100vh;
   overflow: hidden;
 }
-
-/* .circle {
-  position: absolute;
-  border-radius: 50%;
-  width: var(--size);
-  height: var(--size);
-  border: var(--ring-w, 1px) solid rgba(0,0,0,var(--ring-a, .05));
-  mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
-  -webkit-mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
-}
-
-.blob {
-  position: absolute;
-  top: 50%; left: 50%;
-  width: var(--size, 56px);
-  height: var(--size, 56px);
-  border-radius: 50%;
-  background: var(--color, #c5cae9);
-  transform: translate(-50%, -50%) rotate(var(--angle, 0deg)) translateX(var(--radius, 200px)) rotate(calc(-1 * var(--angle, 0deg)));
-  animation: orbit var(--period, 36s) linear infinite;
-  animation-direction: var(--dir, normal);
-}
-
-@keyframes orbit {
-  from { transform: translate(-50%, -50%) rotate(var(--angle, 0deg)) translateX(var(--radius)) rotate(calc(-1 * var(--angle, 0deg))); }
-  to   { transform: translate(-50%, -50%) rotate(calc(var(--angle, 0deg) + 360deg)) translateX(var(--radius)) rotate(calc(-1 * (var(--angle, 0deg) + 360deg))); }
-}
- */
 
 .planet-container {
   position: absolute;
