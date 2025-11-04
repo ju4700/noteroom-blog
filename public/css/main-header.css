@@ -209,11 +209,12 @@ button{
   .header__btn.login {
     color: #7b7b7b;
     transition: all var(--duration-med) ease;
-    border: rgb(0, 0, 0, 0.01) 1px solid;
+    border: rgb(0, 0, 0, 0.15) 1px solid;
   }
   
   .header__btn.login:hover {
     border: rgb(0, 0, 0, 0.15) 1px solid;
+    color: black;
   }
   
   .header__btn.login:active {
@@ -222,14 +223,14 @@ button{
   
   .header__btn.create-account {
     border: rgb(0, 0, 0, 0.15) 1px solid;
-    transform: box-shadow var(--duration-def) ease;
-    transition: all var(--duration-med) ease;
+    transition: all var(--duration-med) ease, color var(--duration-fast) ease;
   }
   
   .header__btn.create-account:hover {
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
     border-color: var(--aero);
     background-color: var(--aero);
+    color: white;
   }
   
   .header__btn.create-account:active {
