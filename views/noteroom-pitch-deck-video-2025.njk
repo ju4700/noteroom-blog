@@ -1,0 +1,50 @@
+{% extends "partials/layout.njk" %}
+
+{% block title %}
+	NoteRoom Pitch 2025
+{% endblock %}
+
+{% block content %}
+	<section class="main-section flex flex-col gap-10 m-[40px_0] items-center justify-center w-screen h-full">
+		<div class="header-section flex w-[95%]">
+			<h1 class="text-2xl font-semibold">NoteRoom Pitch, 2025</h1>
+		</div>
+		<div class="video-section flex w-full justify-center">
+			<iframe 
+				class="w-[95%] h-[30vh] md:w-[900px] md:h-[500px] rounded-[10px]"
+				src="https://www.youtube.com/embed/7hLN8XhFjUg" 
+				title="YouTube video player" 
+				frameborder="0" 
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+				allowfullscreen
+			></iframe>
+		</div>
+	</section>
+{% endblock %}
+
+{% block styles %}
+	<link rel="stylesheet" href="/css/join-us.css">
+
+	<style>
+		@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+		body {
+			font-family: "Poppins", sans-serif;
+			background-color: #ffffff;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			overflow-x: hidden;
+		}
+		* {
+			font-family: "Poppins";
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+	</style>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdn.tailwindcss.com"></script>
+{% endblock %}

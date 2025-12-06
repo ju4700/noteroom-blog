@@ -77,6 +77,10 @@ app.get("/support", (req, res) => {
     res.render("support");
 });
 
+app.get("/noteroom-pitch-deck-video-2025", (req, res) => {
+	res.render("noteroom-pitch-deck-video-2025")
+})
+
 app.use((err, req, res, next) => {
     const errorTitle = err.title;
     const errorMessage = err.message;
