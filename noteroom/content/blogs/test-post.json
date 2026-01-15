@@ -1,0 +1,22 @@
+{
+  "slug": "welcome-to-noteroom",
+  "title": "Welcome to NoteRoom",
+  "tags": ["Announcement", "NoteRoom"],
+  "thumbnail": "blog-thumbnails/1761005587130.png",
+  "author": {
+    "name": "NoteRoom Team",
+    "avatar": ""
+  },
+  "readTime": "2 mins",
+  "featured": true,
+  "content": [
+    {
+      "index": "01",
+      "title": "Hello World",
+      "contents": [
+        "Welcome to the new NoteRoom blog! We are excited to share our journey with you.",
+        "This post was created using our new content workflow system."
+      ]
+    }
+  ]
+}

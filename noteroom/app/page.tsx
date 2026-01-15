@@ -1,65 +1,98 @@
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <div className="relative flex min-h-[calc(100vh-64px)] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white to-gray-50">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -left-40 -top-40 h-80 w-80 rounded-full bg-indigo-100 opacity-50 blur-3xl" />
+        <div className="absolute -bottom-40 -right-40 h-80 w-80 rounded-full bg-purple-100 opacity-50 blur-3xl" />
+      </div>
+
+      {/* Hero Content */}
+      <section className="container-custom relative z-10 py-20 text-center">
+        {/* Planet/Visual */}
+        <div className="mb-12 flex justify-center">
+          <div className="animate-float relative h-48 w-48 sm:h-64 sm:w-64">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/images/solar-system-animation.jpg"
+              alt="NoteRoom Planet"
+              fill
+              className="rounded-full object-cover shadow-2xl"
+              priority
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
-      </main>
+
+        {/* Headline */}
+        <h1 className="mx-auto mb-6 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
+          A social platform designed for
+          <br />
+          <span className="gradient-text">making you smarter</span> and more
+          creative
+        </h1>
+
+        {/* Tagline */}
+        <p className="mx-auto mb-10 max-w-2xl text-lg text-gray-600 sm:text-xl">
+          Simply put &ldquo;Be where{" "}
+          <em className="font-medium text-gray-900">Ideas</em> are&rdquo;
+        </p>
+
+        {/* CTA Button */}
+        <Link
+          href="/waitlist"
+          className="inline-flex items-center gap-2 rounded-full bg-gray-900 px-8 py-4 text-lg font-medium text-white shadow-lg transition-all hover:bg-gray-800 hover:shadow-xl"
+        >
+          Try NoteRoom
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </Link>
+      </section>
+
+      {/* Features hint */}
+      <section className="container-custom relative z-10 pb-20">
+        <div className="grid gap-8 md:grid-cols-3">
+          {[
+            {
+              title: "Knowledge First",
+              description:
+                "A platform built around deep learning and intellectual curiosity.",
+            },
+            {
+              title: "Collaborative Learning",
+              description:
+                "Connect with students who share your passion for knowledge.",
+            },
+            {
+              title: "Grow Together",
+              description:
+                "Be part of a community that nurtures your academic journey.",
+            },
+          ].map((feature, index) => (
+            <div
+              key={index}
+              className="rounded-2xl border border-gray-200 bg-white/60 p-6 backdrop-blur-sm transition-all hover:border-gray-300 hover:shadow-lg"
+            >
+              <h3 className="mb-2 text-lg font-semibold text-gray-900">
+                {feature.title}
+              </h3>
+              <p className="text-gray-600">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

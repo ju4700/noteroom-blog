@@ -1,0 +1,30 @@
+{
+  "slug": "my-new-blog-post",
+  "title": "My New Blog Post Title",
+  "tags": ["Technology", "Learning"],
+  "thumbnail": "blog-thumbnails/placeholder.png",
+  "author": {
+    "name": "Author Name",
+    "avatar": "author-avatar.png"
+  },
+  "readTime": "5 mins",
+  "featured": false,
+  "content": [
+    {
+      "index": "01",
+      "title": "Introduction",
+      "contents": [
+        "This is the first paragraph of the introduction.",
+        "You can add multiple paragraphs here."
+      ]
+    },
+    {
+      "index": "02",
+      "title": "Main Point",
+      "contents": [
+        "Elaborate on your main point here.",
+        "Code snippets or other formatted text can be included as strings."
+      ]
+    }
+  ]
+}

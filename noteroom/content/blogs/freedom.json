@@ -1,0 +1,31 @@
+{
+  "slug": "what-does-it-mean-to-have-freedom",
+  "title": "What does it mean to have freedom?",
+  "tags": ["Philosophy", "Life"],
+  "thumbnail": "blog-thumbnails/blogimage3.png",
+  "author": {
+    "name": "NoteRoom Team",
+    "avatar": ""
+  },
+  "readTime": "4 mins",
+  "publishedAt": "2025-03-21T00:00:00.000Z",
+  "featured": true,
+  "content": [
+    {
+      "index": "01",
+      "title": "Defining True Freedom",
+      "contents": [
+        "We often think of freedom as the absence of rules—the ability to do whatever we want, whenever we want. But is that truly freedom? Or is it simply chaos? True freedom isn't about escaping responsibility; it's about choosing which responsibilities we accept. It is the autonomy to shape our own lives, not by drifting aimlessly, but by steering with purpose.",
+        "In a modern world filled with distractions, we are often shackled by our own impulses. We doom-scroll for hours, buy things we don't need, and seek validation from strangers. Are we free, or are we slaves to our own habits? Real freedom is the discipline to disconnect, to say no, and to focus on what truly matters to us."
+      ]
+    },
+    {
+      "index": "02",
+      "title": "The Freedom of Thought",
+      "contents": [
+        "Beyond the physical, there lies the vast expanse of mental freedom. To be free in your mind means to question narratives, to entertain ideas without accepting them, and to remain open to being wrong. It is the courage to think for yourself in a room where everyone agrees.",
+        "Ultimately, freedom is a practice. It is found in the quiet moments where we choose patience over anger, creation over consumption, and kindness over indifference. To have freedom is to own your time, your attention, and your actions. It is the most powerful gift we can give ourselves."
+      ]
+    }
+  ]
+}
