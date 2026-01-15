@@ -152,6 +152,7 @@ export default function Footer() {
               src="/logo.png"
               alt="NoteRoom"
               className="w-4 mr-2 grayscale"
+              suppressHydrationWarning
             />
             <span className="font-['Bruno_Ace'] text-lg text-black">
               noteroom

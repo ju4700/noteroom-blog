@@ -33,7 +33,10 @@ export default function BlogCard({
 
   // Format date: DD.MM.YYYY
   const dateObj = new Date(publishedAt);
-  const formattedDate = dateObj.toLocaleDateString("en-GB").replace(/\//g, ".");
+  const day = String(dateObj.getUTCDate()).padStart(2, "0");
+  const month = String(dateObj.getUTCMonth() + 1).padStart(2, "0");
+  const year = dateObj.getUTCFullYear();
+  const formattedDate = `${day}.${month}.${year}`;
   // en-GB gives DD/MM/YYYY, replace / with .
 
   return (
@@ -41,7 +44,7 @@ export default function BlogCard({
       <Link href={`/blogs/${slug}`} className="w-full">
         {/* Thumbnail */}
         <div
-          className="w-full h-72 rounded-[9.52px] border border-black/40 overflow-hidden relative"
+          className="w-full h-72 rounded-[9.52px] overflow-hidden relative"
           suppressHydrationWarning
         >
           {thumbnail ? (
