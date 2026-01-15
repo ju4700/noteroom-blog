@@ -60,24 +60,24 @@ export default async function BlogPage({ params }: BlogPageProps) {
   return (
     <div className="relative w-full bg-white overflow-x-hidden pt-[49px]">
       {/* Container to handle width and centering */}
-      <div className="max-w-[1860px] mx-auto min-h-screen px-[76px] pb-20">
+      <div className="max-w-[1860px] mx-auto min-h-screen px-4 sm:px-10 lg:px-[76px] pb-20">
         {/* Navigation Breadcrumb Area */}
-        <div className="mb-[200px] flex flex-col items-center">
-          <div className="mb-12 flex items-center gap-2">
-            <span className="text-stone-500 text-2xl font-semibold font-['Inter'] tracking-wide">
+        <div className="mb-12 sm:mb-24 lg:mb-[200px] flex flex-col items-center">
+          <div className="mb-8 lg:mb-12 flex items-center gap-2">
+            <span className="text-stone-500 text-lg sm:text-2xl font-semibold font-['Inter'] tracking-wide">
               Blog /{" "}
             </span>
-            <span className="text-black text-2xl font-semibold font-['Inter'] tracking-wide">
+            <span className="text-black text-lg sm:text-2xl font-semibold font-['Inter'] tracking-wide">
               {prefix}
             </span>
           </div>
 
-          <h1 className="max-w-[715px] text-center text-black text-6xl font-medium font-['Space_Grotesk'] leading-[76.80px]">
+          <h1 className="max-w-[850px] text-center text-black text-3xl sm:text-5xl lg:text-6xl font-medium font-['Space_Grotesk'] leading-tight lg:leading-[76.80px]">
             {blog.title}
           </h1>
 
           {/* Author Section */}
-          <div className="mt-20 flex flex-col items-center gap-3">
+          <div className="mt-8 sm:mt-16 lg:mt-20 flex flex-col items-center gap-3">
             <div className="flex items-center gap-4">
               <div className="w-8 h-8 rounded-full bg-zinc-300 overflow-hidden relative">
                 {blog.author.avatar && (
@@ -94,19 +94,19 @@ export default async function BlogPage({ params }: BlogPageProps) {
                   </div>
                 )}
               </div>
-              <div className="text-black text-xl font-normal font-['Inter']">
+              <div className="text-black text-lg lg:text-xl font-normal font-['Inter']">
                 {blog.author.name}
               </div>
             </div>
-            <div className="text-neutral-500 text-sm font-medium font-['Inter'] uppercase">
+            <div className="text-neutral-500 text-xs sm:text-sm font-medium font-['Inter'] uppercase">
               {formatBlogDate(new Date(blog.publishedAt))}
             </div>
           </div>
         </div>
 
         {/* Hero Image Container */}
-        <div className="relative w-[1560px] mx-auto h-[800px] mb-24 -mt-26">
-          <div className="absolute inset-0 rounded-[20px] overflow-hidden shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
+        <div className="relative w-full max-w-[1560px] mx-auto aspect-video mb-12 sm:mb-20 lg:mb-24 -mt-6 sm:-mt-12 lg:-mt-26">
+          <div className="absolute inset-0 rounded-lg sm:rounded-[20px] overflow-hidden shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
             {blog.thumbnail && (
               <Image
                 src={`/images/${blog.thumbnail}`}
@@ -122,38 +122,38 @@ export default async function BlogPage({ params }: BlogPageProps) {
         </div>
 
         {/* Blog Content Section */}
-        <div className="max-w-[1200px] mx-auto space-y-16 mb-40">
+        <div className="max-w-[1200px] mx-auto space-y-10 sm:space-y-16 mb-24 lg:mb-40">
           {/* First Paragraph with Raised Cap (Text wraps underneath) */}
-          <div className="font-['Inter'] text-black text-3xl font-normal leading-[1.6]">
-            <span className="inline-block text-black text-9xl font-normal leading-[0.5] align-baseline mr-1">
+          <div className="font-['Inter'] text-black text-xl sm:text-2xl lg:text-3xl font-normal leading-relaxed lg:leading-[1.6]">
+            <span className="inline-block text-black text-6xl sm:text-8xl lg:text-9xl font-normal leading-[0.5] align-baseline mr-1">
               {firstLetter}
             </span>
             {restOfFirstParagraph}
           </div>
 
           {/* Remaining Content */}
-          <div className="space-y-12 font-['Inter']">
+          <div className="space-y-10 sm:space-y-12 font-['Inter']">
             {blog.content.map((section, idx) => (
-              <div key={idx} className="space-y-12">
+              <div key={idx} className="space-y-10 lg:space-y-12">
                 {idx === 0 ? (
                   // Skip the first paragraph of the first section as it's the dropcap above
                   section.contents.slice(1).map((para, pIdx) => (
                     <p
                       key={pIdx}
-                      className="text-black/80 text-2xl font-normal leading-[1.7]"
+                      className="text-black/80 text-lg sm:text-xl lg:text-2xl font-normal leading-relaxed lg:leading-[1.7]"
                     >
                       {para}
                     </p>
                   ))
                 ) : (
-                  <div className="space-y-8">
-                    <h2 className="text-black text-4xl font-semibold font-['Space_Grotesk'] pt-6 mb-4">
+                  <div className="space-y-6 sm:space-y-8">
+                    <h2 className="text-black text-2xl sm:text-3xl lg:text-4xl font-semibold font-['Space_Grotesk'] pt-4 lg:pt-6 mb-2 lg:mb-4">
                       {section.title}
                     </h2>
                     {section.contents.map((para, pIdx) => (
                       <p
                         key={pIdx}
-                        className="text-black/80 text-2xl font-normal leading-[1.7]"
+                        className="text-black/80 text-lg sm:text-xl lg:text-2xl font-normal leading-relaxed lg:leading-[1.7]"
                       >
                         {para}
                       </p>
@@ -167,13 +167,13 @@ export default async function BlogPage({ params }: BlogPageProps) {
 
         {/* More Articles Section */}
         <div className="max-w-[1507px] mx-auto">
-          <div className="flex items-center justify-center gap-5 mb-12">
-            <h3 className="text-black/60 text-2xl font-semibold font-['Space_Grotesk']">
+          <div className="flex items-center justify-center gap-5 mb-8 lg:mb-12">
+            <h3 className="text-black/60 text-xl sm:text-2xl font-semibold font-['Space_Grotesk']">
               More Articles
             </h3>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-x-3.5 gap-y-12 pb-20">
+          <div className="flex flex-wrap justify-center gap-8 lg:gap-x-3.5 lg:gap-y-12 pb-20">
             {moreArticles.map((article) => (
               <BlogCard
                 key={article.slug}

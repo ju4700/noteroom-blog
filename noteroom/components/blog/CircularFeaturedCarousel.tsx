@@ -29,6 +29,18 @@ export default function CircularFeaturedCarousel({
   const featuredBlogs = blogs.slice(0, 3);
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+      setIsTablet(window.innerWidth >= 640 && window.innerWidth < 1024);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Auto-play interval
   useEffect(() => {
@@ -43,8 +55,17 @@ export default function CircularFeaturedCarousel({
 
   if (!featuredBlogs.length) return null;
 
+  // Responsive dimensions
+  const dynamicCenterWidth = isMobile
+    ? window.innerWidth * 0.9
+    : isTablet
+    ? 600
+    : CENTER_WIDTH;
+  const dynamicSideWidth = isMobile ? 0 : isTablet ? 400 : SIDE_WIDTH;
+  const dynamicPitch = isMobile ? 0 : isTablet ? 550 : PITCH;
+
   return (
-    <div className="relative mx-auto h-[800px] w-full max-w-[1920px] overflow-hidden">
+    <div className="relative mx-auto h-[500px] sm:h-[650px] lg:h-[800px] w-full max-w-[1920px] overflow-hidden">
       <div className="absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-[calc(50%-20px)]">
         <div className="relative h-full w-full">
           {featuredBlogs.map((blog, index) => {
@@ -57,8 +78,8 @@ export default function CircularFeaturedCarousel({
             let position = "hidden"; // Default to hidden
 
             if (diff === 0) position = "center";
-            else if (diff === 1) position = "right";
-            else if (diff === length - 1) position = "left";
+            else if (diff === 1 && !isMobile) position = "right";
+            else if (diff === length - 1 && !isMobile) position = "left";
             else {
               position = "hidden";
             }
@@ -69,8 +90,8 @@ export default function CircularFeaturedCarousel({
             const xPos = isCenter
               ? 0
               : position === "right"
-              ? xOffset
-              : -xOffset;
+              ? dynamicPitch
+              : -dynamicPitch;
 
             return (
               <motion.div
@@ -78,15 +99,21 @@ export default function CircularFeaturedCarousel({
                 initial={false}
                 animate={{
                   x: xPos,
-                  scale: 1,
+                  scale: isCenter ? 1 : 0.85,
                   zIndex: isCenter ? 20 : 10,
-                  opacity: isCenter ? 1 : position === "hidden" ? 0 : 1,
+                  opacity: isCenter ? 1 : position === "hidden" ? 0 : 0.6,
                 }}
                 transition={{ duration: 1.2, type: "spring", bounce: 0.2 }}
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
                 style={{
-                  width: isCenter ? CENTER_WIDTH : SIDE_WIDTH,
-                  height: isCenter ? 599 : 536,
+                  width: isCenter ? dynamicCenterWidth : dynamicSideWidth,
+                  height: isCenter
+                    ? isMobile
+                      ? 400
+                      : isTablet
+                      ? 450
+                      : 599
+                    : 536,
                   marginTop: isCenter ? 0 : SIDE_OFFSET,
                 }}
                 onClick={() => setCurrentSlide(index)}

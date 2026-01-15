@@ -35,19 +35,20 @@ export default async function BlogsPage() {
       </section>
 
       {/* Blog Grid */}
-      <section className="container mx-auto max-w-[1240px] px-4">
-        <div className="flex flex-wrap justify-center gap-x-3.5 gap-y-12">
+      <section className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
           {blogs.map((blog) => (
-            <BlogCard
-              key={blog.slug}
-              slug={blog.slug}
-              title={blog.title}
-              tags={blog.tags}
-              thumbnail={blog.thumbnail}
-              author={blog.author}
-              publishedAt={formatBlogDate(new Date(blog.publishedAt))}
-              readTime={blog.readTime}
-            />
+            <div key={blog.slug} className="flex justify-center">
+              <BlogCard
+                slug={blog.slug}
+                title={blog.title}
+                tags={blog.tags}
+                thumbnail={blog.thumbnail}
+                author={blog.author}
+                publishedAt={formatBlogDate(new Date(blog.publishedAt))}
+                readTime={blog.readTime}
+              />
+            </div>
           ))}
         </div>
 

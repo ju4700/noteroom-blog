@@ -40,7 +40,7 @@ export default function BlogCard({
   // en-GB gives DD/MM/YYYY, replace / with .
 
   return (
-    <article className="group inline-flex w-96 flex-col justify-start items-start gap-3.5 mb-30">
+    <article className="group inline-flex w-full max-w-[400px] flex-col justify-start items-start gap-3.5 mb-12 sm:mb-20">
       <Link href={`/blogs/${slug}`} className="w-full">
         {/* Thumbnail */}
         <div
@@ -65,7 +65,7 @@ export default function BlogCard({
         <div className="flex flex-col justify-start items-start gap-5 mt-3.5">
           {/* Title */}
           <div className="self-stretch h-14 justify-start items-center overflow-hidden">
-            <h3 className="text-black text-xl font-medium font-['Space_Grotesk'] leading-tight group-hover:text-blue-600 transition-colors line-clamp-2">
+            <h3 className="text-black text-xl font-medium font-['Space_Grotesk'] leading-tight group-hover:text-cyan-600 transition-colors line-clamp-2">
               {title}
             </h3>
           </div>

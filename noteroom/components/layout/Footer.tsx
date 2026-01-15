@@ -3,18 +3,18 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-white border-t border-zinc-100 py-16 pb-12">
+    <footer className="w-full bg-white border-t border-zinc-100 py-12 lg:py-16 pb-8 lg:pb-12">
       {/* Aligned Container with Header */}
-      <div className="mx-auto flex w-full max-w-[1692px] flex-col px-4">
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-24 mb-20">
+      <div className="mx-auto flex w-full max-w-[1692px] flex-col px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-24 mb-16 lg:mb-20">
           {/* Links Grid - Consolidated spacing */}
-          <div className="flex flex-wrap justify-start items-start gap-12 sm:gap-20 lg:gap-24">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 sm:gap-16 lg:gap-24 w-full lg:w-auto">
             {/* Company Column */}
-            <div className="inline-flex flex-col justify-start items-start gap-6">
-              <h3 className="text-cyan-600 text-lg font-medium font-['Space_Grotesk']">
+            <div className="inline-flex flex-col justify-start items-start gap-4 lg:gap-6">
+              <h3 className="text-cyan-600 text-base lg:text-lg font-medium font-['Space_Grotesk']">
                 Company
               </h3>
-              <div className="flex flex-col justify-start items-start gap-3">
+              <div className="flex flex-col justify-start items-start gap-2 lg:gap-3">
                 <Link
                   href="/join-us"
                   className="text-zinc-600 text-[13px] font-normal font-['Inter'] hover:text-black transition-colors"
@@ -37,11 +37,11 @@ export default function Footer() {
             </div>
 
             {/* Product Column */}
-            <div className="inline-flex flex-col justify-start items-start gap-6">
-              <h3 className="text-cyan-600 text-lg font-medium font-['Space_Grotesk']">
+            <div className="inline-flex flex-col justify-start items-start gap-4 lg:gap-6">
+              <h3 className="text-cyan-600 text-base lg:text-lg font-medium font-['Space_Grotesk']">
                 Product
               </h3>
-              <div className="flex flex-col justify-start items-start gap-3">
+              <div className="flex flex-col justify-start items-start gap-2 lg:gap-3">
                 <Link
                   href="#"
                   className="text-zinc-600 text-[13px] font-normal font-['Inter'] hover:text-black transition-colors"
@@ -58,11 +58,11 @@ export default function Footer() {
             </div>
 
             {/* Resources Column */}
-            <div className="inline-flex flex-col justify-start items-start gap-6">
-              <h3 className="text-cyan-600 text-lg font-medium font-['Space_Grotesk']">
+            <div className="inline-flex flex-col justify-start items-start gap-4 lg:gap-6">
+              <h3 className="text-cyan-600 text-base lg:text-lg font-medium font-['Space_Grotesk']">
                 Resources
               </h3>
-              <div className="flex flex-col justify-start items-start gap-3">
+              <div className="flex flex-col justify-start items-start gap-2 lg:gap-3">
                 <Link
                   href="/support"
                   className="text-zinc-600 text-[13px] font-normal font-['Inter'] hover:text-black transition-colors"
@@ -79,16 +79,16 @@ export default function Footer() {
             </div>
 
             {/* Socials Column */}
-            <div className="inline-flex flex-col justify-start items-start gap-6">
-              <h3 className="text-cyan-600 text-lg font-medium font-['Space_Grotesk']">
+            <div className="inline-flex flex-col justify-start items-start gap-4 lg:gap-6">
+              <h3 className="text-cyan-600 text-base lg:text-lg font-medium font-['Space_Grotesk']">
                 Socials
               </h3>
-              <div className="flex flex-col justify-start items-start gap-3">
+              <div className="flex flex-col justify-start items-start gap-2 lg:gap-3">
                 <a
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-600 text-[13px] font-normal font-['Inter'] hover:text-black transition-colors"
+                  className="text-zinc-600 text-[13px] font-normal font-['Inter'] hover:text-black transition-colors flex items-center"
                 >
                   Twitter/X
                 </a>
@@ -96,7 +96,7 @@ export default function Footer() {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-600 text-[13px] font-normal font-['Inter'] hover:text-black transition-colors"
+                  className="text-zinc-600 text-[13px] font-normal font-['Inter'] hover:text-black transition-colors flex items-center"
                 >
                   LinkedIn
                 </a>
@@ -104,7 +104,7 @@ export default function Footer() {
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-600 text-[13px] font-normal font-['Inter'] hover:text-black transition-colors"
+                  className="text-zinc-600 text-[13px] font-normal font-['Inter'] hover:text-black transition-colors flex items-center"
                 >
                   Facebook
                 </a>
@@ -112,7 +112,7 @@ export default function Footer() {
                   href="https://youtube.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-600 text-[13px] font-normal font-['Inter'] hover:text-black transition-colors"
+                  className="text-zinc-600 text-[13px] font-normal font-['Inter'] hover:text-black transition-colors flex items-center"
                 >
                   YouTube
                 </a>
@@ -120,21 +120,21 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* CTA Section - More compact */}
-          <div className="flex flex-col justify-start items-start gap-8">
-            <h2 className="text-cyan-600 text-3xl font-medium font-['Space_Grotesk'] leading-tight">
+          {/* CTA Section - More compact and responsive */}
+          <div className="flex flex-col justify-start items-start gap-6 lg:gap-8 w-full lg:w-auto">
+            <h2 className="text-cyan-600 text-2xl lg:text-3xl font-medium font-['Space_Grotesk'] leading-tight">
               Be where ideas are
             </h2>
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center gap-3 lg:gap-4 w-full sm:w-auto">
               <Link
                 href="/waitlist"
-                className="inline-flex items-center justify-center rounded-3xl bg-cyan-600 px-7 py-2.5 text-sm font-normal text-white transition-colors hover:bg-cyan-700 font-['Poppins']"
+                className="flex items-center justify-center rounded-3xl bg-cyan-600 px-7 py-2.5 text-sm font-normal text-white transition-colors hover:bg-cyan-700 font-['Poppins'] w-full sm:w-40 h-11 lg:h-12"
               >
                 Try NoteRoom
               </Link>
               <Link
                 href="/login"
-                className="inline-flex items-center justify-center rounded-3xl bg-zinc-50 border border-zinc-200 px-7 py-2.5 text-sm font-normal text-zinc-800 transition-colors hover:bg-zinc-100 font-['Poppins']"
+                className="flex items-center justify-center rounded-3xl bg-zinc-50 border border-zinc-200 px-7 py-2.5 text-sm font-normal text-zinc-800 transition-colors hover:bg-zinc-100 font-['Poppins'] w-full sm:w-40 h-11 lg:h-12"
               >
                 Login
               </Link>
