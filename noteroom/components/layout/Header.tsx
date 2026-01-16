@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import GlassSurface from "@/components/ui/GlassSurface";
 
 const navLinks = [
   { href: "/about-us", label: "About" },
@@ -45,13 +46,23 @@ export default function Header() {
             ))}
           </div>
 
-          <Link
-            href="/waitlist"
-            className="flex items-center justify-center gap-2.5 rounded-3xl bg-transparent px-7 py-2 outline outline-1 outline-offset-[-1px] outline-zinc-800/50 transition-all hover:bg-zinc-50 hover:outline-zinc-800"
-          >
-            <div className="justify-start font-['Poppins'] text-sm font-light text-zinc-800">
-              Try NoteRoom
-            </div>
+          <Link href="/waitlist">
+            <GlassSurface
+              width="auto"
+              height="40px"
+              borderRadius={24}
+              backgroundOpacity={0.04}
+              borderWidth={0.04}
+              blur={20}
+              saturation={2.5}
+              brightness={100}
+              shadowOpacity={0.6}
+              className="px-7 transition-all brightness-105 hover:brightness-110"
+            >
+              <div className="justify-start font-['Poppins'] text-sm font-light text-zinc-900 whitespace-nowrap">
+                Try NoteRoom
+              </div>
+            </GlassSurface>
           </Link>
         </div>
 
@@ -100,12 +111,23 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/waitlist"
-              className="mt-4 flex justify-center rounded-3xl bg-zinc-100 py-3 font-['Poppins'] text-sm font-medium text-zinc-800"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Try NoteRoom
+            <Link href="/waitlist" onClick={() => setMobileMenuOpen(false)}>
+              <GlassSurface
+                width="100%"
+                height="48px"
+                borderRadius={24}
+                backgroundOpacity={0.04}
+                borderWidth={0.04}
+                blur={20}
+                saturation={2.5}
+                brightness={100}
+                shadowOpacity={0.6}
+                className="mt-4 brightness-105"
+              >
+                <div className="font-['Poppins'] text-sm font-medium text-zinc-900">
+                  Try NoteRoom
+                </div>
+              </GlassSurface>
             </Link>
           </nav>
         </div>
