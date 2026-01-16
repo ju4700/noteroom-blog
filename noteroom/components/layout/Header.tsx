@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import GlassSurface from "@/components/ui/GlassSurface";
+import StaggeredMenu from "@/components/ui/StaggeredMenu";
 
 const navLinks = [
   { href: "/about-us", label: "About" },
@@ -11,9 +11,22 @@ const navLinks = [
   { href: "/blogs", label: "Blog" },
 ];
 
-export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+const mobileMenuItems = [
+  { label: "Home", ariaLabel: "Go to home page", link: "/" },
+  { label: "About", ariaLabel: "Learn about us", link: "/about-us" },
+  { label: "Career", ariaLabel: "Join our team", link: "/join-us" },
+  { label: "Blog", ariaLabel: "Read our blog", link: "/blogs" },
+  { label: "Try NoteRoom", ariaLabel: "Join the waitlist", link: "/waitlist" },
+];
 
+const socialItems = [
+  { label: "Twitter/X", link: "https://twitter.com" },
+  { label: "LinkedIn", link: "https://linkedin.com" },
+  { label: "Facebook", link: "https://facebook.com" },
+  { label: "YouTube", link: "https://youtube.com" },
+];
+
+export default function Header() {
   return (
     <header className="sticky top-0 z-50 flex w-full justify-center bg-transparent py-4 lg:py-6">
       <div className="header-container inline-flex w-full max-w-[1692px] items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -24,6 +37,7 @@ export default function Header() {
           <img src="/logofinale.png" alt="logo" className="h-20 w-auto mr-2" />
         </Link>
 
+        {/* Desktop Navigation */}
         <div className="hidden h-10 items-center justify-start gap-8 md:flex">
           <div className="flex items-center justify-start gap-3.5">
             {navLinks.map((link) => (
@@ -66,72 +80,21 @@ export default function Header() {
           </Link>
         </div>
 
-        <button
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-700 md:hidden"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          )}
-        </button>
-      </div>
-
-      {mobileMenuOpen && (
-        <div className="absolute left-0 top-full w-full border-t border-gray-100 bg-white md:hidden">
-          <nav className="flex flex-col px-4 py-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="py-3 font-['Poppins'] text-base font-medium text-gray-700"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link href="/waitlist" onClick={() => setMobileMenuOpen(false)}>
-              <GlassSurface
-                width="100%"
-                height="48px"
-                borderRadius={24}
-                backgroundOpacity={0.04}
-                borderWidth={0.04}
-                blur={20}
-                saturation={2.5}
-                brightness={100}
-                shadowOpacity={0.6}
-                className="mt-4 brightness-105"
-              >
-                <div className="font-['Poppins'] text-sm font-medium text-zinc-900">
-                  Try NoteRoom
-                </div>
-              </GlassSurface>
-            </Link>
-          </nav>
+        {/* Mobile Navigation - StaggeredMenu */}
+        <div className="md:hidden flex items-center">
+          <StaggeredMenu
+            items={mobileMenuItems}
+            socialItems={socialItems}
+            displaySocials={true}
+            displayItemNumbering={true}
+            menuButtonColor="#000" // Matches current header text color
+            openMenuButtonColor="#000"
+            accentColor="#0891b2" // cyan-600 to match footer/brand
+            changeMenuColorOnOpen={false}
+            colors={["#fff", "#f4f4f5"]} // Light background layers
+          />
         </div>
-      )}
+      </div>
     </header>
   );
 }
