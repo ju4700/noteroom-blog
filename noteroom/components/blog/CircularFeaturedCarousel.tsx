@@ -128,7 +128,7 @@ export default function CircularFeaturedCarousel({
 
                   <div className="absolute inset-0 rounded-[20px] bg-gradient-to-b from-transparent via-transparent to-black/90" />
                   <motion.div
-                    className="absolute bottom-0 left-[42px] z-10 flex flex-col gap-6 pb-[58px]"
+                    className="absolute bottom-0 left-[42px] z-10 flex flex-col gap-6 pb-[35px]"
                     animate={{ opacity: isCenter ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -159,7 +159,7 @@ export default function CircularFeaturedCarousel({
 
                         <div className="h-[5px] w-[5px] rounded-full bg-white" />
 
-                        <span className="font-['Poppins'] text-xl font-normal text-neutral-500">
+                        <span className="font-['Poppins'] text-xl font-normal text-neutral-100">
                           {blog.tags[0] || "Blog"}
                         </span>
                       </div>
