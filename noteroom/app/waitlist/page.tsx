@@ -47,7 +47,9 @@ export default function WaitlistPage() {
   }
 
   return (
-    <div className="relative flex min-h-[calc(100vh-64px)] items-center justify-center overflow-hidden bg-gray-50">
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-transparent">
+      {/* Background to cover entire viewport including header area */}
+      <div className="fixed inset-0 -z-10 bg-[#F4F4F2]" />
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10">
           <Image

@@ -129,7 +129,7 @@ export default function CircularFeaturedCarousel({
 
                   <div className="absolute inset-0 rounded-[20px] bg-gradient-to-b from-transparent via-transparent to-black/90" />
                   <motion.div
-                    className="absolute bottom-0 left-[42px] z-10 flex flex-col gap-6 pb-[35px]"
+                    className="absolute bottom-0 left-[42px] z-10 flex flex-col gap-2 pb-[35px]"
                     animate={{ opacity: isCenter ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -137,7 +137,7 @@ export default function CircularFeaturedCarousel({
                       {blog.title}
                     </h2>
 
-                    <div className="flex items-center gap-4 text-white">
+                    <div className="flex items-center gap-2 text-white">
                       <div className="relative h-8 w-8 overflow-hidden rounded-3xl bg-zinc-700">
                         {blog.author.avatar ? (
                           <Image
@@ -153,7 +153,7 @@ export default function CircularFeaturedCarousel({
                         )}
                       </div>
 
-                      <div className="flex items-center gap-8">
+                      <div className="flex items-center gap-4">
                         <span className="font-['Poppins'] text-xl font-normal text-white">
                           {blog.author.name}
                         </span>
@@ -198,7 +198,7 @@ export default function CircularFeaturedCarousel({
               (prev) => (prev - 1 + featuredBlogs.length) % featuredBlogs.length
             )
           }
-          className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-3xl bg-neutral-100 transition-colors hover:bg-neutral-200"
+          className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-3xl bg-white transition-colors hover:bg-zinc-50"
           aria-label="Previous slide"
         >
           <div className="relative h-6 w-6 overflow-hidden">
@@ -224,7 +224,7 @@ export default function CircularFeaturedCarousel({
           onClick={() =>
             setCurrentSlide((prev) => (prev + 1) % featuredBlogs.length)
           }
-          className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-3xl bg-neutral-100 transition-colors hover:bg-neutral-200"
+          className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-3xl bg-white transition-colors hover:bg-zinc-50"
           aria-label="Next slide"
         >
           <div className="relative h-6 w-6 overflow-hidden">

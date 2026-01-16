@@ -12,6 +12,10 @@
   --font-poppins: var(--font-poppins);
 }
 
+body {
+  background-color: #F4F4F2;
+}
+
 /* Animations */
 .animate-float {
   animation: float 6s ease-in-out infinite;

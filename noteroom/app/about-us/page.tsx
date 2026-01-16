@@ -27,5 +27,10 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return <div className="bg-white"></div>;
+  return (
+    <div className="relative min-h-screen overflow-hidden bg-transparent">
+      {/* Background to cover entire viewport including header area */}
+      <div className="fixed inset-0 -z-10 bg-[#F4F4F2]" />
+    </div>
+  );
 }

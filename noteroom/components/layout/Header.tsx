@@ -29,7 +29,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="inline-flex items-center justify-center gap-1.5 rounded-3xl bg-zinc-100 px-5 py-2 transition-colors hover:bg-zinc-200"
+                className="inline-flex items-center justify-center gap-1.5 rounded-3xl bg-white px-5 py-2 transition-colors hover:bg-zinc-200"
               >
                 <div className="text-center font-['Poppins'] text-sm font-normal text-zinc-800">
                   {link.label}

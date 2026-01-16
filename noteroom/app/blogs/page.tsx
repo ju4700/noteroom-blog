@@ -14,7 +14,7 @@ export default async function BlogsPage() {
 
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden bg-transparent pb-20">
-      <div className="fixed inset-0 -z-10 bg-white">
+      <div className="fixed inset-0 -z-10 bg-[#F4F4F2]">
         <DarkVeil />
       </div>
       <section className="container-custom pt-32 pb-4 text-center">

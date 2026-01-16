@@ -24,6 +24,9 @@ export const metadata: Metadata = {
 
 export default function JoinUsPage() {
   return (
-    <div className="relative min-h-[calc(100vh-64px)] overflow-hidden bg-white"></div>
+    <div className="relative min-h-screen overflow-hidden bg-transparent">
+      {/* Background to cover entire viewport including header area */}
+      <div className="fixed inset-0 -z-10 bg-[#F4F4F2]" />
+    </div>
   );
 }

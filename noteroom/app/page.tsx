@@ -3,7 +3,9 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-[calc(100vh-64px)] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white to-gray-50">
+    <div className="relative flex min-h-[calc(100vh-64px)] flex-col items-center justify-center overflow-hidden bg-transparent">
+      {/* Background to cover entire viewport including header area */}
+      <div className="fixed inset-0 -z-10 bg-[#F4F4F2]" />
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -left-40 -top-40 h-80 w-80 rounded-full bg-indigo-100 opacity-50 blur-3xl" />
         <div className="absolute -bottom-40 -right-40 h-80 w-80 rounded-full bg-purple-100 opacity-50 blur-3xl" />
