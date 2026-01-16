@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
+import ColorBends from "@/components/ui/ColorBends";
 
 export default function CareerContent() {
   const perks = [
@@ -73,8 +74,23 @@ export default function CareerContent() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-transparent">
-      {/* Background to cover entire viewport including header area */}
-      <div className="fixed inset-0 -z-10 bg-[#F4F4F2]" />
+      {/* Animated Background */}
+      <div className="fixed inset-0 -z-10 bg-[#F4F4F2]">
+        <div className="absolute inset-0 opacity-30">
+          <ColorBends
+            colors={["#5227FF", "#FF9FFC", "#7cff67"]}
+            rotation={45}
+            speed={0.2}
+            scale={1}
+            frequency={1}
+            warpStrength={1}
+            mouseInfluence={1}
+            parallax={0.5}
+            noise={0.1}
+            transparent
+          />
+        </div>
+      </div>
 
       <main className="container mx-auto px-6 py-20 flex flex-col items-center gap-20">
         {/* Perks Section */}
