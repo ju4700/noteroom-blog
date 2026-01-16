@@ -18,7 +18,7 @@ export default function Header() {
       <div className="header-container inline-flex w-full max-w-[1692px] items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="flex h-10 w-auto -ml-8 items-center justify-center text-center font-['Bruno_Ace'] text-xl font-normal leading-tight text-black"
+          className="flex h-10 w-auto -ml-6 items-center justify-center text-center font-['Bruno_Ace'] text-xl font-normal leading-tight text-black"
         >
           <img src="/logofinale.png" alt="logo" className="h-20 w-auto mr-2" />
         </Link>

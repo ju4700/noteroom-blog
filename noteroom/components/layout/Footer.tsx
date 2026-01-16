@@ -138,17 +138,13 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 border-t border-zinc-100 pt-10">
           <Link
             href="/"
-            className="flex items-center opacity-80 hover:opacity-100 transition-opacity"
+            className="flex -ml-6 items-center opacity-80 hover:opacity-100 transition-opacity"
           >
             <img
-              src="/logo.png"
-              alt="NoteRoom"
-              className="w-4 mr-2 grayscale"
-              suppressHydrationWarning
+              src="/logofinale.png"
+              alt="logo"
+              className="h-20 w-auto mr-2"
             />
-            <span className="font-['Bruno_Ace'] text-lg text-black">
-              noteroom
-            </span>
           </Link>
           <p className="text-zinc-400 text-[13px] font-medium font-['Space_Grotesk'] tracking-wide">
             © {new Date().getFullYear()} NoteRoom - Be where ideas are
