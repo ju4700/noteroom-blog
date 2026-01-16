@@ -193,7 +193,7 @@ export default function CareerContent() {
             variants={itemVariants}
           >
             <Image
-              src="/about/heroimage.jpg"
+              src="/career/office.jpg"
               alt="Career Hero"
               fill
               className="object-cover"
@@ -224,6 +224,103 @@ export default function CareerContent() {
             Joining our team, you’ll become a part of shaping how future
             generation of people think and interact with the internet.
           </motion.p>
+        </motion.section>
+
+        {/* Office Location */}
+        <motion.section
+          className="w-full max-w-6xl flex flex-col items-center gap-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+        >
+          <motion.h2
+            className="text-4xl md:text-5xl font-normal font-space-grotesk text-center text-black"
+            variants={itemVariants}
+          >
+            Find Us Here
+          </motion.h2>
+
+          <Link
+            href="https://maps.app.goo.gl/1f2brbbbaKmG9cuD8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full"
+          >
+            <motion.div
+              className="w-full h-[400px] md:h-[600px] rounded-[20px] overflow-hidden relative shadow-lg cursor-pointer group"
+              variants={itemVariants}
+              whileHover={{ scale: 1.01 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              {/* Background Image */}
+              <Image
+                src="/career/street.jpg"
+                alt="Office Location"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
+
+              {/* Address Card */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+                <div className="backdrop-blur-md bg-white/20 border border-white/30 rounded-2xl p-6 md:p-8 max-w-xl">
+                  <div className="flex items-start gap-4">
+                    {/* Map Pin Icon */}
+                    <div className="shrink-0 w-10 h-10 rounded-full bg-cyan-600 flex items-center justify-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={2}
+                        stroke="white"
+                        className="w-5 h-5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                        />
+                      </svg>
+                    </div>
+
+                    <div>
+                      <h3 className="text-white text-lg md:text-xl font-semibold font-inter mb-1">
+                        Office Location
+                      </h3>
+                      <p className="text-white/90 text-sm md:text-base font-inter leading-relaxed">
+                        C-Block, 4th Floor, Gulzar Tower, Chawkbazar, Bangladesh
+                      </p>
+                      <p className="text-cyan-300 text-sm font-inter mt-3 flex items-center gap-2 group-hover:underline">
+                        View on Google Maps
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={2}
+                          stroke="currentColor"
+                          className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                          />
+                        </svg>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </Link>
         </motion.section>
 
         {/* Perks Section */}
