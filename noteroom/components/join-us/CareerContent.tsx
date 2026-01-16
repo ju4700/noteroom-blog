@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { motion, Variants } from "framer-motion";
+import Link from "next/link";
+import { motion, Variants, AnimatePresence } from "framer-motion";
 import ColorBends from "@/components/ui/ColorBends";
 
 import GlareHover from "@/components/ui/GlareHover";
@@ -27,17 +28,80 @@ export default function CareerContent() {
     ],
   ];
 
-  const roles = [
-    "LLM Engineer",
-    "Frontend Engineer",
-    "Backend Engineer",
-    "User Experience Designer",
-    "User Interface Designer",
-    "Content Creator",
-    "SEO & Discovery Specialist",
-    "Graphic Designer",
-    "Marketing Specialist",
+  interface Role {
+    title: string;
+    responsibilities: string;
+    requirements: string;
+  }
+
+  const roles: Role[] = [
+    {
+      title: "LLM Engineer",
+      responsibilities:
+        "You will design and implement LLM-powered features that drive the core experience of NoteRoom. This includes optimizing model performance, reducing latency, and building robust RAG pipelines. You'll also work on prompt engineering systems to ensure our AI interactions are helpful, accurate, and context-aware.",
+      requirements:
+        "We are looking for an engineer with hands-on experience using OpenAI, Anthropic, or similar APIs. Strong proficiency in Python or TypeScript is essential, along with a deep understanding of embeddings and vector databases.",
+    },
+    {
+      title: "Frontend Engineer",
+      responsibilities:
+        "As a Frontend Engineer, you will build responsive and performant web interfaces that delight our users. You will master complex UI interactions, implement smooth animations with Framer Motion, and collaborate closely with designers to ensure every pixel is perfect.",
+      requirements:
+        "You should have expert-level proficiency in React, Next.js, and TypeScript. Experience with Tailwind CSS is a must, and a strong eye for design details will set you apart.",
+    },
+    {
+      title: "Backend Engineer",
+      responsibilities:
+        "You will architect and build scalable APIs and services that power the NoteRoom platform. Your work will involve managing database architecture, optimizing query performance, and ensuring our authentication and security protocols follow industry best practices.",
+      requirements:
+        "We need someone with strong experience in Node.js, Python, or Go. Familiarity with PostgreSQL or MongoDB is crucial, as is a good understanding of cloud infrastructure on AWS or GCP.",
+    },
+    {
+      title: "User Experience Designer",
+      responsibilities:
+        "You will be the voice of the user, conducting research and usability testing to inform our product decisions. You'll create user flows, wireframes, and prototypes that define the information architecture and interaction patterns of NoteRoom.",
+      requirements:
+        "We require 3+ years of UX design experience and proficiency in Figma. A strong portfolio demonstrating your user-centered design process is essential.",
+    },
+    {
+      title: "User Interface Designer",
+      responsibilities:
+        "Your role is to create visually stunning and cohesive designs that elevate our brand. You will develop and maintain our design system, ensuring consistency across the platform, and collaborate with engineers to bring your visions to life.",
+      requirements:
+        "You must have a strong visual design portfolio and expert-level skills in Figma. A deep understanding of modern design trends, typography, and accessibility standards is required.",
+    },
+    {
+      title: "Content Creator",
+      responsibilities:
+        "You will produce engaging written and visual content that tells the NoteRoom story. This involves developing content strategies that align with our brand voice, managing our editorial calendar, and creating pieces that resonate with our community.",
+      requirements:
+        "Excellent storytelling and writing skills are non-negotiable. Experience with content management systems and a solid understanding of SEO principles will be highly valued.",
+    },
+    {
+      title: "SEO & Discovery Specialist",
+      responsibilities:
+        "You will drive organic growth by developing and executing comprehensive SEO strategies. Your role involves analyzing traffic data to identify opportunities, researching high-impact keywords, and optimizing our site structure for maximum visibility.",
+      requirements:
+        "A proven track record in SEO is required, along with experience using analytics tools like GA4 and Search Console. You should understand the technical aspects of site performance and indexing.",
+    },
+    {
+      title: "Graphic Designer",
+      responsibilities:
+        "You will create compelling visual assets for our social media channels, marketing campaigns, and product interfaces. You'll design illustrations and graphics that maintain our brand consistency and catch the eye of our audience.",
+      requirements:
+        "Proficiency in Adobe Creative Suite or Figma is expected. We are looking for a designer with a diverse portfolio who can work quickly without sacrificing quality.",
+    },
+    {
+      title: "Marketing Specialist",
+      responsibilities:
+        "You will plan and execute marketing campaigns that drive user acquisition and engagement. This includes managing our social media presence, analyzing campaign performance metrics, and optimizing our strategies for better ROI.",
+      requirements:
+        "Experience in digital marketing involves knowledge of automation tools and strong analytical skills. You should be a clear communicator who can craft compelling messages.",
+    },
   ];
+
+  const [expandedRole, setExpandedRole] = useState<number | null>(null);
+  const APPLY_LINK = "https://tally.so/r/3NdQoQ";
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -217,43 +281,100 @@ export default function CareerContent() {
           </motion.h2>
 
           <div className="w-full flex flex-col gap-6">
-            {roles.map((role, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="w-full h-24"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                <GlareHover
-                  width="100%"
-                  height="100%"
-                  borderRadius="16px"
-                  background="rgba(255, 255, 255, 0.4)"
-                  borderColor="rgba(0,0,0,0.3)"
-                  glareOpacity={0.3}
-                  glareColor="#3F8BC8"
-                  transitionDuration={1000}
+            {roles.map((role, index) => {
+              const isExpanded = expandedRole === index;
+              return (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  layout
+                  className="w-full"
                 >
-                  <div className="w-full px-7 flex justify-between items-center bg-transparent">
-                    <span className="text-black/90 text-xl font-normal font-inter text-center md:text-left">
-                      {role}
-                    </span>
+                  {/* Role Header */}
+                  <div
+                    onClick={() => setExpandedRole(isExpanded ? null : index)}
+                    className="cursor-pointer"
+                  >
+                    <GlareHover
+                      width="100%"
+                      height="96px"
+                      borderRadius={isExpanded ? "16px 16px 0 0" : "16px"}
+                      background="rgba(255, 255, 255, 0.4)"
+                      borderColor="rgba(0,0,0,0.3)"
+                      glareOpacity={0.3}
+                      glareColor="#3F8BC8"
+                      transitionDuration={1000}
+                    >
+                      <div className="w-full h-full px-7 flex justify-between items-center bg-transparent">
+                        <span className="text-black/90 text-xl font-normal font-inter text-center md:text-left">
+                          {role.title}
+                        </span>
 
-                    {/* Arrow Icon */}
-                    <div className="w-9 h-9 relative flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity">
-                      <Image
-                        src="/career/arrow.png"
-                        alt="Arrow"
-                        width={36}
-                        height={36}
-                        className="w-9 h-9 object-contain"
-                      />
-                    </div>
+                        {/* Arrow Icon - rotates when expanded */}
+                        <motion.div
+                          className="w-9 h-9 relative flex items-center justify-center opacity-70"
+                          animate={{ rotate: isExpanded ? 90 : 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Image
+                            src="/career/arrow.png"
+                            alt="Arrow"
+                            width={36}
+                            height={36}
+                            className="w-9 h-9 object-contain"
+                          />
+                        </motion.div>
+                      </div>
+                    </GlareHover>
                   </div>
-                </GlareHover>
-              </motion.div>
-            ))}
+
+                  {/* Expanded Content */}
+                  <AnimatePresence>
+                    {isExpanded && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden bg-white/60 backdrop-blur-sm rounded-b-2xl border border-t-0 border-black/20"
+                      >
+                        <div className="p-8 flex flex-col gap-8">
+                          {/* Responsibilities */}
+                          <div>
+                            <h4 className="text-base font-medium font-inter text-black mb-2 opacity-90">
+                              Responsibilities
+                            </h4>
+                            <p className="text-sm md:text-[15px] font-light font-inter text-black/70 leading-relaxed">
+                              {role.responsibilities}
+                            </p>
+                          </div>
+
+                          {/* Requirements */}
+                          <div>
+                            <h4 className="text-base font-medium font-inter text-black mb-2 opacity-90">
+                              Requirements
+                            </h4>
+                            <p className="text-sm md:text-[15px] font-light font-inter text-black/70 leading-relaxed">
+                              {role.requirements}
+                            </p>
+                          </div>
+
+                          {/* Apply Now Button */}
+                          <Link
+                            href={APPLY_LINK}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="self-end mt-4 px-8 py-3 bg-[#3F8BC8] hover:bg-[#3578A8] text-white font-inter font-medium rounded-full transition-colors"
+                          >
+                            Apply Now
+                          </Link>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
           </div>
 
           <motion.div
