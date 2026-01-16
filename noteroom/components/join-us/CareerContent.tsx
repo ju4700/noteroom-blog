@@ -38,65 +38,72 @@ export default function CareerContent() {
     {
       title: "LLM Engineer",
       responsibilities:
-        "You will design and implement LLM-powered features that drive the core experience of NoteRoom. This includes optimizing model performance, reducing latency, and building robust RAG pipelines. You'll also work on prompt engineering systems to ensure our AI interactions are helpful, accurate, and context-aware.",
+        "As an LLM Engineer at NoteRoom, you will be at the forefront of our product's intelligence. You will architect, develop, and fine-tune large language model integrations to create seamless, context-aware user experiences. Your work will involve building sophisticated RAG (Retrieval-Augmented Generation) pipelines, optimizing inference latency for real-time interactions, and pioneering advanced prompt engineering techniques to ensure our AI is not just powerful, but truly intuitive and reliable.",
       requirements:
-        "We are looking for an engineer with hands-on experience using OpenAI, Anthropic, or similar APIs. Strong proficiency in Python or TypeScript is essential, along with a deep understanding of embeddings and vector databases.",
+        "We are looking for a deep technical expert who has successfully deployed LLM-powered applications at scale using OpenAI, Anthropic, or open-source models. You should possess exceptional TypeScript or Python skills, a rigorous understanding of vector databases like Pinecone or Weaviate, and a passion for staying ahead of the rapidly evolving AI landscape.",
     },
     {
       title: "Frontend Engineer",
       responsibilities:
-        "As a Frontend Engineer, you will build responsive and performant web interfaces that delight our users. You will master complex UI interactions, implement smooth animations with Framer Motion, and collaborate closely with designers to ensure every pixel is perfect.",
+        "You will be responsible for crafting the visual soul of NoteRoom. Working at the intersection of high performance and elegant design, you'll build complex, state-managed React applications that remain fluid and responsive even under heavy load. You'll translate intricate design concepts into pixel-perfect reality, implementing sophisticated micro-interactions and animations that make using NoteRoom a truly premium, 'glassmorphic' experience.",
       requirements:
-        "You should have expert-level proficiency in React, Next.js, and TypeScript. Experience with Tailwind CSS is a must, and a strong eye for design details will set you apart.",
+        "Our ideal candidate is a master of the modern frontend stack: React, Next.js, and TypeScript. You should have extensive experience with Framer Motion for high-fidelity animations and Tailwind CSS for scalable styling. A sharp eye for typography, whitespace, and visual hierarchy is essential—we don't just build features; we build art.",
     },
     {
       title: "Backend Engineer",
       responsibilities:
-        "You will architect and build scalable APIs and services that power the NoteRoom platform. Your work will involve managing database architecture, optimizing query performance, and ensuring our authentication and security protocols follow industry best practices.",
+        "You will build the robust, high-availability engine that keeps NoteRoom running globally. Your focus will be on designing distributed systems that manage massive streams of data with minimal latency. From architecting scalable MongoDB schemas and optimizing complex PostgreSQL queries to implementing ultra-secure authentication layers, your code will ensure that NoteRoom remains fast, reliable, and perfectly synced across all devices.",
       requirements:
-        "We need someone with strong experience in Node.js, Python, or Go. Familiarity with PostgreSQL or MongoDB is crucial, as is a good understanding of cloud infrastructure on AWS or GCP.",
+        "We need an engineer who thinks in systems and scale. You should have deep expertise in Node.js, Python, or Go, and a proven ability to manage cloud-native infrastructure on AWS or GCP. Experience with real-time data synchronization, WebSocket management, and API design principles is highly desired.",
+    },
+    {
+      title: "Product Designer",
+      responsibilities:
+        "You will be the bridge between user needs and technical implementation, owning the end-to-end product design process at NoteRoom. From conceptualizing groundbreaking features to refining complex user journeys, you'll create elegant, functional solutions that define the future of productivity. You'll collaborate daily with engineers and product leads to balance aesthetic vision with practical constraints, ensuring NoteRoom remains both beautiful and indispensable.",
+      requirements:
+        "We are looking for a versatile designer who masters both the 'how' and the 'why' of product design. You should have extensive experience in full-cycle product design, a strong proficiency in Figma, and a portfolio that demonstrates your ability to simplify complex data into intuitive interfaces. A deep understanding of design systems, user psychological principles, and the ability to articulate your design decisions with clarity is essential.",
     },
     {
       title: "User Experience Designer",
       responsibilities:
-        "You will be the voice of the user, conducting research and usability testing to inform our product decisions. You'll create user flows, wireframes, and prototypes that define the information architecture and interaction patterns of NoteRoom.",
+        "You will define how people interact with their thoughts in a digital space. Your mission is to simplify the complex, conducting deep user research and usability studies to uncover the core needs of our diverse community. You'll create comprehensive user flows, wireframes, and prototypes that establish intuitive navigation and interaction patterns, ensuring that NoteRoom feels like a natural extension of the user's mind.",
       requirements:
-        "We require 3+ years of UX design experience and proficiency in Figma. A strong portfolio demonstrating your user-centered design process is essential.",
+        "We require a strategic designer with 3+ years of experience in product-focused UX roles. You should be an expert in Figma and possess a portfolio that showcases your ability to solve complex information architecture problems. A background in cognitive psychology or human-computer interaction is a significant plus.",
     },
     {
       title: "User Interface Designer",
       responsibilities:
-        "Your role is to create visually stunning and cohesive designs that elevate our brand. You will develop and maintain our design system, ensuring consistency across the platform, and collaborate with engineers to bring your visions to life.",
+        "You will set the aesthetic standard for the next generation of productivity tools. Your role is to develop and evolve NoteRoom’s visual language, creating stunning, high-fidelity interfaces that embody our 'Electrical Blue' and glassmorphic design philosophy. You’ll maintain a comprehensive design system that ensures perfect consistency and work hand-in-hand with engineers to ensure every shadow and gradient is implemented flawlessly.",
       requirements:
-        "You must have a strong visual design portfolio and expert-level skills in Figma. A deep understanding of modern design trends, typography, and accessibility standards is required.",
+        "You are an artist with a toolkit of modern design software. Expert-level Figma skills are mandatory, as is a portfolio that reflects a deep mastery of color theory, layout, and visual branding. You must be able to communicate the 'why' behind your design choices and inspire the team with your creative vision.",
     },
     {
       title: "Content Creator",
       responsibilities:
-        "You will produce engaging written and visual content that tells the NoteRoom story. This involves developing content strategies that align with our brand voice, managing our editorial calendar, and creating pieces that resonate with our community.",
+        "You will be the primary storyteller for the NoteRoom brand. Your goal is to create a vibrant content ecosystem—from long-form educational blog posts to engaging social media narratives—that inspires our users to do their best work. You'll manage our content calendar, develop cross-platform strategies that reflect our high-end brand voice, and find innovative ways to showcase how NoteRoom transforms productivity.",
       requirements:
-        "Excellent storytelling and writing skills are non-negotiable. Experience with content management systems and a solid understanding of SEO principles will be highly valued.",
+        "We are looking for a versatile writer and visual thinker with a track record of building audience engagement. You should have a deep understanding of content marketing, experience with modern CMS platforms, and the ability to adapt your tone for different audiences without losing the brand's premium feel.",
     },
     {
       title: "SEO & Discovery Specialist",
       responsibilities:
-        "You will drive organic growth by developing and executing comprehensive SEO strategies. Your role involves analyzing traffic data to identify opportunities, researching high-impact keywords, and optimizing our site structure for maximum visibility.",
+        "You will lead our organic growth strategy, ensuring that NoteRoom is the first solution people find when they search for productivity tools. You'll perform deep keyword research, technical SEO audits, and competitive analyses to drive high-quality traffic. By optimizing our site structure, content, and discovery signals across search engines and AI discovery platforms, you will play a critical role in our global expansion.",
       requirements:
-        "A proven track record in SEO is required, along with experience using analytics tools like GA4 and Search Console. You should understand the technical aspects of site performance and indexing.",
+        "A proven background in SEO-driven growth is required. You should be data-obsessed, with expert knowledge of GA4, Search Console, and advanced SEO tools. Experience with technical SEO for Next.js applications and an understanding of how AI search engines are changing the discovery landscape is essential.",
     },
     {
       title: "Graphic Designer",
       responsibilities:
-        "You will create compelling visual assets for our social media channels, marketing campaigns, and product interfaces. You'll design illustrations and graphics that maintain our brand consistency and catch the eye of our audience.",
+        "You will produce the high-impact visual assets that define our presence across the digital world. From intricate custom illustrations for the website to dynamic social media graphics and marketing collateral, your work will be the face of NoteRoom. You'll maintain a rigorous standard of brand consistency while continually pushing the boundaries of our visual storytelling through experimental designs and stunning layouts.",
       requirements:
-        "Proficiency in Adobe Creative Suite or Figma is expected. We are looking for a designer with a diverse portfolio who can work quickly without sacrificing quality.",
+        "You must be proficient in the Adobe Creative Suite and Figma, with a portfolio that showcases a unique and sophisticated visual style. We value designers who can work across mediums and who bring a proactive, creative energy to every project, whether it's a small icon or a major brand campaign.",
     },
     {
       title: "Marketing Specialist",
       responsibilities:
-        "You will plan and execute marketing campaigns that drive user acquisition and engagement. This includes managing our social media presence, analyzing campaign performance metrics, and optimizing our strategies for better ROI.",
+        "You will be the architect of our market presence, designing and executing multi-channel campaigns that drive sustainable user growth. Your role involves managing our paid and organic social channels, analyzing complex campaign datasets to optimize ROI, and collaborating with the entire team to launch new features with maximum impact. You'll find creative ways to position NoteRoom as the premium choice in a competitive market.",
       requirements:
-        "Experience in digital marketing involves knowledge of automation tools and strong analytical skills. You should be a clear communicator who can craft compelling messages.",
+        "We need a marketing strategist with experience in high-growth startups or premium tech brands. You should have a strong grasp of marketing automation, performance tracking, and brand positioning. Exceptional communication skills and the ability to turn data insights into actionable creative strategies are vital.",
     },
   ];
 
@@ -364,7 +371,7 @@ export default function CareerContent() {
                             href={APPLY_LINK}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="self-end mt-4 px-8 py-3 bg-[#3F8BC8] hover:bg-[#3578A8] text-white font-inter font-medium rounded-full transition-colors"
+                            className="self-end mt-4 px-8 py-3 bg-cyan-600 hover:bg-cyan-700 text-white font-inter font-medium rounded-full transition-colors"
                           >
                             Apply Now
                           </Link>
