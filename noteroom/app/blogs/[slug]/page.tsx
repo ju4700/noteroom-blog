@@ -74,7 +74,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
             </span>
           </div>
 
-          <h1 className="max-w-[1000px] text-center text-black text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium font-['Space_Grotesk'] leading-tight lg:leading-[1.2]">
+          <h1 className="max-w-[1000px] text-center text-black text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium font-['Space_Grotesk'] leading-tight lg:leading-[1.2]">
             {blog.title}
           </h1>
 
@@ -121,8 +121,8 @@ export default async function BlogPage({ params }: BlogPageProps) {
         </div>
 
         <div className="max-w-[1200px] mx-auto space-y-8 sm:space-y-16 mb-24 lg:mb-40">
-          <div className="font-['Inter'] text-black text-lg sm:text-xl lg:text-2xl font-normal leading-relaxed lg:leading-[1.6]">
-            <span className="inline-block text-black text-5xl sm:text-7xl lg:text-9xl font-normal leading-[0.5] align-baseline mr-1">
+          <div className="font-['Inter'] text-black text-base sm:text-lg lg:text-xl font-normal leading-relaxed lg:leading-[1.6]">
+            <span className="inline-block text-black text-4xl sm:text-6xl lg:text-8xl font-normal leading-[0.5] align-baseline mr-1">
               {firstLetter}
             </span>
             {restOfFirstParagraph}
@@ -135,20 +135,20 @@ export default async function BlogPage({ params }: BlogPageProps) {
                   section.contents.slice(1).map((para, pIdx) => (
                     <p
                       key={pIdx}
-                      className="text-black/80 text-lg sm:text-xl lg:text-2xl font-normal leading-relaxed lg:leading-[1.7]"
+                      className="text-black/80 text-base sm:text-lg lg:text-xl font-normal leading-relaxed lg:leading-[1.7]"
                     >
                       {para}
                     </p>
                   ))
                 ) : (
                   <div className="space-y-4 sm:space-y-8">
-                    <h2 className="text-black text-xl sm:text-2xl lg:text-3xl font-semibold font-['Space_Grotesk'] pt-4 lg:pt-6 mb-1 lg:mb-4">
+                    <h2 className="text-black text-lg sm:text-xl lg:text-2xl font-semibold font-['Space_Grotesk'] pt-4 lg:pt-6 mb-1 lg:mb-4">
                       {section.title}
                     </h2>
                     {section.contents.map((para, pIdx) => (
                       <p
                         key={pIdx}
-                        className="text-black/80 text-lg sm:text-xl lg:text-2xl font-normal leading-relaxed lg:leading-[1.7]"
+                        className="text-black/80 text-base sm:text-lg lg:text-xl font-normal leading-relaxed lg:leading-[1.7]"
                       >
                         {para}
                       </p>
