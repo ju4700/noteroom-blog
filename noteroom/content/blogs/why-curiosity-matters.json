@@ -1,0 +1,31 @@
+{
+  "slug": "why-curiosity-matters",
+  "title": "Why Curiosity is Your Greatest Asset",
+  "tags": ["Mindset", "Growth"],
+  "thumbnail": "blog-thumbnails/1761006109601.png",
+  "author": {
+    "name": "NoteRoom Team",
+    "avatar": ""
+  },
+  "readTime": "3 mins",
+  "publishedAt": "2025-05-12T00:00:00.000Z",
+  "featured": false,
+  "content": [
+    {
+      "index": "01",
+      "title": "The Spark of Discovery",
+      "contents": [
+        "Curiosity isn't just about asking questions; it's about a fundamental openness to the world. It is the drive that leads scientists to break-throughs and artists to new forms of expression. When we stop being curious, we stop growing.",
+        "In our daily lives, curiosity can transform the mundane into the magical. It allows us to see connections where others see isolation."
+      ]
+    },
+    {
+      "index": "02",
+      "title": "Cultivating a Curious Mind",
+      "contents": [
+        "How do we keep the flame alive? By staying humble, by trying new things, and by never being afraid to say 'I don't know.'",
+        "Curiosity is the fuel for a fulfilling life."
+      ]
+    }
+  ]
+}

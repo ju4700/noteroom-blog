@@ -167,7 +167,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
             </h3>
           </div>
 
-          <div className="flex flex-wrap justify-center items-start gap-4 sm:gap-4 pb-20">
+          <div className="flex flex-wrap justify-center items-start gap-x-4 gap-y-6 sm:gap-y-8 pb-20">
             {moreArticles.map((article) => (
               <div
                 key={article.slug}

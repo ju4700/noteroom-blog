@@ -1,0 +1,31 @@
+{
+  "slug": "the-art-of-note-taking",
+  "title": "The Art of Note-Taking: Beyond Transcription",
+  "tags": ["Study", "Skills"],
+  "thumbnail": "blog-thumbnails/blagimage2.png",
+  "author": {
+    "name": "NoteRoom Team",
+    "avatar": ""
+  },
+  "readTime": "4 mins",
+  "publishedAt": "2025-07-20T00:00:00.000Z",
+  "featured": false,
+  "content": [
+    {
+      "index": "01",
+      "title": "Notes as an Extension of Mind",
+      "contents": [
+        "Note-taking isn't about repeating what the lecturer said; it's about processing information. Effective notes are highly personal—they represent your unique understanding and the connections you've made.",
+        "When you write something down in your own words, you are performing a mini-act of creation."
+      ]
+    },
+    {
+      "index": "02",
+      "title": "Techniques for Success",
+      "contents": [
+        "Whether you use the Cornell method, mind mapping, or digital outlines, the goal remains the same: clarity and retrievability.",
+        "Your notes are your personalized knowledge database."
+      ]
+    }
+  ]
+}

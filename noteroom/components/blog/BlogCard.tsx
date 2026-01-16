@@ -37,7 +37,7 @@ export default function BlogCard({
   const formattedDate = `${day}.${month}.${year}`;
 
   return (
-    <article className="group inline-flex w-full flex-col justify-start items-start gap-3.5 mb-10 sm:mb-20">
+    <article className="group inline-flex w-full flex-col justify-start items-start gap-3.5">
       <Link href={`/blogs/${slug}`} className="w-full">
         <div
           className="w-full h-56 sm:h-64 lg:h-72 rounded-[9.52px] overflow-hidden relative"

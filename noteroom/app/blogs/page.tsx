@@ -13,7 +13,7 @@ export default async function BlogsPage() {
   const carouselBlogs = featured.length > 0 ? featured : blogs.slice(0, 5);
 
   return (
-    <div className="relative min-h-screen w-full overflow-x-hidden bg-transparent pb-20">
+    <div className="relative min-h-screen w-full overflow-x-hidden bg-transparent pb-20 mb-20">
       <div className="fixed inset-0 -z-10 bg-[#F4F4F2]">
         <DarkVeil />
       </div>
@@ -31,7 +31,7 @@ export default async function BlogsPage() {
       </section>
 
       <section className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap justify-center gap-x-4 sm:gap-x-4 gap-y-10 sm:gap-y-14">
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-6 sm:gap-y-8">
           {blogs.map((blog) => (
             <div
               key={blog.slug}

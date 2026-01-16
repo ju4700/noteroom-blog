@@ -19,7 +19,7 @@ async function publishBlog() {
   const MONGODB_URI = process.env.MONGODB_URI;
   
   if (!MONGODB_URI) {
-    console.error('❌ MONGODB_URI not found in .env.local');
+    console.error('MONGODB_URI not found in .env.local');
     process.exit(1);
   }
 
@@ -27,7 +27,7 @@ async function publishBlog() {
   const fileName = process.argv[2];
   
   if (!fileName) {
-    console.error('❌ Please provide a filename.');
+    console.error('Please provide a filename.');
     console.log('Usage: npm run publish-blog <filename>');
     process.exit(1);
   }
@@ -35,16 +35,16 @@ async function publishBlog() {
   const filePath = path.join(process.cwd(), 'content', 'blogs', fileName);
 
   if (!fs.existsSync(filePath)) {
-    console.error(`❌ File not found: ${filePath}`);
+    console.error(`File not found: ${filePath}`);
     process.exit(1);
   }
 
-  console.log('🔌 Connecting to MongoDB...');
+  console.log('Connecting to MongoDB...');
   await mongoose.connect(MONGODB_URI);
-  console.log('✅ Connected');
+  console.log('Connected');
 
   try {
-    console.log(`📖 Reading ${fileName}...`);
+    console.log(`Reading ${fileName}...`);
     const content = fs.readFileSync(filePath, 'utf-8');
     const blogData = JSON.parse(content);
 
@@ -53,7 +53,7 @@ async function publishBlog() {
       throw new Error('Missing required fields: slug or title');
     }
 
-    console.log(`📝 Publishing "${blogData.title}"...`);
+    console.log(`Publishing "${blogData.title}"...`);
 
     // Upsert the blog
     const result = await Blog.findOneAndUpdate(
@@ -62,15 +62,15 @@ async function publishBlog() {
       { upsert: true, new: true, setDefaultsOnInsert: true }
     );
 
-    console.log(`✅ Successfully published!`);
-    console.log(`🔗 Slug: ${result?.slug}`);
-    console.log(`📅 Published: ${result?.publishedAt}`);
+    console.log(`Successfully published!`);
+    console.log(`Slug: ${result?.slug}`);
+    console.log(`Published: ${result?.publishedAt}`);
     
   } catch (error) {
-    console.error('❌ Error publishing blog:', error);
+    console.error('Error publishing blog:', error);
   } finally {
     await mongoose.disconnect();
-    console.log('🔌 Disconnected');
+    console.log('Disconnected');
   }
 }
 

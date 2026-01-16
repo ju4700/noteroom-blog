@@ -1,0 +1,31 @@
+{
+  "slug": "mindful-productivity",
+  "title": "Mindful Productivity: Focus in a Distracted World",
+  "tags": ["Mindfulness", "Productivity"],
+  "thumbnail": "blog-thumbnails/blogimage3.png",
+  "author": {
+    "name": "NoteRoom Team",
+    "avatar": ""
+  },
+  "readTime": "5 mins",
+  "publishedAt": "2025-08-25T00:00:00.000Z",
+  "featured": false,
+  "content": [
+    {
+      "index": "01",
+      "title": "The Myth of Multitasking",
+      "contents": [
+        "In our quest to stay productive, we often try to do everything at once. But studies show that multitasking reduces efficiency and increases stress. Mindful productivity is about doing one thing at a time, with total focus.",
+        "When you bring your full presence to a task, you not only complete it faster but also with higher quality."
+      ]
+    },
+    {
+      "index": "02",
+      "title": "Creating Space for Focus",
+      "contents": [
+        "Eliminating digital noise and creating a dedicated workspace can work wonders. It's about intentionality—choosing what to pay attention to.",
+        "Focus is the superpower of the 21st century."
+      ]
+    }
+  ]
+}

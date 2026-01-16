@@ -1,0 +1,31 @@
+{
+  "slug": "building-better-habits",
+  "title": "Building Better Habits for Students",
+  "tags": ["Productivity", "Study"],
+  "thumbnail": "blog-thumbnails/1761006909242.png",
+  "author": {
+    "name": "NoteRoom Team",
+    "avatar": ""
+  },
+  "readTime": "6 mins",
+  "publishedAt": "2025-06-15T00:00:00.000Z",
+  "featured": true,
+  "content": [
+    {
+      "index": "01",
+      "title": "The Power of Compounding habits",
+      "contents": [
+        "Small changes, when applied consistently over time, lead to massive results. For students, this means focusing on the systems of learning rather than just the goals. If you improve your study habits by just 1% every day, you'll be significantly better by the end of the semester.",
+        "Successful students don't rely on motivation alone; they build routines that make success inevitable."
+      ]
+    },
+    {
+      "index": "02",
+      "title": "Breaking the Cycle",
+      "contents": [
+        "Identifying bad habits is the first step toward change. Whether it's procrastination or passive learning, replacing these with active engagement and deep work sessions is key.",
+        "Your habits define your future."
+      ]
+    }
+  ]
+}

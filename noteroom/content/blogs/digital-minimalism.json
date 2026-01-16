@@ -1,0 +1,31 @@
+{
+  "slug": "digital-minimalism",
+  "title": "Digital Minimalism: A Guide for Modern Students",
+  "tags": ["Lifestyle", "Tech"],
+  "thumbnail": "blog-thumbnails/1761005587130.png",
+  "author": {
+    "name": "NoteRoom Team",
+    "avatar": ""
+  },
+  "readTime": "7 mins",
+  "publishedAt": "2025-09-30T00:00:00.000Z",
+  "featured": true,
+  "content": [
+    {
+      "index": "01",
+      "title": "Reclaiming Your Attention",
+      "contents": [
+        "Digital minimalism isn't about throwing away your phone; it's about making sure your tools serve you, rather than the other way around. By stripping away non-essential apps and notifications, you reclaim your most valuable resource: your attention.",
+        "A minimalist digital footprint leads to a more focused and peaceful mental state."
+      ]
+    },
+    {
+      "index": "02",
+      "title": "Strategies for a Digital Reset",
+      "contents": [
+        "Try a digital declutter: remove everything you haven't used in a month, and curate your feeds to only include sources that inspire or inform you.",
+        "Be the master of your digital life."
+      ]
+    }
+  ]
+}
