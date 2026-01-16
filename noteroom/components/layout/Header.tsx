@@ -30,7 +30,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="inline-flex items-center justify-center gap-1.5 rounded-3xl bg-white px-5 py-2 transition-colors hover:bg-zinc-200"
+                className="inline-flex items-center justify-center gap-1.5 rounded-3xl bg-white/50 backdrop-blur-md px-5 py-2 border border-black/3 transition-all hover:bg-white/80 hover:scale-[1.02]"
               >
                 <div className="text-center font-['Poppins'] text-sm font-normal text-zinc-800">
                   {link.label}
@@ -56,7 +56,7 @@ export default function Header() {
               blur={20}
               saturation={2.5}
               brightness={100}
-              shadowOpacity={0.6}
+              shadowOpacity={0.06}
               className="px-7 transition-all brightness-105 hover:brightness-110"
             >
               <div className="justify-start font-['Poppins'] text-sm font-light text-zinc-900 whitespace-nowrap">
