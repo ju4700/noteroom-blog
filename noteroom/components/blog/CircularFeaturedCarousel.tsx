@@ -121,6 +121,7 @@ export default function CircularFeaturedCarousel({
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                       priority={isCenter}
                       draggable={false}
+                      suppressHydrationWarning
                     />
                   ) : (
                     <div className="h-full w-full bg-zinc-800" />
