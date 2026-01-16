@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, Bruno_Ace, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import DynamicTitle from "@/components/ui/DynamicTitle";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -127,6 +128,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} ${brunoAce.variable} ${poppins.variable} font-sans antialiased`}
       >
+        <DynamicTitle />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />

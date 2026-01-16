@@ -4,7 +4,32 @@ import CircularFeaturedCarousel from "@/components/blog/CircularFeaturedCarousel
 import { getAllBlogs, getFeaturedBlogs, formatBlogDate } from "@/lib/blogs";
 import DarkVeil from "@/components/ui/DarkVeil";
 
-// ISR: Revalidate every 60 seconds
+export const metadata: Metadata = {
+  title: "Our Blog",
+  description:
+    "Explore the What, Why and How's of everyday learning journey with NoteRoom's blog. Insights, tips, and stories for curious minds.",
+  keywords: [
+    "NoteRoom blog",
+    "learning blog",
+    "student tips",
+    "education insights",
+    "curiosity",
+    "study hacks",
+  ],
+  openGraph: {
+    title: "Our Blog | NoteRoom",
+    description:
+      "Explore the What, Why and How's of everyday learning journey with NoteRoom's blog. Insights, tips, and stories for curious minds.",
+    type: "website",
+    url: "https://noteroom.co/blogs",
+  },
+  twitter: {
+    title: "Our Blog | NoteRoom",
+    description:
+      "Explore the What, Why and How's of everyday learning journey with NoteRoom's blog. Insights, tips, and stories for curious minds.",
+  },
+};
+
 export const revalidate = 60;
 
 export default async function BlogsPage() {
