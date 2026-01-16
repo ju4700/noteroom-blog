@@ -37,10 +37,10 @@ export default function BlogCard({
   const formattedDate = `${day}.${month}.${year}`;
 
   return (
-    <article className="group inline-flex w-full max-w-[400px] flex-col justify-start items-start gap-3.5 mb-12 sm:mb-20">
+    <article className="group inline-flex w-full flex-col justify-start items-start gap-3.5 mb-10 sm:mb-20">
       <Link href={`/blogs/${slug}`} className="w-full">
         <div
-          className="w-full h-72 rounded-[9.52px] overflow-hidden relative"
+          className="w-full h-56 sm:h-64 lg:h-72 rounded-[9.52px] overflow-hidden relative"
           suppressHydrationWarning
         >
           {thumbnail ? (
@@ -57,17 +57,16 @@ export default function BlogCard({
           )}
         </div>
 
-        <div className="flex flex-col justify-start items-start gap-5 mt-3.5">
-          <div className="self-stretch h-14 justify-start items-center overflow-hidden">
-            <h3 className="text-black text-xl font-medium font-['Space_Grotesk'] leading-tight group-hover:text-cyan-600 transition-colors line-clamp-2">
+        <div className="flex flex-col justify-start items-start gap-1 sm:gap-1.5 mt-3 sm:mt-4 px-1 sm:px-0">
+          <div className="self-stretch justify-start items-center overflow-hidden">
+            <h3 className="text-black text-lg sm:text-xl font-medium font-['Space_Grotesk'] leading-tight group-hover:text-cyan-600 transition-colors line-clamp-2">
               {title}
             </h3>
           </div>
-          <div className="self-stretch flex justify-between items-start text-neutral-500 text-base font-normal font-['Inter'] -mt-5">
+          <div className="self-stretch flex justify-between items-start text-neutral-500 text-xs sm:text-sm font-normal font-['Inter']">
             <span>
               {prefix} - {formattedDate}
             </span>
-            <span></span>
           </div>
         </div>
       </Link>

@@ -74,13 +74,13 @@ export default async function BlogPage({ params }: BlogPageProps) {
             </span>
           </div>
 
-          <h1 className="max-w-[850px] text-center text-black text-3xl sm:text-5xl lg:text-6xl font-medium font-['Space_Grotesk'] leading-tight lg:leading-[76.80px]">
+          <h1 className="max-w-[1000px] text-center text-black text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium font-['Space_Grotesk'] leading-tight lg:leading-[1.2]">
             {blog.title}
           </h1>
 
-          <div className="mt-8 sm:mt-16 lg:mt-20 flex flex-col items-center gap-3">
-            <div className="flex items-center gap-4">
-              <div className="w-8 h-8 rounded-full bg-zinc-300 overflow-hidden relative">
+          <div className="mt-8 sm:mt-12 lg:mt-16 flex flex-col items-center gap-2">
+            <div className="flex items-center gap-3">
+              <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-zinc-300 overflow-hidden relative">
                 {blog.author.avatar && (
                   <Image
                     src={`/images/${blog.author.avatar}`}
@@ -90,16 +90,16 @@ export default async function BlogPage({ params }: BlogPageProps) {
                   />
                 )}
                 {!blog.author.avatar && (
-                  <div className="flex h-full items-center justify-center text-xs font-bold text-zinc-600">
+                  <div className="flex h-full items-center justify-center text-[10px] sm:text-xs font-bold text-zinc-600">
                     {blog.author.name.charAt(0)}
                   </div>
                 )}
               </div>
-              <div className="text-black text-lg lg:text-xl font-normal font-['Inter']">
+              <div className="text-black text-base sm:text-lg lg:text-xl font-normal font-['Inter']">
                 {blog.author.name}
               </div>
             </div>
-            <div className="text-neutral-500 text-xs sm:text-sm font-medium font-['Inter'] uppercase">
+            <div className="text-neutral-500 text-[10px] sm:text-xs lg:text-sm font-medium font-['Inter'] uppercase tracking-wider">
               {formatBlogDate(new Date(blog.publishedAt))}
             </div>
           </div>
@@ -120,17 +120,17 @@ export default async function BlogPage({ params }: BlogPageProps) {
           </div>
         </div>
 
-        <div className="max-w-[1200px] mx-auto space-y-10 sm:space-y-16 mb-24 lg:mb-40">
-          <div className="font-['Inter'] text-black text-xl sm:text-2xl lg:text-3xl font-normal leading-relaxed lg:leading-[1.6]">
-            <span className="inline-block text-black text-6xl sm:text-8xl lg:text-9xl font-normal leading-[0.5] align-baseline mr-1">
+        <div className="max-w-[1200px] mx-auto space-y-8 sm:space-y-16 mb-24 lg:mb-40">
+          <div className="font-['Inter'] text-black text-lg sm:text-xl lg:text-2xl font-normal leading-relaxed lg:leading-[1.6]">
+            <span className="inline-block text-black text-5xl sm:text-7xl lg:text-9xl font-normal leading-[0.5] align-baseline mr-1">
               {firstLetter}
             </span>
             {restOfFirstParagraph}
           </div>
 
-          <div className="space-y-10 sm:space-y-12 font-['Inter']">
+          <div className="space-y-8 sm:space-y-12 font-['Inter']">
             {blog.content.map((section, idx) => (
-              <div key={idx} className="space-y-10 lg:space-y-12">
+              <div key={idx} className="space-y-8 lg:space-y-12">
                 {idx === 0 ? (
                   section.contents.slice(1).map((para, pIdx) => (
                     <p
@@ -141,8 +141,8 @@ export default async function BlogPage({ params }: BlogPageProps) {
                     </p>
                   ))
                 ) : (
-                  <div className="space-y-6 sm:space-y-8">
-                    <h2 className="text-black text-2xl sm:text-3xl lg:text-4xl font-semibold font-['Space_Grotesk'] pt-4 lg:pt-6 mb-2 lg:mb-4">
+                  <div className="space-y-4 sm:space-y-8">
+                    <h2 className="text-black text-xl sm:text-2xl lg:text-3xl font-semibold font-['Space_Grotesk'] pt-4 lg:pt-6 mb-1 lg:mb-4">
                       {section.title}
                     </h2>
                     {section.contents.map((para, pIdx) => (
@@ -160,25 +160,29 @@ export default async function BlogPage({ params }: BlogPageProps) {
           </div>
         </div>
 
-        <div className="max-w-[1507px] mx-auto">
+        <div className="max-w-[1240px] mx-auto">
           <div className="flex items-center justify-center gap-5 mb-8 lg:mb-12">
             <h3 className="text-black/60 text-xl sm:text-2xl font-semibold font-['Space_Grotesk']">
               More Articles
             </h3>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-8 lg:gap-x-3.5 lg:gap-y-12 pb-20">
+          <div className="flex flex-wrap justify-center items-start gap-4 sm:gap-4 pb-20">
             {moreArticles.map((article) => (
-              <BlogCard
+              <div
                 key={article.slug}
-                slug={article.slug}
-                title={article.title}
-                tags={article.tags}
-                thumbnail={article.thumbnail}
-                author={article.author}
-                publishedAt={article.publishedAt as unknown as string}
-                readTime={article.readTime}
-              />
+                className="w-full max-w-[480px] sm:max-w-[calc(50%-1rem)] lg:max-w-[calc(33.333%-1rem)]"
+              >
+                <BlogCard
+                  slug={article.slug}
+                  title={article.title}
+                  tags={article.tags}
+                  thumbnail={article.thumbnail}
+                  author={article.author}
+                  publishedAt={article.publishedAt as unknown as string}
+                  readTime={article.readTime}
+                />
+              </div>
             ))}
           </div>
         </div>

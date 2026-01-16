@@ -94,6 +94,23 @@ export default function CircularFeaturedCarousel({
                   opacity: isCenter ? 1 : position === "hidden" ? 0 : 0.6,
                 }}
                 transition={{ duration: 1.2, type: "spring", bounce: 0.2 }}
+                drag={isMobile || isTablet ? "x" : false}
+                dragConstraints={{ left: 0, right: 0 }}
+                onDragEnd={(_, info) => {
+                  if (isMobile || isTablet) {
+                    if (info.offset.x < -50) {
+                      setCurrentSlide(
+                        (prev) => (prev + 1) % featuredBlogs.length
+                      );
+                    } else if (info.offset.x > 50) {
+                      setCurrentSlide(
+                        (prev) =>
+                          (prev - 1 + featuredBlogs.length) %
+                          featuredBlogs.length
+                      );
+                    }
+                  }
+                }}
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
                 style={{
                   width: isCenter ? dynamicCenterWidth : dynamicSideWidth,
@@ -129,16 +146,16 @@ export default function CircularFeaturedCarousel({
 
                   <div className="absolute inset-0 rounded-[20px] bg-gradient-to-b from-transparent via-transparent to-black/90" />
                   <motion.div
-                    className="absolute bottom-0 left-[42px] z-10 flex flex-col gap-2 pb-[35px]"
+                    className="absolute bottom-0 left-[24px] sm:left-[42px] z-10 flex flex-col gap-1 sm:gap-2 pb-[24px] sm:pb-[35px] pr-6"
                     animate={{ opacity: isCenter ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h2 className="max-w-[896px] font-['Space_Grotesk'] text-3xl font-normal text-white">
+                    <h2 className="max-w-[896px] font-['Space_Grotesk'] text-xl sm:text-2xl lg:text-3xl font-normal text-white line-clamp-2">
                       {blog.title}
                     </h2>
 
                     <div className="flex items-center gap-2 text-white">
-                      <div className="relative h-8 w-8 overflow-hidden rounded-3xl bg-zinc-700">
+                      <div className="relative h-6 w-6 sm:h-8 sm:w-8 overflow-hidden rounded-3xl bg-zinc-700">
                         {blog.author.avatar ? (
                           <Image
                             src={`/images/${blog.author.avatar}`}
@@ -147,20 +164,20 @@ export default function CircularFeaturedCarousel({
                             className="object-cover"
                           />
                         ) : (
-                          <div className="flex h-full items-center justify-center text-xs font-bold text-white">
+                          <div className="flex h-full items-center justify-center text-[10px] sm:text-xs font-bold text-white">
                             {blog.author.name.charAt(0)}
                           </div>
                         )}
                       </div>
 
-                      <div className="flex items-center gap-4">
-                        <span className="font-['Poppins'] text-xl font-normal text-white">
+                      <div className="flex items-center gap-3 sm:gap-4">
+                        <span className="font-['Poppins'] text-sm sm:text-base lg:text-xl font-normal text-white whitespace-nowrap">
                           {blog.author.name}
                         </span>
 
-                        <div className="h-[5px] w-[5px] rounded-full bg-white" />
+                        <div className="h-1 w-1 sm:h-[5px] sm:w-[5px] rounded-full bg-white shrink-0" />
 
-                        <span className="font-['Poppins'] text-xl font-normal text-neutral-100">
+                        <span className="font-['Poppins'] text-sm sm:text-base lg:text-xl font-normal text-neutral-100 whitespace-nowrap">
                           {blog.tags[0] || "Blog"}
                         </span>
                       </div>
@@ -173,7 +190,7 @@ export default function CircularFeaturedCarousel({
         </div>
       </div>
 
-      <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-3 z-30">
+      <div className="absolute bottom-1 sm:bottom-6 left-1/2 flex -translate-x-1/2 gap-3 z-30">
         {featuredBlogs.map((_, idx) => (
           <button
             key={idx}
@@ -188,7 +205,7 @@ export default function CircularFeaturedCarousel({
 
       <div
         className={`absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 flex justify-between px-4 pointer-events-none z-30 ${
-          isMobile ? "hidden" : ""
+          isMobile || isTablet ? "hidden" : ""
         }`}
         style={{ maxWidth: dynamicCenterWidth + NAV_BUTTON_SPREAD }}
       >
