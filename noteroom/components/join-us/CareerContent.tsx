@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import ColorBends from "@/components/ui/ColorBends";
-import FluidGlass from "@/components/ui/FluidGlass";
+
 import GlareHover from "@/components/ui/GlareHover";
 
 export default function CareerContent() {
@@ -82,11 +82,11 @@ export default function CareerContent() {
           <ColorBends
             colors={[
               "#42ACDE",
+              "#42ACDE",
+              "#42ACDE",
               "#04DBF7",
-              "#3C62AD",
-              "#3C62AD",
-              "#3C62AD",
-              "#3C62AD",
+              "#04DBF7",
+              "#04DBF7",
             ]}
             rotation={45}
             speed={0.5}
@@ -121,16 +121,11 @@ export default function CareerContent() {
             className="w-full max-w-6xl h-[400px] md:h-[600px] bg-gray-100 rounded-[20px] overflow-hidden relative shadow-sm"
             variants={itemVariants}
           >
-            <FluidGlass
-              mode="lens"
-              lensProps={{
-                scale: 0.1,
-                ior: 1.2,
-                thickness: 3,
-                chromaticAberration: 0.05,
-                anisotropy: 0.1,
-              }}
-              imageUrl="/about/heroimage.jpg"
+            <Image
+              src="/about/heroimage.jpg"
+              alt="Career Hero"
+              fill
+              className="object-cover"
             />
           </motion.div>
         </motion.section>
