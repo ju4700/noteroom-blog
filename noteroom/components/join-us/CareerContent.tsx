@@ -4,24 +4,26 @@ import React from "react";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import ColorBends from "@/components/ui/ColorBends";
+import FluidGlass from "@/components/ui/FluidGlass";
+import GlareHover from "@/components/ui/GlareHover";
 
 export default function CareerContent() {
   const perks = [
     [
       { text: "Creative Freedom" },
-      { text: "Creative Freedom" },
+      { text: "Rapid Pace" },
       { text: "No Useless Meetings" },
     ],
     [
-      { text: "Creative Freedom" },
-      { text: "Creative Freedom" },
-      { text: "Work Anywhere" },
-      { text: "Creative Freedom", font: "font-poppins" },
+      { text: "Remote work" },
+      { text: "Technical feasibility" },
+      { text: "Working Independently" },
+      { text: "Strong Community", font: "font-poppins" },
     ],
     [
-      { text: "Creative Freedom" },
+      { text: "Retreats" },
       { text: "Mental Wellbeing Support" },
-      { text: "Creative Freedom" },
+      { text: "Competitive Salary" },
     ],
   ];
 
@@ -76,11 +78,18 @@ export default function CareerContent() {
     <div className="relative min-h-screen overflow-hidden bg-transparent">
       {/* Animated Background */}
       <div className="fixed inset-0 -z-10 bg-[#F4F4F2]">
-        <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 opacity-10">
           <ColorBends
-            colors={["#5227FF", "#FF9FFC", "#7cff67"]}
+            colors={[
+              "#42ACDE",
+              "#04DBF7",
+              "#3C62AD",
+              "#3C62AD",
+              "#3C62AD",
+              "#3C62AD",
+            ]}
             rotation={45}
-            speed={0.2}
+            speed={0.5}
             scale={1}
             frequency={1}
             warpStrength={1}
@@ -93,11 +102,70 @@ export default function CareerContent() {
       </div>
 
       <main className="container mx-auto px-6 py-20 flex flex-col items-center gap-20">
+        {/* Hero Section */}
+        <motion.section
+          className="w-full flex flex-col items-center gap-12 text-center"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          <motion.h1
+            className="text-5xl md:text-6xl font-normal font-space-grotesk text-black"
+            variants={itemVariants}
+          >
+            Ideas live here. So do we.
+          </motion.h1>
+
+          {/* Hero Image with Fluid Glass Effect */}
+          <motion.div
+            className="w-full max-w-6xl h-[400px] md:h-[600px] bg-gray-100 rounded-[20px] overflow-hidden relative shadow-sm"
+            variants={itemVariants}
+          >
+            <FluidGlass
+              mode="lens"
+              lensProps={{
+                scale: 0.1,
+                ior: 1.2,
+                thickness: 3,
+                chromaticAberration: 0.05,
+                anisotropy: 0.1,
+              }}
+              imageUrl="/about/heroimage.jpg"
+            />
+          </motion.div>
+        </motion.section>
+
+        {/* Mission Text */}
+        <motion.section
+          className="w-full max-w-4xl flex flex-col gap-6 text-left md:text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+        >
+          <motion.p
+            className="text-2xl md:text-3xl font-light font-inter text-black leading-relaxed"
+            variants={itemVariants}
+          >
+            NoteRoom is a social media designed for making people smarter and
+            more creative. Its sole purpose is to make social experience
+            co-exist with people’s focus and intention in life.
+          </motion.p>
+          <motion.p
+            className="text-base md:text-lg font-normal font-inter text-black/50"
+            variants={itemVariants}
+          >
+            Joining our team, you’ll become a part of shaping how future
+            generation of people think and interact with the internet.
+          </motion.p>
+        </motion.section>
+
         {/* Perks Section */}
         <motion.section
           className="w-full flex flex-col items-center gap-12"
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
         >
           <motion.h1
@@ -158,29 +226,37 @@ export default function CareerContent() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                whileHover={{
-                  scale: 1.01,
-                  backgroundColor: "rgba(255, 255, 255, 0.6)",
-                }}
+                className="w-full h-24"
+                whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className="w-full h-24 px-7 py-4 rounded-2xl outline-1 -outline-offset-1 outline-black/30 flex items-center bg-white/40 transition-colors cursor-pointer group"
               >
-                <div className="w-full px-4 md:px-7 flex justify-between items-center">
-                  <span className="text-black/90 text-xl font-normal font-inter text-center md:text-left">
-                    {role}
-                  </span>
+                <GlareHover
+                  width="100%"
+                  height="100%"
+                  borderRadius="16px"
+                  background="rgba(255, 255, 255, 0.4)"
+                  borderColor="rgba(0,0,0,0.3)"
+                  glareOpacity={0.3}
+                  glareColor="#3F8BC8"
+                  transitionDuration={1000}
+                >
+                  <div className="w-full px-7 flex justify-between items-center bg-transparent">
+                    <span className="text-black/90 text-xl font-normal font-inter text-center md:text-left">
+                      {role}
+                    </span>
 
-                  {/* Arrow Icon */}
-                  <div className="w-9 h-9 relative flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity">
-                    <Image
-                      src="/career/arrow.png"
-                      alt="Arrow"
-                      width={36}
-                      height={36}
-                      className="w-9 h-9 object-contain"
-                    />
+                    {/* Arrow Icon */}
+                    <div className="w-9 h-9 relative flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity">
+                      <Image
+                        src="/career/arrow.png"
+                        alt="Arrow"
+                        width={36}
+                        height={36}
+                        className="w-9 h-9 object-contain"
+                      />
+                    </div>
                   </div>
-                </div>
+                </GlareHover>
               </motion.div>
             ))}
           </div>
