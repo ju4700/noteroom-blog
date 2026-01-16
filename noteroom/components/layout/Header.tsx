@@ -56,7 +56,7 @@ export default function Header() {
               blur={20}
               saturation={2.5}
               brightness={100}
-              shadowOpacity={0.06}
+              shadowOpacity={0.9}
               className="px-7 transition-all brightness-105 hover:brightness-110"
             >
               <div className="justify-start font-['Poppins'] text-sm font-light text-zinc-900 whitespace-nowrap">
