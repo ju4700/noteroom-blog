@@ -11,7 +11,6 @@ interface BlogPageProps {
   }>;
 }
 
-// Helper to get prefix logic (consistent with BlogCard)
 const getPrefix = (title: string) => {
   const t = title.toLowerCase();
   if (t.startsWith("why")) return "Why's";
@@ -59,9 +58,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
 
   return (
     <div className="relative w-full bg-white overflow-x-hidden pt-[49px]">
-      {/* Container to handle width and centering */}
       <div className="max-w-[1860px] mx-auto min-h-screen px-4 sm:px-10 lg:px-[76px] pb-20">
-        {/* Navigation Breadcrumb Area */}
         <div className="mb-12 sm:mb-24 lg:mb-[200px] flex flex-col items-center">
           <div className="mb-8 lg:mb-12 flex items-center gap-2">
             <span className="text-stone-500 text-lg sm:text-2xl font-semibold font-['Inter'] tracking-wide">
@@ -76,7 +73,6 @@ export default async function BlogPage({ params }: BlogPageProps) {
             {blog.title}
           </h1>
 
-          {/* Author Section */}
           <div className="mt-8 sm:mt-16 lg:mt-20 flex flex-col items-center gap-3">
             <div className="flex items-center gap-4">
               <div className="w-8 h-8 rounded-full bg-zinc-300 overflow-hidden relative">
@@ -104,7 +100,6 @@ export default async function BlogPage({ params }: BlogPageProps) {
           </div>
         </div>
 
-        {/* Hero Image Container */}
         <div className="relative w-full max-w-[1560px] mx-auto aspect-video mb-12 sm:mb-20 lg:mb-24 -mt-6 sm:-mt-12 lg:-mt-26">
           <div className="absolute inset-0 rounded-lg sm:rounded-[20px] overflow-hidden shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
             {blog.thumbnail && (
@@ -116,14 +111,11 @@ export default async function BlogPage({ params }: BlogPageProps) {
                 priority
               />
             )}
-            {/* Gradient Overlay for Consistency with design */}
             <div className="absolute inset-0 bg-linear-to-b from-white/0 to-black/40" />
           </div>
         </div>
 
-        {/* Blog Content Section */}
         <div className="max-w-[1200px] mx-auto space-y-10 sm:space-y-16 mb-24 lg:mb-40">
-          {/* First Paragraph with Raised Cap (Text wraps underneath) */}
           <div className="font-['Inter'] text-black text-xl sm:text-2xl lg:text-3xl font-normal leading-relaxed lg:leading-[1.6]">
             <span className="inline-block text-black text-6xl sm:text-8xl lg:text-9xl font-normal leading-[0.5] align-baseline mr-1">
               {firstLetter}
@@ -131,12 +123,10 @@ export default async function BlogPage({ params }: BlogPageProps) {
             {restOfFirstParagraph}
           </div>
 
-          {/* Remaining Content */}
           <div className="space-y-10 sm:space-y-12 font-['Inter']">
             {blog.content.map((section, idx) => (
               <div key={idx} className="space-y-10 lg:space-y-12">
                 {idx === 0 ? (
-                  // Skip the first paragraph of the first section as it's the dropcap above
                   section.contents.slice(1).map((para, pIdx) => (
                     <p
                       key={pIdx}
@@ -165,7 +155,6 @@ export default async function BlogPage({ params }: BlogPageProps) {
           </div>
         </div>
 
-        {/* More Articles Section */}
         <div className="max-w-[1507px] mx-auto">
           <div className="flex items-center justify-center gap-5 mb-8 lg:mb-12">
             <h3 className="text-black/60 text-xl sm:text-2xl font-semibold font-['Space_Grotesk']">

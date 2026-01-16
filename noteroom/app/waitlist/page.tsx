@@ -48,9 +48,7 @@ export default function WaitlistPage() {
 
   return (
     <div className="relative flex min-h-[calc(100vh-64px)] items-center justify-center overflow-hidden bg-gray-50">
-      {/* Background Visuals */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Blurred Logo */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10">
           <Image
             src="/assets/NR-logomarks/NoteRoomLogoMark_logomark-fullcolor-rgb-1000_1000px.png"
@@ -61,12 +59,9 @@ export default function WaitlistPage() {
             priority
           />
         </div>
-        {/* Gradient Blobs */}
         <div className="absolute -left-32 -top-32 h-64 w-64 rounded-full bg-indigo-300 opacity-30 blur-3xl" />
         <div className="absolute -bottom-32 -right-32 h-64 w-64 rounded-full bg-purple-300 opacity-30 blur-3xl" />
       </div>
-
-      {/* Content */}
       <section className="container-custom relative z-10 py-20 text-center">
         <div className="mx-auto max-w-lg">
           <p className="mb-3 text-sm font-medium uppercase tracking-wider text-indigo-600">
@@ -78,8 +73,6 @@ export default function WaitlistPage() {
           <p className="mb-8 text-lg text-gray-600">
             If you&apos;d like to get launch updates, join the waitlist below.
           </p>
-
-          {/* Form */}
           <form
             onSubmit={handleSubmit}
             className="flex flex-col gap-4 sm:flex-row"
@@ -100,8 +93,6 @@ export default function WaitlistPage() {
               {status === "loading" ? "Joining..." : "Join Waitlist"}
             </button>
           </form>
-
-          {/* Status Message */}
           {message && (
             <p
               className={`mt-4 text-sm ${

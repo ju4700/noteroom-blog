@@ -88,7 +88,6 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile Menu (unchanged structure, just aligned colors) */}
       {mobileMenuOpen && (
         <div className="absolute left-0 top-full w-full border-t border-gray-100 bg-white md:hidden">
           <nav className="flex flex-col px-4 py-4">

@@ -14,12 +14,9 @@ export default async function BlogsPage() {
 
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden bg-transparent pb-20">
-      {/* DarkVeil Fixed Background */}
       <div className="fixed inset-0 -z-10 bg-white">
         <DarkVeil />
       </div>
-
-      {/* Hero Section */}
       <section className="container-custom pt-32 pb-4 text-center">
         <h1 className="mb-3 font-['Space_Grotesk'] text-5xl font-medium tracking-tight text-gray-900 md:text-6xl">
           Blog
@@ -29,12 +26,10 @@ export default async function BlogsPage() {
         </p>
       </section>
 
-      {/* Circular Featured Carousel */}
       <section className="relative z-10 mb-16">
         <CircularFeaturedCarousel blogs={carouselBlogs} />
       </section>
 
-      {/* Blog Grid */}
       <section className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
           {blogs.map((blog) => (

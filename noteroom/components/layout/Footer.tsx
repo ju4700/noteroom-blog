@@ -4,12 +4,9 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="w-full bg-white border-t border-zinc-100 py-12 lg:py-16 pb-8 lg:pb-12">
-      {/* Aligned Container with Header */}
       <div className="mx-auto flex w-full max-w-[1692px] flex-col px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-24 mb-16 lg:mb-20">
-          {/* Links Grid - Consolidated spacing */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 sm:gap-16 lg:gap-24 w-full lg:w-auto">
-            {/* Company Column */}
             <div className="inline-flex flex-col justify-start items-start gap-4 lg:gap-6">
               <h3 className="text-cyan-600 text-base lg:text-lg font-medium font-['Space_Grotesk']">
                 Company
@@ -36,7 +33,6 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Product Column */}
             <div className="inline-flex flex-col justify-start items-start gap-4 lg:gap-6">
               <h3 className="text-cyan-600 text-base lg:text-lg font-medium font-['Space_Grotesk']">
                 Product
@@ -57,7 +53,6 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Resources Column */}
             <div className="inline-flex flex-col justify-start items-start gap-4 lg:gap-6">
               <h3 className="text-cyan-600 text-base lg:text-lg font-medium font-['Space_Grotesk']">
                 Resources
@@ -78,7 +73,6 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Socials Column */}
             <div className="inline-flex flex-col justify-start items-start gap-4 lg:gap-6">
               <h3 className="text-cyan-600 text-base lg:text-lg font-medium font-['Space_Grotesk']">
                 Socials
@@ -120,7 +114,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* CTA Section - More compact and responsive */}
           <div className="flex flex-col justify-start items-start gap-6 lg:gap-8 w-full lg:w-auto">
             <h2 className="text-cyan-600 text-2xl lg:text-3xl font-medium font-['Space_Grotesk'] leading-tight">
               Be where ideas are
@@ -142,7 +135,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar - Aligned with Header branding */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 border-t border-zinc-100 pt-10">
           <Link
             href="/"

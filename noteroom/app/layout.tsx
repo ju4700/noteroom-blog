@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-// Preload fonts with display swap for faster rendering
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -35,7 +34,6 @@ const poppins = Poppins({
   preload: true,
 });
 
-// Viewport configuration for mobile optimization
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -95,7 +93,6 @@ export const metadata: Metadata = {
     ],
     apple: "/assets/apple-touch-icon.png",
   },
-  // Preconnect to external resources for faster loading
   other: {
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "default",
@@ -110,12 +107,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* DNS Prefetch for external resources */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="dns-prefetch" href="https://tally.so" />
 
-        {/* Preconnect for faster font loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -123,7 +118,6 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
 
-        {/* Preload critical assets */}
         <link
           rel="preload"
           href="/assets/Rectangle Horizontal/NoteRoom_logo-fullcolor-rgb-2-1000_1000px.png"

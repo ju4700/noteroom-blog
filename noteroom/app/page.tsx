@@ -4,15 +4,11 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="relative flex min-h-[calc(100vh-64px)] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white to-gray-50">
-      {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -left-40 -top-40 h-80 w-80 rounded-full bg-indigo-100 opacity-50 blur-3xl" />
         <div className="absolute -bottom-40 -right-40 h-80 w-80 rounded-full bg-purple-100 opacity-50 blur-3xl" />
       </div>
-
-      {/* Hero Content */}
       <section className="container-custom relative z-10 py-20 text-center">
-        {/* Planet/Visual */}
         <div className="mb-12 flex justify-center">
           <div className="animate-float relative h-48 w-48 sm:h-64 sm:w-64">
             <Image
@@ -25,7 +21,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Headline */}
         <h1 className="mx-auto mb-6 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
           A social platform designed for
           <br />
@@ -33,13 +28,11 @@ export default function Home() {
           creative
         </h1>
 
-        {/* Tagline */}
         <p className="mx-auto mb-10 max-w-2xl text-lg text-gray-600 sm:text-xl">
           Simply put &ldquo;Be where{" "}
           <em className="font-medium text-gray-900">Ideas</em> are&rdquo;
         </p>
 
-        {/* CTA Button */}
         <Link
           href="/waitlist"
           className="inline-flex items-center gap-2 rounded-full bg-gray-900 px-8 py-4 text-lg font-medium text-white shadow-lg transition-all hover:bg-gray-800 hover:shadow-xl"
@@ -61,7 +54,6 @@ export default function Home() {
         </Link>
       </section>
 
-      {/* Features hint */}
       <section className="container-custom relative z-10 pb-20">
         <div className="grid gap-8 md:grid-cols-3">
           {[

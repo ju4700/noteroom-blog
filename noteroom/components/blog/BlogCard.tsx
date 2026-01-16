@@ -20,7 +20,6 @@ export default function BlogCard({
   thumbnail,
   publishedAt,
 }: BlogCardProps) {
-  // Logic to determine "Why's", "What's", "How's"
   const getPrefix = (text: string) => {
     const lower = text.toLowerCase();
     if (lower.startsWith("why")) return "Why’s";
@@ -31,18 +30,15 @@ export default function BlogCard({
 
   const prefix = getPrefix(title);
 
-  // Format date: DD.MM.YYYY
   const dateObj = new Date(publishedAt);
   const day = String(dateObj.getUTCDate()).padStart(2, "0");
   const month = String(dateObj.getUTCMonth() + 1).padStart(2, "0");
   const year = dateObj.getUTCFullYear();
   const formattedDate = `${day}.${month}.${year}`;
-  // en-GB gives DD/MM/YYYY, replace / with .
 
   return (
     <article className="group inline-flex w-full max-w-[400px] flex-col justify-start items-start gap-3.5 mb-12 sm:mb-20">
       <Link href={`/blogs/${slug}`} className="w-full">
-        {/* Thumbnail */}
         <div
           className="w-full h-72 rounded-[9.52px] overflow-hidden relative"
           suppressHydrationWarning
@@ -61,16 +57,12 @@ export default function BlogCard({
           )}
         </div>
 
-        {/* Content Container */}
         <div className="flex flex-col justify-start items-start gap-5 mt-3.5">
-          {/* Title */}
           <div className="self-stretch h-14 justify-start items-center overflow-hidden">
             <h3 className="text-black text-xl font-medium font-['Space_Grotesk'] leading-tight group-hover:text-cyan-600 transition-colors line-clamp-2">
               {title}
             </h3>
           </div>
-
-          {/* Metadata: Prefix Left ... Date Right */}
           <div className="self-stretch flex justify-between items-start text-neutral-500 text-base font-normal font-['Inter'] -mt-5">
             <span>
               {prefix} - {formattedDate}

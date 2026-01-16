@@ -14,18 +14,13 @@ const CENTER_WIDTH = 1124;
 const SIDE_WIDTH = 1087;
 const GAP = 58;
 const SIDE_OFFSET = 18;
-// Center-to-Center Pitch = CenterHalf + Gap + SideHalf
-const PITCH = 562 + GAP + 543.5; // Starts at 1163.5
+const PITCH = 562 + GAP + 543.5;
 
-// Adjust this value to change the distance between the Previous/Next buttons
-// The total width of the button container will be CENTER_WIDTH + NAV_BUTTON_SPREAD
-// Increasing this number pushes buttons further apart. Decreasing it brings them closer.
 const NAV_BUTTON_SPREAD = 130;
 
 export default function CircularFeaturedCarousel({
   blogs,
 }: CircularFeaturedCarouselProps) {
-  // Limit to only 3 items as requested
   const featuredBlogs = blogs.slice(0, 3);
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -42,9 +37,7 @@ export default function CircularFeaturedCarousel({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Auto-play interval
   useEffect(() => {
-    // Only autoplay if there are enough slides to rotate
     if (featuredBlogs.length <= 1) return;
 
     const timer = setInterval(() => {
@@ -55,14 +48,16 @@ export default function CircularFeaturedCarousel({
 
   if (!featuredBlogs.length) return null;
 
-  // Responsive dimensions
   const dynamicCenterWidth = isMobile
-    ? window.innerWidth * 0.9
+    ? window.innerWidth * 0.95
     : isTablet
-    ? 600
+    ? 700
     : CENTER_WIDTH;
-  const dynamicSideWidth = isMobile ? 0 : isTablet ? 400 : SIDE_WIDTH;
-  const dynamicPitch = isMobile ? 0 : isTablet ? 550 : PITCH;
+  const dynamicSideWidth = isMobile ? 0 : isTablet ? 500 : SIDE_WIDTH;
+
+  const dynamicPitch = isMobile
+    ? 0
+    : dynamicCenterWidth / 2 + GAP + (dynamicSideWidth * 0.85) / 2;
 
   return (
     <div className="relative mx-auto h-[500px] sm:h-[650px] lg:h-[800px] w-full max-w-[1920px] overflow-hidden">
@@ -70,12 +65,8 @@ export default function CircularFeaturedCarousel({
         <div className="relative h-full w-full">
           {featuredBlogs.map((blog, index) => {
             const length = featuredBlogs.length;
-            // Calculate relative position based on current index
-            // We want indices to wrap around: 0 -> length-1
-
-            // Logic adapted from user snippet to determine position slots
             const diff = (index - currentSlide + length) % length;
-            let position = "hidden"; // Default to hidden
+            let position = "hidden";
 
             if (diff === 0) position = "center";
             else if (diff === 1 && !isMobile) position = "right";
@@ -86,7 +77,6 @@ export default function CircularFeaturedCarousel({
 
             const isCenter = position === "center";
 
-            const xOffset = PITCH;
             const xPos = isCenter
               ? 0
               : position === "right"
@@ -123,7 +113,6 @@ export default function CircularFeaturedCarousel({
                   className="group relative block h-full w-full overflow-hidden rounded-[20px]"
                   draggable={false}
                 >
-                  {/* Background Image */}
                   {blog.thumbnail ? (
                     <Image
                       src={`/images/${blog.thumbnail}`}
@@ -137,10 +126,7 @@ export default function CircularFeaturedCarousel({
                     <div className="h-full w-full bg-zinc-800" />
                   )}
 
-                  {/* Gradient Overlay */}
                   <div className="absolute inset-0 rounded-[20px] bg-gradient-to-b from-transparent via-transparent to-black/90" />
-
-                  {/* Content Overlay */}
                   <motion.div
                     className="absolute bottom-0 left-[42px] z-10 flex flex-col gap-6 pb-[58px]"
                     animate={{ opacity: isCenter ? 1 : 0 }}
@@ -151,7 +137,6 @@ export default function CircularFeaturedCarousel({
                     </h2>
 
                     <div className="flex items-center gap-4 text-white">
-                      {/* Author Avatar */}
                       <div className="relative h-8 w-8 overflow-hidden rounded-3xl bg-zinc-700">
                         {blog.author.avatar ? (
                           <Image
@@ -187,7 +172,6 @@ export default function CircularFeaturedCarousel({
         </div>
       </div>
 
-      {/* Pagination Dots */}
       <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-3 z-30">
         {featuredBlogs.map((_, idx) => (
           <button
@@ -201,10 +185,11 @@ export default function CircularFeaturedCarousel({
         ))}
       </div>
 
-      {/* Navigation Buttons: Dynamically sized based on CENTER_WIDTH */}
       <div
-        className="absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 flex justify-between px-4 pointer-events-none z-30"
-        style={{ maxWidth: CENTER_WIDTH + NAV_BUTTON_SPREAD }}
+        className={`absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 flex justify-between px-4 pointer-events-none z-30 ${
+          isMobile ? "hidden" : ""
+        }`}
+        style={{ maxWidth: dynamicCenterWidth + NAV_BUTTON_SPREAD }}
       >
         <button
           onClick={() =>
