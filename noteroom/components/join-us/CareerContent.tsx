@@ -81,12 +81,12 @@ export default function CareerContent() {
         <div className="absolute inset-0 opacity-10">
           <ColorBends
             colors={[
-              "#42ACDE",
-              "#42ACDE",
-              "#42ACDE",
-              "#04DBF7",
-              "#04DBF7",
-              "#04DBF7",
+              "#3C62AD",
+              "#3C62AD",
+              "#3C62AD",
+              "#3C62AD",
+              "#3C62AD",
+              "#3C62AD",
             ]}
             rotation={45}
             speed={0.5}
