@@ -42,7 +42,6 @@ export default function Header() {
           />
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="hidden h-10 items-center justify-start gap-8 md:flex">
           <div className="flex items-center justify-start gap-3.5">
             {navLinks.map((link) => (
@@ -85,7 +84,6 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Mobile Navigation - StaggeredMenu */}
         <div className="md:hidden flex items-center">
           <StaggeredMenu
             items={mobileMenuItems}
