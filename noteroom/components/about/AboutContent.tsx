@@ -87,16 +87,16 @@ export default function AboutContent() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen h-full">
             <CircularGalleryWrapper
               items={[
-                { image: "/about/gallery1.jpg", text: "Science" },
-                { image: "/about/gallery2.jpg", text: "Philosophy" },
-                { image: "/about/gallery3.jpg", text: "Technology" },
-                { image: "/about/gallery1.jpg", text: "Arts" },
-                { image: "/about/gallery2.jpg", text: "Human Mind" },
-                { image: "/about/gallery3.jpg", text: "History" },
-                { image: "/about/gallery1.jpg", text: "Learning" },
-                { image: "/about/gallery2.jpg", text: "Nature" },
-                { image: "/about/gallery3.jpg", text: "Ideas" },
-                { image: "/about/gallery1.jpg", text: "Architecture" },
+                { image: "/about/grid/Science.jpg", text: "Science" },
+                { image: "/about/grid/Philosophy.jpg", text: "Philosophy" },
+                { image: "/about/grid/Technology.jpg", text: "Technology" },
+                { image: "/about/grid/Artistry.jpg", text: "Arts" },
+                { image: "/about/grid/Behaviour.jpg", text: "Human Mind" },
+                { image: "/about/grid/History.jpg", text: "History" },
+                { image: "/about/grid/Learning.jpg", text: "Learning" },
+                { image: "/about/grid/Nature.jpg", text: "Nature" },
+                { image: "/about/grid/Learning.jpg", text: "Ideas" },
+                { image: "/about/grid/Architecture.jpg", text: "Architecture" },
               ]}
               bend={0}
               textColor="#000000"
