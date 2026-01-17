@@ -91,11 +91,10 @@ export default function AboutContent() {
                 { image: "/about/grid/Philosophy.jpg", text: "Philosophy" },
                 { image: "/about/grid/Technology.jpg", text: "Technology" },
                 { image: "/about/grid/Artistry.jpg", text: "Arts" },
-                { image: "/about/grid/Behaviour.jpg", text: "Human Mind" },
+                { image: "/about/grid/Behaviour.jpg", text: "Behaviour" },
                 { image: "/about/grid/History.jpg", text: "History" },
                 { image: "/about/grid/Learning.jpg", text: "Learning" },
                 { image: "/about/grid/Nature.jpg", text: "Nature" },
-                { image: "/about/grid/Learning.jpg", text: "Ideas" },
                 { image: "/about/grid/Architecture.jpg", text: "Architecture" },
               ]}
               bend={0}
