@@ -203,7 +203,7 @@ export default function CareerContent() {
         </motion.section>
 
         <motion.section
-          className="w-full max-w-4xl flex flex-col gap-6 text-left md:text-center"
+          className="w-full max-w-5xl flex flex-col gap-6 text-left md:text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}

@@ -5,6 +5,8 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { motion, Variants } from "framer-motion";
 
+import CircularGalleryWrapper from "@/components/ui/CircularGalleryWrapper";
+
 const ColorBends = dynamic(() => import("@/components/ui/ColorBends"), {
   ssr: false,
 });
@@ -33,12 +35,6 @@ export default function AboutContent() {
       },
     },
   };
-
-  const galleryImages = [
-    "/about/gallery1.jpg",
-    "/about/gallery2.jpg",
-    "/about/gallery3.jpg",
-  ];
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-transparent">
@@ -82,43 +78,33 @@ export default function AboutContent() {
         </motion.section>
 
         <motion.section
-          className="w-full max-w-6xl"
+          className="w-full h-[600px] relative -mt-5"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
         >
-          <motion.div
-            className="flex flex-col md:flex-row justify-center items-stretch gap-5"
-            variants={itemVariants}
-          >
-            <div className="flex-1 h-[280px] sm:h-[350px] md:h-[500px] lg:h-[670px] rounded-[20px] md:rounded-l-[30px] md:rounded-r-none border border-black/20 overflow-hidden relative bg-white/30 backdrop-blur-sm">
-              <Image
-                src={galleryImages[0]}
-                alt="NoteRoom Gallery 1"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <div className="flex-1 h-[280px] sm:h-[350px] md:h-[500px] lg:h-[670px] rounded-[20px] md:rounded-none border border-black/20 overflow-hidden relative bg-white/30 backdrop-blur-sm">
-              <Image
-                src={galleryImages[1]}
-                alt="NoteRoom Gallery 2"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <div className="flex-1 h-[280px] sm:h-[350px] md:h-[500px] lg:h-[670px] rounded-[20px] md:rounded-r-[30px] md:rounded-l-none border border-black/20 overflow-hidden relative bg-white/30 backdrop-blur-sm">
-              <Image
-                src={galleryImages[2]}
-                alt="NoteRoom Gallery 3"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </motion.div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen h-full">
+            <CircularGalleryWrapper
+              items={[
+                { image: "/about/gallery1.jpg", text: "Science" },
+                { image: "/about/gallery2.jpg", text: "Philosophy" },
+                { image: "/about/gallery3.jpg", text: "Technology" },
+                { image: "/about/gallery1.jpg", text: "Arts" },
+                { image: "/about/gallery2.jpg", text: "Human Mind" },
+                { image: "/about/gallery3.jpg", text: "History" },
+                { image: "/about/gallery1.jpg", text: "Learning" },
+                { image: "/about/gallery2.jpg", text: "Nature" },
+                { image: "/about/gallery3.jpg", text: "Ideas" },
+                { image: "/about/gallery1.jpg", text: "Architecture" },
+              ]}
+              bend={0}
+              textColor="#000000"
+              borderRadius={0.05}
+              font="bold 30px 'Space Grotesk'"
+              itemHeight={1250}
+            />
+          </div>
         </motion.section>
 
         <motion.section

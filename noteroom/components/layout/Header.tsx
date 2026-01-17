@@ -29,7 +29,7 @@ const socialItems = [
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 flex w-full justify-center bg-transparent py-4 lg:py-6">
-      <div className="header-container inline-flex w-full max-w-[1692px] items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="header-container inline-flex w-full max-w-[1550px] items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
           className="flex h-10 w-auto -ml-6 items-center justify-center text-center font-['Bruno_Ace'] text-xl font-normal leading-tight text-black"
