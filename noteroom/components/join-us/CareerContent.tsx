@@ -222,7 +222,7 @@ export default function CareerContent() {
             variants={itemVariants}
           >
             Joining our team, you’ll become a part of shaping how future
-            generation of people think and interact with the internet.
+            generation of <br /> people think and interact with the internet.
           </motion.p>
         </motion.section>
 
