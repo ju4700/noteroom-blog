@@ -123,7 +123,7 @@ function PhoneWithDynamicScreen() {
 
   return (
     <group
-      rotation={[-0.26, -Math.PI / 2, -Math.PI / 2]}
+      rotation={[-0.26, -Math.PI / 2 - 0.18, -Math.PI / 2]}
       scale={0.19}
       position={[0, 0.12, 0]}
     >
