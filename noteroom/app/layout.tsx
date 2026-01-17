@@ -118,12 +118,6 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-
-        <link
-          rel="preload"
-          href="/assets/Rectangle Horizontal/NoteRoom_logo-fullcolor-rgb-2-1000_1000px.png"
-          as="image"
-        />
       </head>
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} ${brunoAce.variable} ${poppins.variable} font-sans antialiased`}

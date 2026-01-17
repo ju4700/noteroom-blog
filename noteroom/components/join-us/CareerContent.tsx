@@ -4,7 +4,11 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, Variants, AnimatePresence } from "framer-motion";
-import ColorBends from "@/components/ui/ColorBends";
+import dynamic from "next/dynamic";
+
+const ColorBends = dynamic(() => import("@/components/ui/ColorBends"), {
+  ssr: false,
+});
 
 import GlareHover from "@/components/ui/GlareHover";
 

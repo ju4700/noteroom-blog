@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BlogCard from "@/components/blog/BlogCard";
 import CircularFeaturedCarousel from "@/components/blog/CircularFeaturedCarousel";
 import { getAllBlogs, getFeaturedBlogs, formatBlogDate } from "@/lib/blogs";
-import DarkVeil from "@/components/ui/DarkVeil";
+import DarkVeilWrapper from "@/components/ui/DarkVeilWrapper";
 
 export const metadata: Metadata = {
   title: "Our Blog",
@@ -40,7 +40,7 @@ export default async function BlogsPage() {
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden bg-transparent pb-20 mb-20">
       <div className="fixed inset-0 -z-10 bg-[#F4F4F2]">
-        <DarkVeil />
+        <DarkVeilWrapper />
       </div>
       <section className="container-custom pt-24 sm:pt-32 pb-4 text-center">
         <h1 className="mb-3 font-['Space_Grotesk'] text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-gray-900">
