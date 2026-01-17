@@ -256,7 +256,7 @@ export default function CareerContent() {
                 src="/career/street.jpg"
                 alt="Office Location"
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover"
               />
 
               <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
