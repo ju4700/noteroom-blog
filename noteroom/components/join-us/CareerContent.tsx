@@ -108,7 +108,7 @@ export default function CareerContent() {
   ];
 
   const [expandedRole, setExpandedRole] = useState<number | null>(null);
-  const APPLY_LINK = "https://tally.so/r/3NdQoQ";
+  const APPLY_LINK = "https://tally.so/r/lbO52V";
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -147,7 +147,6 @@ export default function CareerContent() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-transparent">
-      {/* Animated Background */}
       <div className="fixed inset-0 -z-10 bg-[#F4F4F2]">
         <div className="absolute inset-0 opacity-10">
           <ColorBends
@@ -173,7 +172,6 @@ export default function CareerContent() {
       </div>
 
       <main className="container mx-auto px-6 py-20 flex flex-col items-center gap-20">
-        {/* Hero Section */}
         <motion.section
           className="w-full flex flex-col items-center gap-12 text-center"
           initial="hidden"
@@ -187,7 +185,6 @@ export default function CareerContent() {
             Ideas live here. So do we.
           </motion.h1>
 
-          {/* Hero Image with Fluid Glass Effect */}
           <motion.div
             className="w-full max-w-6xl h-[400px] md:h-[600px] bg-gray-100 rounded-[20px] overflow-hidden relative shadow-sm"
             variants={itemVariants}
@@ -201,7 +198,6 @@ export default function CareerContent() {
           </motion.div>
         </motion.section>
 
-        {/* Mission Text */}
         <motion.section
           className="w-full max-w-4xl flex flex-col gap-6 text-left md:text-center"
           initial="hidden"
@@ -226,7 +222,6 @@ export default function CareerContent() {
           </motion.p>
         </motion.section>
 
-        {/* Office Location */}
         <motion.section
           className="w-full max-w-6xl flex flex-col items-center gap-6"
           initial="hidden"
@@ -253,7 +248,6 @@ export default function CareerContent() {
               whileHover={{ scale: 1.01 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              {/* Background Image */}
               <Image
                 src="/career/street.jpg"
                 alt="Office Location"
@@ -261,14 +255,11 @@ export default function CareerContent() {
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
 
-              {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
 
-              {/* Address Card */}
               <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
                 <div className="backdrop-blur-md bg-white/20 border border-white/30 rounded-2xl p-6 md:p-8 max-w-xl">
                   <div className="flex items-start gap-4">
-                    {/* Map Pin Icon */}
                     <div className="shrink-0 w-10 h-10 rounded-full bg-cyan-600 flex items-center justify-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -323,7 +314,6 @@ export default function CareerContent() {
           </Link>
         </motion.section>
 
-        {/* Perks Section */}
         <motion.section
           className="w-full flex flex-col items-center gap-12"
           initial="hidden"
@@ -369,7 +359,6 @@ export default function CareerContent() {
           </motion.div>
         </motion.section>
 
-        {/* Roles Available Section */}
         <motion.section
           className="w-full max-w-[1123px] flex flex-col items-center gap-12 mt-10"
           initial="hidden"
@@ -394,7 +383,6 @@ export default function CareerContent() {
                   layout
                   className="w-full"
                 >
-                  {/* Role Header */}
                   <div
                     onClick={() => setExpandedRole(isExpanded ? null : index)}
                     className="cursor-pointer"
@@ -414,7 +402,6 @@ export default function CareerContent() {
                           {role.title}
                         </span>
 
-                        {/* Arrow Icon - rotates when expanded */}
                         <motion.div
                           className="w-9 h-9 relative flex items-center justify-center opacity-70"
                           animate={{ rotate: isExpanded ? 90 : 0 }}
@@ -432,7 +419,6 @@ export default function CareerContent() {
                     </GlareHover>
                   </div>
 
-                  {/* Expanded Content */}
                   <AnimatePresence>
                     {isExpanded && (
                       <motion.div
@@ -443,7 +429,6 @@ export default function CareerContent() {
                         className="overflow-hidden bg-white/60 backdrop-blur-sm rounded-b-2xl border border-t-0 border-black/20"
                       >
                         <div className="p-8 flex flex-col gap-8">
-                          {/* Responsibilities */}
                           <div>
                             <h4 className="text-base font-medium font-inter text-black mb-2 opacity-90">
                               Responsibilities
@@ -453,7 +438,6 @@ export default function CareerContent() {
                             </p>
                           </div>
 
-                          {/* Requirements */}
                           <div>
                             <h4 className="text-base font-medium font-inter text-black mb-2 opacity-90">
                               Requirements
@@ -463,7 +447,6 @@ export default function CareerContent() {
                             </p>
                           </div>
 
-                          {/* Apply Now Button */}
                           <Link
                             href={APPLY_LINK}
                             target="_blank"

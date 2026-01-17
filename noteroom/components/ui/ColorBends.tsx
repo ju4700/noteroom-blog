@@ -137,6 +137,47 @@ export default function ColorBends({
   const pointerCurrentRef = useRef<THREE.Vector2>(new THREE.Vector2(0, 0));
   const pointerSmoothRef = useRef<number>(8);
 
+  const [shouldRenderAnimation, setShouldRenderAnimation] =
+    React.useState(true);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    const deviceMemory = (navigator as any).deviceMemory;
+    const isLowMemory = deviceMemory !== undefined && deviceMemory < 4;
+
+    const isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent,
+      );
+
+    const hardwareConcurrency = navigator.hardwareConcurrency;
+    const isLowCPU =
+      hardwareConcurrency !== undefined && hardwareConcurrency < 4;
+
+    if (prefersReducedMotion || isLowMemory || (isMobile && isLowCPU)) {
+      setShouldRenderAnimation(false);
+    }
+  }, []);
+
+  if (!shouldRenderAnimation) {
+    const primaryColor = colors.length > 0 ? colors[0] : "#3C62AD";
+    return (
+      <div
+        ref={containerRef}
+        className={className}
+        style={{
+          width: "100%",
+          height: "100%",
+          background: `linear-gradient(${rotation}deg, ${primaryColor}22 0%, ${primaryColor}11 50%, ${primaryColor}05 100%)`,
+          ...style,
+        }}
+      />
+    );
+  }
+
   useEffect(() => {
     const container = containerRef.current!;
     const scene = new THREE.Scene();
@@ -145,7 +186,7 @@ export default function ColorBends({
     const geometry = new THREE.PlaneGeometry(2, 2);
     const uColorsArray = Array.from(
       { length: MAX_COLORS },
-      () => new THREE.Vector3(0, 0, 0)
+      () => new THREE.Vector3(0, 0, 0),
     );
     const material = new THREE.ShaderMaterial({
       vertexShader: vert,

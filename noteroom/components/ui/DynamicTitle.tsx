@@ -11,7 +11,7 @@ export default function DynamicTitle() {
     const handleVisibilityChange = () => {
       if (document.hidden) {
         originalTitleRef.current = document.title;
-        document.title = "Come Back!";
+        document.title = "Come Back";
       } else {
         document.title = originalTitleRef.current;
       }
