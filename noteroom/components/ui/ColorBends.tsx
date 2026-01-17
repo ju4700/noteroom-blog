@@ -222,7 +222,7 @@ export default function ColorBends({
     });
     rendererRef.current = renderer;
     (renderer as any).outputColorSpace = (THREE as any).SRGBColorSpace;
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1));
     renderer.setClearColor(0x000000, transparent ? 0 : 1);
     renderer.domElement.style.width = "100%";
     renderer.domElement.style.height = "100%";
@@ -249,6 +249,17 @@ export default function ColorBends({
     }
 
     const loop = () => {
+      if (document.hidden) {
+        // Pause logic: just return and request next frame later?
+        // No, if hidden we can stop requesting frames.
+        // But we need a way to restart.
+        // Simplest is to check hidden in loop and skip updates, but STILL request frame at lower rate or just pause?
+        // If we stop requesting frame, we need a listener to restart it.
+        // Let's implement a listener.
+        rafRef.current = requestAnimationFrame(loop);
+        return;
+      }
+
       const dt = clock.getDelta();
       const elapsed = clock.elapsedTime;
       material.uniforms.uTime.value = elapsed;

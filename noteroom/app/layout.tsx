@@ -94,9 +94,9 @@ export const metadata: Metadata = {
     ],
     apple: "/assets/apple-touch-icon.png",
   },
-  other: {
-    "apple-mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-status-bar-style": "default",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
   },
 };
 

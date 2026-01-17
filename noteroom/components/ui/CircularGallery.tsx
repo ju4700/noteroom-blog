@@ -498,6 +498,8 @@ class App {
   boundOnTouchDown!: (e: MouseEvent | TouchEvent) => void;
   boundOnTouchMove!: (e: MouseEvent | TouchEvent) => void;
   boundOnTouchUp!: () => void;
+  public isVisible: boolean = true;
+  observer!: IntersectionObserver;
 
   isDown: boolean = false;
   start: number = 0;
@@ -529,15 +531,49 @@ class App {
     this.onResize();
     this.createGeometry();
     this.createMedias(items, bend, textColor, borderRadius, font);
-    this.update();
     this.addEventListeners();
+    this.initObserver();
+    // Start loop immediately, observer will handle pausing if needed
+    this.update();
   }
+
+  initObserver() {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          this.isVisible = entry.isIntersecting;
+          if (this.isVisible) {
+            if (!this.raf) this.update();
+          }
+        });
+      },
+      { threshold: 0 },
+    );
+    this.observer.observe(this.container);
+
+    document.addEventListener("visibilitychange", this.onVisibilityChange);
+  }
+
+  onVisibilityChange = () => {
+    if (document.hidden) {
+      this.isVisible = false;
+    } else {
+      // Re-check intersection status effectively or just resume if we assume we are still in view
+      // Simplest is to rely on the fact that if we were visible before tab switch, we probably still are
+      // But IntersectionObserver is better source of truth.
+      // However, IntersectionObserver might not fire on tab switch back.
+      // So let's just force a resume if we think we should be running.
+      // Actually, let's just let the loop check isVisible.
+      this.isVisible = !document.hidden;
+      if (this.isVisible && !this.raf) this.update();
+    }
+  };
 
   createRenderer() {
     this.renderer = new Renderer({
       alpha: true,
       antialias: true,
-      dpr: Math.min(window.devicePixelRatio || 1, 2),
+      dpr: Math.min(window.devicePixelRatio || 1, 1.5),
     });
     this.gl = this.renderer.gl;
     this.gl.clearColor(0, 0, 0, 0);
@@ -672,6 +708,14 @@ class App {
   }
 
   update() {
+    if (!this.isVisible) {
+      if (this.raf) {
+        cancelAnimationFrame(this.raf);
+        this.raf = 0;
+      }
+      return;
+    }
+
     this.scroll.current = lerp(
       this.scroll.current,
       this.scroll.target,
@@ -704,6 +748,9 @@ class App {
   }
 
   destroy() {
+    if (this.observer) this.observer.disconnect();
+    document.removeEventListener("visibilitychange", this.onVisibilityChange);
+
     window.cancelAnimationFrame(this.raf);
     window.removeEventListener("resize", this.boundOnResize);
     window.removeEventListener("mousewheel", this.boundOnWheel);

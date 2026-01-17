@@ -34,7 +34,12 @@ export default function Header() {
           href="/"
           className="flex h-10 w-auto -ml-6 items-center justify-center text-center font-['Bruno_Ace'] text-xl font-normal leading-tight text-black"
         >
-          <img src="/logofinale.png" alt="logo" className="h-20 w-auto mr-2" />
+          <img
+            src="/logofinale.png"
+            alt="logo"
+            className="h-20 w-auto mr-2"
+            suppressHydrationWarning
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -87,11 +92,11 @@ export default function Header() {
             socialItems={socialItems}
             displaySocials={true}
             displayItemNumbering={true}
-            menuButtonColor="#000" // Matches current header text color
+            menuButtonColor="#000"
             openMenuButtonColor="#000"
-            accentColor="#0891b2" // cyan-600 to match footer/brand
+            accentColor="#0891b2"
             changeMenuColorOnOpen={false}
-            colors={["#fff", "#f4f4f5"]} // Light background layers
+            colors={["#fff", "#f4f4f5"]}
           />
         </div>
       </div>
