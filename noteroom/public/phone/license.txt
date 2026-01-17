@@ -1,0 +1,11 @@
+Model Information:
+* title:	Phone
+* source:	https://sketchfab.com/3d-models/phone-16b4ce605ead4c988f98a107a2f3ab51
+* author:	Korvoid (https://sketchfab.com/Korvoid)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Phone" (https://sketchfab.com/3d-models/phone-16b4ce605ead4c988f98a107a2f3ab51) by Korvoid (https://sketchfab.com/Korvoid) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BlogCard from "@/components/blog/BlogCard";
 import CircularFeaturedCarousel from "@/components/blog/CircularFeaturedCarousel";
 import { getAllBlogs, getFeaturedBlogs, formatBlogDate } from "@/lib/blogs";
-import DarkVeilWrapper from "@/components/ui/DarkVeilWrapper";
+import ColorBendsWrapper from "@/components/ui/ColorBendsWrapper";
 
 export const metadata: Metadata = {
   title: "Our Blog",
@@ -40,7 +40,27 @@ export default async function BlogsPage() {
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden bg-transparent pb-20 mb-20">
       <div className="fixed inset-0 -z-10 bg-[#F4F4F2]">
-        <DarkVeilWrapper />
+        <div className="absolute inset-0 opacity-10">
+          <ColorBendsWrapper
+            colors={[
+              "#3C62AD",
+              "#3C62AD",
+              "#3C62AD",
+              "#3C62AD",
+              "#3C62AD",
+              "#3C62AD",
+            ]}
+            rotation={45}
+            speed={0.5}
+            scale={1}
+            frequency={1}
+            warpStrength={1}
+            mouseInfluence={1}
+            parallax={0.5}
+            noise={0.1}
+            transparent
+          />
+        </div>
       </div>
       <section className="container-custom pt-24 sm:pt-32 pb-4 text-center">
         <h1 className="mb-3 font-['Space_Grotesk'] text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-gray-900">

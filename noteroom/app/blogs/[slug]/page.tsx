@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getBlogBySlug, getAllBlogs, formatBlogDate } from "@/lib/blogs";
 import BlogCard from "@/components/blog/BlogCard";
-import DarkVeilWrapper from "@/components/ui/DarkVeilWrapper";
+import ColorBendsWrapper from "@/components/ui/ColorBendsWrapper";
 
 interface BlogPageProps {
   params: Promise<{
@@ -61,7 +61,27 @@ export default async function BlogPage({ params }: BlogPageProps) {
     <div className="relative w-full bg-transparent overflow-x-hidden pt-[49px]">
       <div className="fixed inset-0 -z-10 bg-[#F4F4F2]" />
       <div className="fixed inset-0 -z-10 bg-[#F4F4F2]">
-        <DarkVeilWrapper />
+        <div className="absolute inset-0 opacity-10">
+          <ColorBendsWrapper
+            colors={[
+              "#3C62AD",
+              "#3C62AD",
+              "#3C62AD",
+              "#3C62AD",
+              "#3C62AD",
+              "#3C62AD",
+            ]}
+            rotation={45}
+            speed={0.5}
+            scale={1}
+            frequency={1}
+            warpStrength={1}
+            mouseInfluence={1}
+            parallax={0.5}
+            noise={0.1}
+            transparent
+          />
+        </div>
       </div>
       <div className="max-w-[1860px] mx-auto min-h-screen px-4 sm:px-10 lg:px-[76px] pb-20">
         <div className="mb-12 sm:mb-24 lg:mb-[200px] flex flex-col items-center">
